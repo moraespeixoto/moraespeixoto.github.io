@@ -30,7 +30,8 @@ import comum  # noqa: E402
 
 # O Crossref pede um contato no User-Agent; em troca, roteia para o pool rapido.
 CONTATO = "vpeixoto@pq.uenf.br"
-AGENTE = f"site-vitorpeixoto/1.0 (https://github.com/moraespeixoto/NERD_SITE; mailto:{CONTATO})"
+AGENTE = ("site-vitorpeixoto/1.0 "
+          f"(https://github.com/moraespeixoto/moraespeixoto.github.io; mailto:{CONTATO})")
 TEMPO_LIMITE = 30
 
 TIPOS_CROSSREF = {

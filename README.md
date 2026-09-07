@@ -157,6 +157,3 @@ currículo foi reexportado — traga a mudança para cá também:
 | `projetos.Rmd` | `dados/projetos.yml` (bloco `pesquisa`) |
 | `index.Rmd`, `objetivos.Rmd` | `dados/equipe.yml` (bloco `nucleo`) |
 
-O repositório [NERD_SITE](https://github.com/moraespeixoto/NERD_SITE) no GitHub é
-a versão antiga do site do núcleo e está desatualizado — a equipe de lá não
-corresponde mais à atual.
