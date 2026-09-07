@@ -247,11 +247,19 @@ def extrai_publicacoes(raiz: ElementTree.Element) -> list[dict]:
             veiculo = primeiro(attrs, "TITULO-DO-PERIODICO-OU-REVISTA",
                                "TITULO-DO-JORNAL-OU-REVISTA")
 
+        # Sem PAGINA-FINAL o f-string antigo imprimia o proprio None: cinco
+        # registros foram para o ar como "p. 251-None". Artigo so com pagina
+        # inicial existe (eletronico, numero de artigo), e vira "p. 251".
+        p_ini = str(attrs.get("PAGINA-INICIAL") or "").strip()
+        p_fim = str(attrs.get("PAGINA-FINAL") or "").strip()
+        paginas = ""
+        if p_ini:
+            paginas = f"p. {p_ini}-{p_fim}" if p_fim and p_fim != p_ini else f"p. {p_ini}"
+
         detalhe = ", ".join(x for x in [
             f"v. {attrs['VOLUME']}" if attrs.get("VOLUME") else "",
             f"n. {attrs['FASCICULO']}" if attrs.get("FASCICULO") else "",
-            (f"p. {attrs.get('PAGINA-INICIAL')}-{attrs.get('PAGINA-FINAL')}"
-             if attrs.get("PAGINA-INICIAL") else ""),
+            paginas,
         ] if x)
 
         doi = comum.normaliza_doi(attrs.get("DOI"))

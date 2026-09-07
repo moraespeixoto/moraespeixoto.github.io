@@ -12,6 +12,14 @@
 <link rel="canonical" href="https://moraespeixoto.github.io/projetos.html">
 <meta property="og:url" content="https://moraespeixoto.github.io/projetos.html">
 <link rel="icon" href="fav.png">
+<script>
+(function () {
+  try {
+    var salvo = localStorage.getItem("vp-tema");
+    if (salvo) document.documentElement.setAttribute("data-tema", salvo);
+  } catch (erro) { /* navegacao privada: segue no tema do sistema */ }
+})();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -46,7 +54,7 @@
 <p style="margin-top:10px">Investiga os impactos do bolsonarismo nas políticas locais de combate à pandemia de Covid-19 e seus reflexos no Plano Nacional de Imunização (PNI) nos municípios brasileiros. Analisa como o alinhamento político-ideológico dos governos municipais com o governo federal influenciou a adesão às campanhas de vacinação, avaliando as consequências sanitárias e políticas dessas dinâmicas no nível local.</p>
 </div><div class="vp-card vp-card-teal">
 <h3>Economia social da (in)tolerância política<span class="vp-tag">em andamento</span></h3>
-<p class="vp-fraco"></p>
+
 <p style="margin-top:10px">Como avaliações da economia, mobilidade social, escolaridade, gênero e religião impactam as atitudes democráticas no Brasil contemporâneo. Produz análises sobre as percepções econômicas e seus impactos sobre tolerância política ao longo dos últimos quatro ciclos eleitorais, e sobre como variáveis sociológicas clássicas — religião, escolaridade, renda e sexo — se relacionam à tolerância e ao apoio à democracia.</p>
 </div><div class="vp-card vp-card-teal">
 <h3>Petro rendas e política local: competição eleitoral e políticas públicas em municípios produtores de petróleo</h3>
@@ -118,7 +126,7 @@
 <div class="vp-wrap">
 <div class="vp-rodape-grid">
 <div>
-<h4>Endereço</h4>
+<p class="vp-rodape-titulo">Endereço</p>
 <p>Universidade Estadual do Norte Fluminense Darcy Ribeiro
 Centro de Ciências do Homem — CCH — Sala 108-B
 Av. Alberto Lamego, 2000 — Parque Califórnia
@@ -126,11 +134,11 @@ Campos dos Goytacazes — RJ — CEP 28013-602
 Tel. (22) 2739-7040</p>
 </div>
 <div>
-<h4>Perfis</h4>
+<p class="vp-rodape-titulo">Perfis</p>
 <ul><li><a href="http://lattes.cnpq.br/4676437210734787" target="_blank" rel="noopener noreferrer">Lattes</a></li><li><a href="https://orcid.org/0000-0001-6618-3311" target="_blank" rel="noopener noreferrer">ORCID</a></li><li><a href="https://scholar.google.com/citations?user=gIb2-T4AAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a></li><li><a href="https://github.com/moraespeixoto" target="_blank" rel="noopener noreferrer">GitHub</a></li><li><a href="mailto:vpeixoto@pq.uenf.br">E-mail</a></li></ul>
 </div>
 <div>
-<h4>O site</h4>
+<p class="vp-rodape-titulo">O site</p>
 <p>Gerado a partir dos arquivos em <code>dados/</code>.
 Código e conteúdo em <a href="https://github.com/moraespeixoto/moraespeixoto.github.io" target="_blank" rel="noopener noreferrer">github.com/moraespeixoto/moraespeixoto.github.io</a>.</p>
 </div>
@@ -141,10 +149,6 @@ Código e conteúdo em <a href="https://github.com/moraespeixoto/moraespeixoto.g
 <script>
 (function () {
   var raiz = document.documentElement;
-  try {
-    var salvo = localStorage.getItem("vp-tema");
-    if (salvo) raiz.setAttribute("data-tema", salvo);
-  } catch (erro) { /* navegacao privada: segue no tema do sistema */ }
   var botao = document.getElementById("vp-tema");
   if (!botao) return;
   botao.addEventListener("click", function () {

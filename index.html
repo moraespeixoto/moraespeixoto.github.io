@@ -12,6 +12,14 @@
 <link rel="canonical" href="https://moraespeixoto.github.io/">
 <meta property="og:url" content="https://moraespeixoto.github.io/">
 <link rel="icon" href="fav.png">
+<script>
+(function () {
+  try {
+    var salvo = localStorage.getItem("vp-tema");
+    if (salvo) document.documentElement.setAttribute("data-tema", salvo);
+  } catch (erro) { /* navegacao privada: segue no tema do sistema */ }
+})();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -44,7 +52,7 @@
 <ul class="vp-perfis"><li><a href="http://lattes.cnpq.br/4676437210734787" target="_blank" rel="noopener noreferrer">Lattes</a></li><li><a href="https://orcid.org/0000-0001-6618-3311" target="_blank" rel="noopener noreferrer">ORCID</a></li><li><a href="https://scholar.google.com/citations?user=gIb2-T4AAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a></li><li><a href="https://github.com/moraespeixoto" target="_blank" rel="noopener noreferrer">GitHub</a></li><li><a href="mailto:vpeixoto@pq.uenf.br">E-mail</a></li></ul>
 </div>
 <div class="vp-cartao-perfil">
-<h3>Vínculo</h3>
+<p class="vp-cartao-perfil-titulo">Vínculo</p>
 <dl>
 <dt>Cargo</dt><dd>Professor Associado de Ciência Política</dd>
 <dt>Instituição</dt><dd>Universidade Estadual do Norte Fluminense Darcy Ribeiro</dd>
@@ -71,7 +79,7 @@
 <div>
 <p class="vp-item-titulo"><a href="https://doi.org/10.18764/2178-2865v30n1e28015" target="_blank" rel="noopener noreferrer">O rebojo da fome: insegurança alimentar e nutricional entre pescadores artesanais da Bacia de Campos</a></p>
 <p class="vp-autores">MACEDO, Mauro Campos; PEIXOTO, VITOR; PINHO, F. G.; CUNHA, A. A.</p>
-<p class="vp-veiculo"><em>Revista de Politica Públicas da UFMA</em>, v. 30, p. 251-None</p>
+<p class="vp-veiculo"><em>Revista de Politica Públicas da UFMA</em>, v. 30, p. 251</p>
 <div class="vp-links"><a class="vp-doi" href="https://doi.org/10.18764/2178-2865v30n1e28015" target="_blank" rel="noopener noreferrer">doi:10.18764/2178-2865v30n1e28015</a><a class="vp-ext" href="https://www.periodicoseletronicos.ufma.br/index.php/rppublica/article/view/28015/14960" target="_blank" rel="noopener noreferrer">texto integral</a></div>
 </div>
 </li><li class="vp-item" data-tipo="artigo">
@@ -132,7 +140,7 @@ Latino-Americana de Ciência Política (ALACIP).</p></div>
 <div class="vp-wrap">
 <div class="vp-rodape-grid">
 <div>
-<h4>Endereço</h4>
+<p class="vp-rodape-titulo">Endereço</p>
 <p>Universidade Estadual do Norte Fluminense Darcy Ribeiro
 Centro de Ciências do Homem — CCH — Sala 108-B
 Av. Alberto Lamego, 2000 — Parque Califórnia
@@ -140,11 +148,11 @@ Campos dos Goytacazes — RJ — CEP 28013-602
 Tel. (22) 2739-7040</p>
 </div>
 <div>
-<h4>Perfis</h4>
+<p class="vp-rodape-titulo">Perfis</p>
 <ul><li><a href="http://lattes.cnpq.br/4676437210734787" target="_blank" rel="noopener noreferrer">Lattes</a></li><li><a href="https://orcid.org/0000-0001-6618-3311" target="_blank" rel="noopener noreferrer">ORCID</a></li><li><a href="https://scholar.google.com/citations?user=gIb2-T4AAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a></li><li><a href="https://github.com/moraespeixoto" target="_blank" rel="noopener noreferrer">GitHub</a></li><li><a href="mailto:vpeixoto@pq.uenf.br">E-mail</a></li></ul>
 </div>
 <div>
-<h4>O site</h4>
+<p class="vp-rodape-titulo">O site</p>
 <p>Gerado a partir dos arquivos em <code>dados/</code>.
 Código e conteúdo em <a href="https://github.com/moraespeixoto/moraespeixoto.github.io" target="_blank" rel="noopener noreferrer">github.com/moraespeixoto/moraespeixoto.github.io</a>.</p>
 </div>
@@ -155,10 +163,6 @@ Código e conteúdo em <a href="https://github.com/moraespeixoto/moraespeixoto.g
 <script>
 (function () {
   var raiz = document.documentElement;
-  try {
-    var salvo = localStorage.getItem("vp-tema");
-    if (salvo) raiz.setAttribute("data-tema", salvo);
-  } catch (erro) { /* navegacao privada: segue no tema do sistema */ }
   var botao = document.getElementById("vp-tema");
   if (!botao) return;
   botao.addEventListener("click", function () {

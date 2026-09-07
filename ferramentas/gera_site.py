@@ -183,15 +183,15 @@ def rodape(perfil: dict) -> str:
 <div class="vp-wrap">
 <div class="vp-rodape-grid">
 <div>
-<h4>Endereço</h4>
+<p class="vp-rodape-titulo">Endereço</p>
 <p>{e(endereco)}</p>
 </div>
 <div>
-<h4>Perfis</h4>
+<p class="vp-rodape-titulo">Perfis</p>
 <ul>{perfis}</ul>
 </div>
 <div>
-<h4>O site</h4>
+<p class="vp-rodape-titulo">O site</p>
 <p>Gerado a partir dos arquivos em <code>dados/</code>.
 Código e conteúdo em <a href="https://github.com/{e(repo_slug(perfil))}" target="_blank" rel="noopener noreferrer">github.com/{e(repo_slug(perfil))}</a>.</p>
 </div>
@@ -201,13 +201,22 @@ Código e conteúdo em <a href="https://github.com/{e(repo_slug(perfil))}" targe
 </footer>"""
 
 
+# A ESCOLHA de tema tem de ser aplicada antes da primeira pintura, e por isso
+# este pedaco vai no <head>, antes da folha de estilo: quem salvou "escuro" num
+# sistema claro via a pagina pintar clara e so depois virar. O resto do
+# comportamento (o botao) continua no fim do <body>, onde o botao ja existe.
+SCRIPT_TEMA_CEDO = """<script>
+(function () {
+  try {
+    var salvo = localStorage.getItem("vp-tema");
+    if (salvo) document.documentElement.setAttribute("data-tema", salvo);
+  } catch (erro) { /* navegacao privada: segue no tema do sistema */ }
+})();
+</script>"""
+
 SCRIPT_TEMA = """<script>
 (function () {
   var raiz = document.documentElement;
-  try {
-    var salvo = localStorage.getItem("vp-tema");
-    if (salvo) raiz.setAttribute("data-tema", salvo);
-  } catch (erro) { /* navegacao privada: segue no tema do sistema */ }
   var botao = document.getElementById("vp-tema");
   if (!botao) return;
   botao.addEventListener("click", function () {
@@ -270,6 +279,7 @@ def pagina(perfil: dict, arquivo: str, titulo: str, descricao: str,
 <meta property="og:type" content="website">
 {canonical}
 <link rel="icon" href="fav.png">
+{SCRIPT_TEMA_CEDO}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -410,7 +420,7 @@ def pagina_inicio(perfil, pubs, projetos, equipe) -> str:
 <ul class="vp-perfis">{perfis}</ul>
 </div>
 <div class="vp-cartao-perfil">
-<h3>Vínculo</h3>
+<p class="vp-cartao-perfil-titulo">Vínculo</p>
 <dl>
 <dt>Cargo</dt><dd>{e(perfil.get("titulo"))}</dd>
 <dt>Instituição</dt><dd>{e(perfil.get("instituicao"))}</dd>
@@ -565,9 +575,12 @@ def pagina_projetos(perfil, projetos) -> str:
         tag = "" if p.get("situacao") == "concluido" else \
             '<span class="vp-tag">em andamento</span>'
         resumo = f'<p style="margin-top:10px">{e(p.get("resumo"))}</p>' if p.get("resumo") else ""
+        # Sem agencia nem processo o <p> saia vazio e deixava um degrau entre o
+        # titulo e o resumo — visivel so no cartao que nao tem financiamento.
+        linha_meta = f'<p class="vp-fraco">{meta}</p>' if meta else ""
         cartoes_pesquisa.append(f"""<div class="vp-card vp-card-teal">
 <h3>{e(p.get("titulo"))}{tag}</h3>
-<p class="vp-fraco">{meta}</p>
+{linha_meta}
 {resumo}
 </div>""")
 
