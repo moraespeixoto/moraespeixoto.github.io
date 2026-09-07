@@ -69,6 +69,13 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
+/* `element.hidden` esconde pela regra `[hidden] { display: none }` do
+   navegador, que e da folha DELE e por isso perde para qualquer regra de autor
+   que defina `display`. `.vp-item` define `display: grid`, entao os filtros de
+   publicacoes.html marcavam o atributo e nao escondiam nada. Esta regra devolve
+   ao `hidden` o efeito que ele deveria ter, aqui e em qualquer uso futuro. */
+[hidden] { display: none !important; }
+
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 
 body {

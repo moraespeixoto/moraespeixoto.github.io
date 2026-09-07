@@ -73,6 +73,26 @@ def e(valor) -> str:
     return html.escape(str(valor).strip(), quote=True)
 
 
+def fora(href) -> str:
+    """Atributos para um link que sai do site: abre em aba nova.
+
+    Quem clica no ORCID, no Lattes ou num DOI espera consultar e voltar; sem
+    isto o site perdia a aba para o destino. A decisao e tomada pelo HREF, e nao
+    caso a caso na chamada, para que um link novo nasca com o comportamento
+    certo sem ninguem precisar lembrar.
+
+    So endereco absoluto http(s) sai: as paginas do proprio site, os `mailto:` e
+    as ancoras continuam na mesma aba, que e o que se espera delas.
+
+    `rel` acompanha por seguranca, nao por estilo: sem `noopener` a pagina de
+    destino recebe `window.opener` e pode reescrever o endereco desta.
+    """
+    h = str(href or "").strip().lower()
+    if not h.startswith(("http://", "https://")):
+        return ""
+    return ' target="_blank" rel="noopener noreferrer"'
+
+
 def ler(nome: str) -> dict:
     caminho = DADOS / nome
     if not caminho.exists():
@@ -146,7 +166,7 @@ def navbar(perfil: dict, atual: str) -> str:
 def rodape(perfil: dict) -> str:
     endereco = "\n".join(str(l) for l in (perfil.get("endereco") or []))
     perfis = "".join(
-        f'<li><a href="{e(p.get("url"))}">{e(p.get("rotulo"))}</a></li>'
+        f'<li><a href="{e(p.get("url"))}"{fora(p.get("url"))}>{e(p.get("rotulo"))}</a></li>'
         for p in (perfil.get("perfis") or [])
     )
     return f"""<footer class="vp-rodape">
@@ -163,7 +183,7 @@ def rodape(perfil: dict) -> str:
 <div>
 <h4>O site</h4>
 <p>Gerado a partir dos arquivos em <code>dados/</code>.
-Código e conteúdo em <a href="https://github.com/{e(repo_slug(perfil))}">github.com/{e(repo_slug(perfil))}</a>.</p>
+Código e conteúdo em <a href="https://github.com/{e(repo_slug(perfil))}" target="_blank" rel="noopener noreferrer">github.com/{e(repo_slug(perfil))}</a>.</p>
 </div>
 </div>
 <div class="vp-rodape-fim">{e(perfil.get("nome"))} · Atualizado em {date.today().strftime("%d/%m/%Y")}</div>
@@ -274,11 +294,12 @@ def links_publicacao(pub: dict) -> str:
     doi = str(pub.get("doi") or "").strip()
     if doi:
         doi = doi.replace("https://doi.org/", "").replace("http://dx.doi.org/", "")
-        partes.append(f'<a class="vp-doi" href="https://doi.org/{e(doi)}">doi:{e(doi)}</a>')
+        partes.append(f'<a class="vp-doi" href="https://doi.org/{e(doi)}"'
+                      f' target="_blank" rel="noopener noreferrer">doi:{e(doi)}</a>')
     url = str(pub.get("url") or "").strip()
     if url:
         rotulo = "texto integral" if doi else "acessar"
-        partes.append(f'<a class="vp-ext" href="{e(url)}">{rotulo}</a>')
+        partes.append(f'<a class="vp-ext" href="{e(url)}"{fora(url)}>{rotulo}</a>')
     if not partes:
         return ""
     return f'<div class="vp-links">{"".join(partes)}</div>'
@@ -291,7 +312,7 @@ def item_publicacao(pub: dict) -> str:
     url = str(pub.get("url") or "").strip()
     doi = str(pub.get("doi") or "").strip()
     destino = f"https://doi.org/{doi.replace('https://doi.org/', '')}" if doi else url
-    titulo_html = f'<a href="{e(destino)}">{titulo}</a>' if destino else titulo
+    titulo_html = f'<a href="{e(destino)}"{fora(destino)}>{titulo}</a>' if destino else titulo
 
     veiculo = e(pub.get("veiculo"))
     detalhe = e(pub.get("detalhe"))
@@ -329,7 +350,7 @@ def pagina_inicio(perfil, pubs, projetos, equipe) -> str:
     ids = perfil.get("ids", {})
 
     perfis = "".join(
-        f'<li><a href="{e(p.get("url"))}">{e(p.get("rotulo"))}</a></li>'
+        f'<li><a href="{e(p.get("url"))}"{fora(p.get("url"))}>{e(p.get("rotulo"))}</a></li>'
         for p in (perfil.get("perfis") or [])
     )
 
@@ -353,7 +374,7 @@ def pagina_inicio(perfil, pubs, projetos, equipe) -> str:
 <span class="vp-kicker vp-kicker-laranja">Software</span>
 <h3>{e(c.get("nome"))}</h3>
 <p>{e(c.get("resumo"))}</p>
-<p style="margin-top:12px"><a class="vp-btn vp-btn-nu" href="{e(destino)}">Ver o pacote &rarr;</a></p>
+<p style="margin-top:12px"><a class="vp-btn vp-btn-nu" href="{e(destino)}"{fora(destino)}>Ver o pacote &rarr;</a></p>
 </div>"""
 
     n_membros = len(equipe.get("membros") or [])
@@ -480,11 +501,11 @@ def pagina_orientacoes(perfil, orientacoes) -> str:
             nome = e(o.get("orientando")) or "<em>nome a preencher</em>"
             lattes = url_lattes(o.get("lattes"))
             if lattes:
-                nome = f'<a href="{e(lattes)}">{nome}</a>'
+                nome = f'<a href="{e(lattes)}"{fora(lattes)}>{nome}</a>'
             titulo = e(o.get("titulo"))
             url = str(o.get("url") or "").strip()
             if titulo and url:
-                titulo = f'<a href="{e(url)}">{titulo}</a>'
+                titulo = f'<a href="{e(url)}"{fora(url)}>{titulo}</a>'
             tag = "" if o.get("situacao") == "concluida" else \
                 '<span class="vp-tag">em andamento</span>'
             linha_titulo = f'<p class="vp-autores">{titulo}</p>' if titulo else ""
@@ -530,9 +551,10 @@ def pagina_projetos(perfil, projetos) -> str:
         repo = str(c.get("repo") or "").strip()
         links = []
         if c.get("url"):
-            links.append(f'<a class="vp-ext" href="{e(c["url"])}">site</a>')
+            links.append(f'<a class="vp-ext" href="{e(c["url"])}"{fora(c["url"])}>site</a>')
         if repo and github:
-            links.append(f'<a class="vp-ext" href="https://github.com/{e(github)}/{e(repo)}">codigo</a>')
+            links.append(f'<a class="vp-ext" href="https://github.com/{e(github)}/{e(repo)}"'
+                         f' target="_blank" rel="noopener noreferrer">codigo</a>')
         bloco = f'<div class="vp-links">{"".join(links)}</div>' if links else ""
         cartoes_codigo.append(f"""<div class="vp-card">
 <h3>{e(c.get("nome"))}</h3>
@@ -572,12 +594,12 @@ def pagina_nerd(perfil, equipe) -> str:
     for m in (equipe.get("membros") or []):
         lattes = url_lattes(m.get("lattes"))
         nome = e(m.get("nome"))
-        nome_html = f'<a href="{e(lattes)}">{nome}</a>' if lattes else nome
+        nome_html = f'<a href="{e(lattes)}"{fora(lattes)}>{nome}</a>' if lattes else nome
         contatos = []
         if m.get("email"):
             contatos.append(f'<a href="mailto:{e(m["email"])}">{e(m["email"])}</a>')
         if lattes:
-            contatos.append(f'<a href="{e(lattes)}">Lattes</a>')
+            contatos.append(f'<a href="{e(lattes)}"{fora(lattes)}>Lattes</a>')
         bloco = f'<div class="vp-contato">{"".join(contatos)}</div>' if contatos else ""
         cartoes.append(f"""<div class="vp-membro">
 {avatar(m)}
@@ -605,7 +627,8 @@ def pagina_nerd(perfil, equipe) -> str:
     site_nucleo = ""
     if nucleo.get("site"):
         site_nucleo = (f'<p style="margin-top:18px"><a class="vp-btn vp-btn-claro" '
-                       f'href="{e(nucleo["site"])}">Site do núcleo &rarr;</a></p>')
+                       f'href="{e(nucleo["site"])}"{fora(nucleo["site"])}>'
+                       f'Site do núcleo &rarr;</a></p>')
 
     endereco = "\n".join(str(l) for l in (perfil.get("endereco") or []))
 
