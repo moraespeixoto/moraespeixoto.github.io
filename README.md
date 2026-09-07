@@ -3,9 +3,9 @@
 Site pessoal de **Vitor de Moraes Peixoto** — publicações, orientações, projetos
 e o NERD. No ar em <https://moraespeixoto.github.io>.
 
-Site estático em `docs/`, servido pelo GitHub Pages. Todo o conteúdo vem dos
-arquivos YAML em `dados/`; `docs/` é saída descartável e pode ser apagada e
-regerada a qualquer momento.
+Site estático servido pelo GitHub Pages a partir da raiz do repositório. Todo o
+conteúdo vem dos arquivos YAML em `dados/`; os `.html` da raiz são saída
+descartável e podem ser apagados e regerados a qualquer momento.
 
 A identidade visual (paleta teal/laranja, Source Sans 3, JetBrains Mono,
 vocabulário de seção) é a mesma do site do
@@ -18,30 +18,31 @@ dados/         o conteúdo — é aqui que você edita
   orientacoes.yml  teses, dissertações, pós-docs, iniciações
   projetos.yml     projetos financiados + software e replicação
   equipe.yml       o NERD: texto, objetivos e integrantes
-ativos/        CSS e imagens copiados para docs/ na geração
+ativos/        CSS e imagens copiados para a raiz na geração
 ferramentas/   os scripts (Python 3)
-docs/          o site gerado — não edite à mão
+*.html         o site gerado — não edite à mão
 ```
 
-## Ligar o GitHub Pages (uma vez só)
+Fonte e saída convivem na raiz porque este é o repositório `<usuário>.github.io`:
+o Pages publica a raiz do branch, e é a única pasta que ele oferece por padrão.
 
-Em **Settings → Pages**, deixe assim:
+## GitHub Pages
 
-- **Source:** Deploy from a branch
-- **Branch:** `main` — pasta **`/docs`**
+Em **Settings → Pages**: Source `Deploy from a branch`, branch `main`, pasta
+`/ (root)` — que é o padrão. Nada a mudar.
 
-A pasta é o único ponto de atenção: o padrão do GitHub é `/ (root)`, e o site
-mora em `/docs`. Feito isso, o endereço é <https://moraespeixoto.github.io>.
+O arquivo `.nojekyll` na raiz é o que impede o GitHub de rodar o Jekyll e
+transformar o `README.md` em página inicial no lugar do `index.html`. Não apague.
 
 ## Publicar uma mudança
 
 ```bash
 python3 -m pip install pyyaml     # uma vez
-python3 ferramentas/gera_site.py  # regenera docs/
+python3 ferramentas/gera_site.py  # regenera o site
 git add -A && git commit -m "atualiza publicações" && git push
 ```
 
-O workflow `.github/workflows/site.yml` também regenera `docs/` sozinho quando
+O workflow `.github/workflows/site.yml` também regenera o site sozinho quando
 você edita um arquivo de `dados/` direto pelo GitHub — então dá para atualizar o
 site pelo navegador, sem rodar nada localmente.
 

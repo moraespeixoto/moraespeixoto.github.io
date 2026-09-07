@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Gera o site estatico em docs/ a partir dos arquivos de dados/.
+"""Gera o site estatico na raiz do repositorio a partir dos arquivos de dados/.
 
     python3 ferramentas/gera_site.py
 
@@ -24,7 +24,14 @@ except ModuleNotFoundError:
 RAIZ = Path(__file__).resolve().parent.parent
 DADOS = RAIZ / "dados"
 ATIVOS = RAIZ / "ativos"
-SAIDA = RAIZ / "docs"
+
+# O site sai na raiz do repositorio, e nao em docs/, porque este e o repositorio
+# <usuario>.github.io: o GitHub Pages publica a raiz do branch por padrao. Em
+# docs/ o Pages caia no padrao e servia o README renderizado como home. O
+# .nojekyll escrito aqui embaixo desliga o Jekyll, que senao transformaria o
+# README em index.html. Fonte e saida convivem na raiz: o conteudo esta em
+# dados/, os ativos em ativos/, e todo .html da raiz e gerado.
+SAIDA = RAIZ
 
 PAGINAS = [
     ("index.html", "Início"),
@@ -637,7 +644,7 @@ def main() -> None:
     for nome, conteudo in escritos.items():
         (SAIDA / nome).write_text(conteudo, encoding="utf-8")
 
-    # docs/ e saida descartavel: tudo que vai para o ar sai de ativos/ + dados/.
+    # Os .html e os ativos da raiz sao saida descartavel: saem de dados/ + ativos/.
     for ativo in sorted(ATIVOS.iterdir()):
         if ativo.is_file():
             shutil.copyfile(ativo, SAIDA / ativo.name)
@@ -646,7 +653,7 @@ def main() -> None:
     ocultos_pub = len(pubs_raw) - len(pubs)
     ocultos_ori = len(orientacoes_raw) - len(orientacoes)
 
-    print(f"docs/ gerado: {len(escritos)} paginas")
+    print(f"site gerado na raiz: {len(escritos)} paginas")
     print(f"  publicacoes  {len(pubs)} no ar" +
           (f", {ocultos_pub} com publicar: false" if ocultos_pub else ""))
     print(f"  orientacoes  {len(orientacoes)} no ar" +

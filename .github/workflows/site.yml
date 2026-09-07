@@ -1,8 +1,8 @@
 name: site
 
-# Regenera docs/ sempre que o conteudo ou o gerador mudam, e devolve o resultado
-# ao branch. Assim da para editar dados/*.yml direto pelo GitHub e ver o site
-# atualizar sozinho, sem toolchain local.
+# Regenera o site sempre que o conteudo ou o gerador mudam, e devolve o
+# resultado ao branch. Assim da para editar dados/*.yml direto pelo GitHub e ver
+# o site atualizar sozinho, sem toolchain local.
 #
 # O push daqui usa o GITHUB_TOKEN, e o GitHub nao dispara workflows para pushes
 # feitos com ele — nao ha laco.
@@ -33,14 +33,14 @@ jobs:
 
       - run: python3 ferramentas/gera_site.py
 
-      - name: Commitar docs/ se mudou
+      - name: Commitar o site se mudou
         run: |
-          if git diff --quiet -- docs/; then
-            echo "docs/ ja estava em dia."
+          if git diff --quiet; then
+            echo "O site ja estava em dia."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/
-          git commit -m "regenera docs/ a partir de dados/"
+          git add -A
+          git commit -m "regenera o site a partir de dados/"
           git push
