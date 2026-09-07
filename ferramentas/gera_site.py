@@ -322,7 +322,14 @@ def links_publicacao(pub: dict) -> str:
                       f' target="_blank" rel="noopener noreferrer">doi:{e(doi)}</a>')
     url = str(pub.get("url") or "").strip()
     if url:
-        rotulo = "texto integral" if doi else "acessar"
+        # Livro sem DOI aponta para a livraria, nao para o texto: "acessar"
+        # prometia leitura onde ha uma pagina de compra.
+        if doi:
+            rotulo = "texto integral"
+        elif (pub.get("tipo") or "") == "livro":
+            rotulo = "onde comprar"
+        else:
+            rotulo = "acessar"
         partes.append(f'<a class="vp-ext" href="{e(url)}"{fora(url)}>{rotulo}</a>')
     if not partes:
         return ""
