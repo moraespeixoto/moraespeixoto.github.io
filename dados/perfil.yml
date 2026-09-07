@@ -28,7 +28,7 @@ site_url: https://moraespeixoto.github.io
 instituicao: Universidade Estadual do Norte Fluminense Darcy Ribeiro
 unidade: Centro de Ciências do Homem · Laboratório de Estudos da Sociedade Civil e do Estado
 programa: Programa de Pós-Graduação em Sociologia Política (PPGSP)
-email: vpeixoto@pq.uenf.br
+email: vpeixoto@uenf.br
 
 endereco:
   - Universidade Estadual do Norte Fluminense Darcy Ribeiro
@@ -60,7 +60,7 @@ perfis:
   - rotulo: GitHub
     url: https://github.com/moraespeixoto
   - rotulo: E-mail
-    url: mailto:vpeixoto@pq.uenf.br
+    url: mailto:vpeixoto@uenf.br
 
 linhas:
   - titulo: Eleições e competição

@@ -29,7 +29,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import comum  # noqa: E402
 
 # O Crossref pede um contato no User-Agent; em troca, roteia para o pool rapido.
-CONTATO = "vpeixoto@pq.uenf.br"
+CONTATO = "vpeixoto@uenf.br"
 AGENTE = ("site-vitorpeixoto/1.0 "
           f"(https://github.com/moraespeixoto/moraespeixoto.github.io; mailto:{CONTATO})")
 TEMPO_LIMITE = 30
