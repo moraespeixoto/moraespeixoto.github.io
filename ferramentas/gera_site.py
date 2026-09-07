@@ -99,6 +99,26 @@ def url_lattes(ident) -> str:
     return f"http://lattes.cnpq.br/{ident}" if ident else ""
 
 
+def avatar(membro: dict) -> str:
+    """Foto do membro, ou as iniciais quando nao ha foto."""
+    foto = str(membro.get("foto") or "").strip()
+    nome = str(membro.get("nome") or "").strip()
+    if foto:
+        return (f'<img class="vp-avatar" src="fotos/{e(foto)}" '
+                f'alt="{e(nome)}" loading="lazy">')
+    # Primeiro e ultimo nome, ignorando preposicoes: "Vitor de Moraes Peixoto"
+    # vira VP, e nao VM.
+    partes = [x for x in nome.split()
+              if x.lower() not in {"de", "da", "do", "das", "dos", "e"}]
+    if len(partes) >= 2:
+        iniciais = (partes[0][0] + partes[-1][0]).upper()
+    elif partes:
+        iniciais = partes[0][0].upper()
+    else:
+        iniciais = "?"
+    return f'<div class="vp-avatar vp-avatar-vazio" aria-hidden="true">{e(iniciais)}</div>'
+
+
 def repo_slug(perfil: dict) -> str:
     """`usuario/repositorio` deste site, para o link do rodape."""
     ids = perfil.get("ids") or {}
@@ -560,11 +580,32 @@ def pagina_nerd(perfil, equipe) -> str:
             contatos.append(f'<a href="{e(lattes)}">Lattes</a>')
         bloco = f'<div class="vp-contato">{"".join(contatos)}</div>' if contatos else ""
         cartoes.append(f"""<div class="vp-membro">
+{avatar(m)}
+<div class="vp-membro-texto">
 <span class="vp-papel">{e(m.get("papel"))}</span>
 <h3>{nome_html}</h3>
 <p class="vp-vinculo">{e(m.get("vinculo"))}</p>
 {bloco}
+</div>
 </div>""")
+
+    eixos = "".join(
+        f'<div class="vp-card vp-card-teal"><h3>{e(x.get("titulo"))}</h3>'
+        f'<p>{e(x.get("texto"))}</p></div>'
+        for x in (nucleo.get("eixos") or [])
+    )
+    secao_eixos = ""
+    if eixos:
+        secao_eixos = f"""<div class="vp-wrap vp-secao" style="padding-top:0">
+<span class="vp-kicker">Eixos de pesquisa</span>
+<h2>As três dimensões que orientam a agenda</h2>
+<div class="vp-grade-3" style="margin-top:24px">{eixos}</div>
+</div>"""
+
+    site_nucleo = ""
+    if nucleo.get("site"):
+        site_nucleo = (f'<p style="margin-top:18px"><a class="vp-btn vp-btn-claro" '
+                       f'href="{e(nucleo["site"])}">Site do núcleo &rarr;</a></p>')
 
     endereco = "\n".join(str(l) for l in (perfil.get("endereco") or []))
 
@@ -583,6 +624,7 @@ def pagina_nerd(perfil, equipe) -> str:
 <img src="nerd_diagrama_venn.png" alt="Diagrama do NERD: a interseção entre governos, comportamento eleitoral e partidos políticos">
 <figcaption class="vp-fraco" style="margin-top:8px">As três dimensões que o núcleo cruza.</figcaption>
 </figure>
+{site_nucleo}
 </div>
 <div class="vp-card vp-card-laranja">
 <span class="vp-kicker vp-kicker-laranja">Objetivos</span>
@@ -590,6 +632,8 @@ def pagina_nerd(perfil, equipe) -> str:
 </div>
 </div>
 </div>
+
+{secao_eixos}
 
 <div class="vp-secao-sup">
 <div class="vp-wrap vp-secao">
@@ -648,6 +692,8 @@ def main() -> None:
     for ativo in sorted(ATIVOS.iterdir()):
         if ativo.is_file():
             shutil.copyfile(ativo, SAIDA / ativo.name)
+        elif ativo.is_dir():  # ativos/fotos/ e afins
+            shutil.copytree(ativo, SAIDA / ativo.name, dirs_exist_ok=True)
     (SAIDA / ".nojekyll").write_text("", encoding="utf-8")
 
     ocultos_pub = len(pubs_raw) - len(pubs)

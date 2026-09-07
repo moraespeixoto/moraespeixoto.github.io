@@ -37,19 +37,32 @@ TIPOS = {
     "TEXTO-EM-JORNAL-OU-REVISTA": "relatorio",
 }
 
-# Sufixo da tag de orientacao -> (nivel, situacao)
+# Sufixo da tag de orientacao -> nivel. A situacao NAO sai daqui: vem de
+# "EM-ANDAMENTO" estar ou nao no nome da tag. O Lattes usa o mesmo sufixo de
+# nivel nos dois casos (ORIENTACOES-CONCLUIDAS-PARA-MESTRADO e
+# ORIENTACAO-EM-ANDAMENTO-DE-MESTRADO), entao amarrar situacao ao sufixo
+# classificava toda orientacao em andamento como concluida.
 NIVEIS = {
-    "PARA-POS-DOUTORADO": ("pos-doutorado", "concluida"),
-    "PARA-DOUTORADO": ("doutorado", "concluida"),
-    "PARA-MESTRADO": ("mestrado", "concluida"),
-    "DE-INICIACAO-CIENTIFICA": ("iniciacao", "concluida"),
-    "DE-POS-DOUTORADO": ("pos-doutorado", "em andamento"),
-    "DE-DOUTORADO": ("doutorado", "em andamento"),
-    "DE-MESTRADO": ("mestrado", "em andamento"),
-    "DE-APERFEICOAMENTO-ESPECIALIZACAO": ("tcc", "concluida"),
-    "DE-MONOGRAFIA-DE-CONCLUSAO-DE-CURSO-APERFEICOAMENTO-E-ESPECIALIZACAO":
-        ("tcc", "concluida"),
+    "PARA-POS-DOUTORADO": "pos-doutorado",
+    "PARA-DOUTORADO": "doutorado",
+    "PARA-MESTRADO": "mestrado",
+    "DE-POS-DOUTORADO": "pos-doutorado",
+    "DE-DOUTORADO": "doutorado",
+    "DE-MESTRADO": "mestrado",
+    "DE-INICIACAO-CIENTIFICA": "iniciacao",
+    "DE-APERFEICOAMENTO-ESPECIALIZACAO": "tcc",
+    "DE-MONOGRAFIA-DE-CONCLUSAO-DE-CURSO-APERFEICOAMENTO-E-ESPECIALIZACAO": "tcc",
 }
+
+# Siglas que continuam em caixa alta quando um titulo TODO EM MAIUSCULAS e
+# normalizado, e nomes proprios que precisam voltar com inicial maiuscula.
+# Complete as duas listas se um titulo novo trouxer uma sigla ou um nome que
+# ainda nao esteja aqui.
+SIGLAS = {"TSE", "TRE", "PNI", "SUS", "IDEB", "IBGE", "RJ", "SP", "MG", "ABCP",
+          "PEA", "IUPERJ", "UENF", "CNPq", "FAPERJ", "PT", "PSDB", "MDB", "ONG"}
+PROPRIOS = ["Brasil", "Covid-19", "Bacia de Campos", "Campos Basin",
+            "Rio de Janeiro", "Norte Fluminense", "Noroeste Fluminense",
+            "Lula", "Bolsonaro", "Constituicao", "America Latina"]
 
 
 # --------------------------------------------------------------------------- #
@@ -105,13 +118,89 @@ def ano_de(attrs: dict[str, str]) -> int:
     return 0
 
 
+def _sentenciar(trecho: str) -> str:
+    """Passa um trecho TODO EM MAIUSCULAS para caixa de sentenca."""
+    palavras = []
+    for palavra in trecho.split(" "):
+        nucleo = re.sub(r"[^0-9A-Za-zÀ-ÿ]", "", palavra)
+        if nucleo.upper() in SIGLAS:
+            palavras.append(palavra.upper())
+        else:
+            palavras.append(palavra.lower())
+    texto = " ".join(palavras)
+    for i, c in enumerate(texto):  # maiuscula na primeira letra do trecho
+        if c.isalpha():
+            texto = texto[:i] + c.upper() + texto[i + 1:]
+            break
+    for proprio in PROPRIOS:
+        texto = re.sub(re.escape(proprio), proprio, texto, flags=re.I)
+    return texto
+
+
+def normaliza_titulo(titulo: str) -> str:
+    """O Lattes guarda muitos titulos em caixa alta; aqui viram legiveis.
+
+    Trabalha por trecho separado por ":" — um titulo costuma ter o principal em
+    maiusculas e o subtitulo ja em caixa normal, e so o primeiro deve mudar.
+    """
+    titulo = titulo.strip()
+    if not titulo:
+        return ""
+    saida = []
+    for trecho in titulo.split(":"):
+        letras = re.sub(r"[^A-Za-zÀ-ÿ]", "", trecho)
+        # 3 letras ou menos pode ser sigla solta; nao mexe.
+        if len(letras) > 3 and letras == letras.upper():
+            saida.append(_sentenciar(trecho.strip()))
+        else:
+            saida.append(trecho.strip())
+    return ": ".join(p for p in saida if p)
+
+
+def normaliza_nome(nome: str) -> str:
+    """Nome de pessoa em caixa alta vira caixa de titulo.
+
+    Parte do Lattes guarda o nome do orientando como "CESARIA CATARINA...".
+    Preposicoes ficam em minuscula, como se escreve nome em portugues.
+    """
+    nome = nome.strip()
+    letras = re.sub(r"[^A-Za-zÀ-ÿ]", "", nome)
+    if len(letras) <= 3 or letras != letras.upper():
+        return nome  # ja esta em caixa mista: nao mexe
+    minusculas = {"de", "da", "do", "das", "dos", "e", "di", "del", "van", "von"}
+    palavras = []
+    for i, palavra in enumerate(nome.split()):
+        baixa = palavra.lower()
+        palavras.append(baixa if i and baixa in minusculas else baixa.capitalize())
+    return " ".join(palavras)
+
+
+def normaliza_link(bruto: str, doi: str = "") -> str:
+    """HOME-PAGE-DO-TRABALHO costuma vir como "[url][doi:10.x/y]".
+
+    Devolve so a URL do primeiro grupo. Quando ela nao existe, cai no DOI.
+    """
+    bruto = (bruto or "").strip()
+    if bruto:
+        grupo = re.sub(r"^\[([^\]]*)\].*$", r"\1", bruto).strip()
+        # o proprio Lattes tem entradas com protocolo duplicado
+        grupo = re.sub(r"^https?://(https?://)", r"\1", grupo)
+        if grupo.startswith("http://") or grupo.startswith("https://"):
+            return grupo
+    return ""
+
+
 def autores_de(no: ElementTree.Element) -> str:
     nomes: list[tuple[int, str]] = []
     for filho in no.iter():
         if not filho.tag.endswith("AUTORES"):
             continue
-        nome = filho.attrib.get("NOME-COMPLETO-DO-AUTOR") or \
-            filho.attrib.get("NOME-PARA-CITACAO") or ""
+        # O nome de citacao e a forma academica e e o que o site do NERD usa;
+        # o nome completo entra so quando a citacao esta vazia. O campo pode
+        # trazer varias formas separadas por ";" — vale a primeira.
+        nome = filho.attrib.get("NOME-PARA-CITACAO") or \
+            filho.attrib.get("NOME-COMPLETO-DO-AUTOR") or ""
+        nome = nome.split(";")[0]
         if not nome.strip():
             continue
         try:
@@ -165,15 +254,16 @@ def extrai_publicacoes(raiz: ElementTree.Element) -> list[dict]:
              if attrs.get("PAGINA-INICIAL") else ""),
         ] if x)
 
+        doi = comum.normaliza_doi(attrs.get("DOI"))
         registros.append({
             "tipo": tipo,
             "ano": ano_de(attrs),
-            "titulo": titulo,
+            "titulo": normaliza_titulo(titulo),
             "autores": autores_de(no),
             "veiculo": veiculo,
             "detalhe": detalhe,
-            "doi": comum.normaliza_doi(attrs.get("DOI")),
-            "url": primeiro(attrs, "HOME-PAGE-DO-TRABALHO"),
+            "doi": doi,
+            "url": normaliza_link(primeiro(attrs, "HOME-PAGE-DO-TRABALHO"), doi),
             "fonte": "lattes",
             "publicar": True,
         })
@@ -187,26 +277,30 @@ def extrai_orientacoes(raiz: ElementTree.Element) -> list[dict]:
         if "ORIENTAC" not in tag or "DADOS-BASICOS" in tag or "DETALHAMENTO" in tag:
             continue
         # O sufixo mais longo que casa manda: "PARA-DOUTORADO" antes de "DE-MESTRADO".
-        casados = [(s, v) for s, v in NIVEIS.items() if tag.endswith(s)]
+        casados = [suf for suf in NIVEIS if tag.endswith(suf)]
         if not casados:
             continue
-        _, (nivel, situacao) = max(casados, key=lambda x: len(x[0]))
+        nivel = NIVEIS[max(casados, key=len)]
+        situacao = "em andamento" if "EM-ANDAMENTO" in tag else "concluida"
 
         attrs = atributos(no)
-        orientando = primeiro(attrs, "NOME-DO-ORIENTADO")
+        # Concluida usa NOME-DO-ORIENTADO; em andamento, NOME-DO-ORIENTANDO.
+        orientando = normaliza_nome(
+            primeiro(attrs, "NOME-DO-ORIENTADO", "NOME-DO-ORIENTANDO"))
         titulo = primeiro(attrs, "TITULO-DO-TRABALHO", "TITULO")
         if not orientando and not titulo:
             continue
 
-        instituicao = primeiro(attrs, "NOME-DA-INSTITUICAO")
-        curso = primeiro(attrs, "NOME-DO-CURSO")
+        # Idem para o vinculo: os dois blocos nomeiam os campos diferente.
+        instituicao = primeiro(attrs, "NOME-DA-INSTITUICAO", "NOME-INSTITUICAO")
+        curso = primeiro(attrs, "NOME-DO-CURSO", "NOME-CURSO")
         programa = " — ".join(x for x in [curso, instituicao] if x)
 
         registros.append({
             "nivel": nivel,
             "ano": ano_de(attrs),
             "orientando": orientando,
-            "titulo": titulo,
+            "titulo": normaliza_titulo(titulo),
             "programa": programa,
             "situacao": situacao,
             "lattes": primeiro(attrs, "NUMERO-ID-ORIENTADO"),
@@ -271,24 +365,35 @@ def main() -> None:
     novas = extrai_orientacoes(raiz)
     # Casam por nome do orientando; se o registro daqui ainda nao tem nome
     # (semente montada a mao), casam pelo titulo do trabalho.
+    # A chave leva o NIVEL junto com o nome. So o nome nao serve: e comum o
+    # mesmo orientando fazer mestrado e depois doutorado aqui, e a chave por
+    # nome fundia as duas orientacoes em uma. E as chaves so entram quando o
+    # valor existe — senao todo registro sem nome casaria com os outros sem nome.
+    def chaves(o: dict) -> list[str]:
+        nivel = str(o.get("nivel") or "")
+        saida = []
+        if comum.chave_titulo(o.get("orientando")):
+            saida.append(f"nome:{nivel}:" + comum.chave_titulo(o["orientando"]))
+        if comum.chave_titulo(o.get("titulo")):
+            saida.append(f"tit:{nivel}:" + comum.chave_titulo(o["titulo"]))
+        return saida
+
     indice: dict[str, dict] = {}
     for o in atuais:
-        if o.get("orientando"):
-            indice.setdefault("nome:" + comum.chave_titulo(o["orientando"]), o)
-        if o.get("titulo"):
-            indice.setdefault("tit:" + comum.chave_titulo(o["titulo"]), o)
+        for k in chaves(o):
+            indice.setdefault(k, o)
 
     incluidas = completadas = 0
     for nova in novas:
-        alvo = indice.get("nome:" + comum.chave_titulo(nova.get("orientando")))
-        if alvo is None and nova.get("titulo"):
-            alvo = indice.get("tit:" + comum.chave_titulo(nova["titulo"]))
+        alvo = None
+        for k in chaves(nova):
+            alvo = indice.get(k)
+            if alvo is not None:
+                break
         if alvo is None:
             atuais.append(nova)
-            if nova.get("orientando"):
-                indice["nome:" + comum.chave_titulo(nova["orientando"])] = nova
-            if nova.get("titulo"):
-                indice.setdefault("tit:" + comum.chave_titulo(nova["titulo"]), nova)
+            for k in chaves(nova):
+                indice.setdefault(k, nova)
             incluidas += 1
             continue
         mudou = False

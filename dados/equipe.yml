@@ -1,37 +1,50 @@
 # O NERD — Nucleo de Estudos em Representacao e Democracia.
-# Texto e equipe herdados do site anterior do nucleo (docs/membros.html).
+# Texto, equipe e fotos vindos do site do nucleo:
+#   https://gitlab.com/vpeixoto1981/nerd_site
+# Sao dois repositorios separados, sem sincronizacao automatica: ao mexer no
+# site do NERD, traga a mudanca para ca tambem.
+#
+# `foto` e um arquivo dentro de ativos/fotos/. Vazio = cai nas iniciais.
+# `lattes` e so o numero do ID.
 
 nucleo:
   nome: NERD
   nome_completo: Núcleo de Estudos em Representação e Democracia
+  site: https://vpeixoto1981.gitlab.io/nerd_site/
   resumo: >
-    O NERD promove pesquisas sobre a evolução política e eleitoral nos níveis
-    subnacionais, principalmente o municipal, e sobre a relação dessa evolução com o
-    desenvolvimento.
+    Pesquisa sobre a evolução política e eleitoral dos municípios brasileiros — e
+    sua relação com o desenvolvimento.
   texto: |
+    O Núcleo de Estudos em Representação e Democracia — NERD tem por objetivo
+    promover pesquisas sobre a evolução política e eleitoral nos níveis subnacionais,
+    principalmente no nível municipal, assim como a relação da mesma com o
+    desenvolvimento.
+
     O grupo aborda a interseção entre três grandes dimensões da análise de sistemas
     políticos democráticos: governos, comportamento eleitoral e partidos políticos. A
-    partir dos estudos sobre comportamento dos eleitores, integra achados empíricos às
-    teorias sobre estratégias dos partidos nas administrações públicas subnacionais, e
-    dialoga com análises sobre reeleição de prefeitos, ideologia partidária e gastos
-    públicos no Brasil.
+    partir dos estudos sobre comportamento dos eleitores, integra os achados empíricos
+    às teorias sobre estratégias dos partidos políticos nas administrações públicas
+    subnacionais, dialogando com análises sobre reeleição de prefeitos, ideologia
+    partidária e gastos públicos no Brasil.
 
-    As atividades do NERD atendem a uma demanda concreta: há escassez de informação
-    empírica sobre as características, o funcionamento e o desempenho das instituições
-    políticas no nível municipal, e sobre a interação entre a dimensão política e o
-    desenvolvimento socioeconômico.
-
-    O núcleo começou em 2011 com o projeto "Competição eleitoral nos municípios
-    brasileiros", seguiu com o projeto CNPq "Poder local, partidos políticos e eleições
-    municipais no Brasil pós-1988" e hoje é financiado pela FAPERJ com o projeto "Petro
-    rendas e política local".
+    Suas atividades procuram atender à demanda por informações e análises no Brasil,
+    tendo em conta a considerável escassez de informações empíricas sobre as
+    características, o funcionamento e o desempenho das instituições políticas no
+    nível municipal, bem como a interação da dimensão política com o desenvolvimento
+    socioeconômico.
   objetivos:
-    - Difundir os resultados das pesquisas no âmbito acadêmico e fora dele — encontros, seminários, mini-cursos.
+    - Difundir os resultados das pesquisas para o âmbito acadêmico e extra-acadêmico por meio de encontros, seminários e mini-cursos.
     - Promover a participação de alunos de graduação (iniciação científica) e de pós-graduação nas atividades do núcleo.
-    - Organizar e compartilhar bases de dados que subsidiem pesquisas acadêmicas e demandas de instituições públicas e privadas, formadores de opinião e público em geral.
-    - Participar de editais de financiamento de pesquisa e de atividades de extensão.
+    - Estruturar e compartilhar bases de dados destinadas a subsidiar pesquisas acadêmicas e atender demandas de instituições públicas e privadas.
+    - Participar de editais de financiamento de pesquisas e de atividades de extensão, ampliando o alcance do núcleo.
+  eixos:
+    - titulo: Partidos políticos
+      texto: Estratégias partidárias, ideologia e sua expressão nas administrações públicas subnacionais.
+    - titulo: Comportamento eleitoral
+      texto: Competição eleitoral, reeleição e as escolhas do eleitor nos municípios brasileiros.
+    - titulo: Governos
+      texto: Gestão pública, gastos, políticas municipais e sua relação com o desenvolvimento.
 
-# `lattes` e so o numero do ID. Vazio = sem link.
 membros:
 
   - nome: Vitor de Moraes Peixoto
@@ -39,144 +52,106 @@ membros:
     vinculo: |
       Professor Associado
       Universidade Estadual do Norte Fluminense Darcy Ribeiro
-      Centro de Ciências do Homem
-      Laboratório de Estudos da Sociedade Civil e do Estado
+      Centro de Ciências do Homem — Laboratório de Estudos da Sociedade Civil e do Estado
     email: vpeixoto@pq.uenf.br
     lattes: "4676437210734787"
+    foto: ""
 
   - nome: Renato Barreto de Souza
-    papel: Pós-doutorando
+    papel: Pesquisador
     vinculo: |
       Professor do Instituto Federal Fluminense
-      Pós-doutorando do Programa de Pós-Graduação em Sociologia Política
-      Universidade Estadual do Norte Fluminense Darcy Ribeiro
+      Pós-doutorando do Programa de Pós-Graduação em Sociologia Política — UENF
       Laboratório de Estudos do Estado e da Sociedade Civil
     email: renatobs@gmail.com
     lattes: "4208615645719699"
+    foto: ""
 
-  - nome: Patricia de Oliveira Burlamaqui
-    papel: Pós-doutoranda
+  - nome: Rafaella Lopes Martins Jaeger
+    papel: Pesquisadora
     vinculo: |
-      Pós-doutoranda do Programa de Pós-Graduação em Sociologia Política
-      Universidade Estadual do Norte Fluminense Darcy Ribeiro
-      Laboratório de Estudos do Estado e da Sociedade Civil
-    email: pburlamaqui@gmail.com
-    lattes: "6620703529177610"
-
-  - nome: Ralph André Crespo
-    papel: Doutorando
-    vinculo: |
-      Doutorando do Programa de Pós-Graduação em Sociologia Política
-      Universidade Estadual do Norte Fluminense Darcy Ribeiro
-      Laboratório de Estudos do Estado e da Sociedade Civil
-    email: ralph.crespo@pq.uenf.br
-    lattes: "7250750885312461"
-
-  - nome: Jheniffer Vieira de Almeida
-    papel: Doutoranda
-    vinculo: |
-      Doutoranda do Programa de Pós-Graduação em Sociologia Política
-      Universidade Estadual do Norte Fluminense Darcy Ribeiro
-      Laboratório de Estudos do Estado e da Sociedade Civil
-    email: jhenifferalmeida@pq.uenf.br
-    lattes: "1477388811747167"
-
-  - nome: Raphael de Mello Veloso
-    papel: Doutorando
-    vinculo: |
-      Doutorando do Programa de Pós-Graduação em Sociologia Política
-      Universidade Estadual do Norte Fluminense Darcy Ribeiro
-      Laboratório de Estudos do Estado e da Sociedade Civil
-    email: raphamv@gmail.com
-    lattes: "9433034841064768"
+      Doutora em Sociologia Política pela UENF (PPGSP), bolsista de excelência FAPERJ Nota 10 (DSC-10)
+      Mestre em Ciência Política pela Universidade Federal de São Carlos (PPGPOL/UFSCar)
+      Pesquisa em comportamento político
+    email: ""
+    lattes: "2315282054349295"
+    foto: jaeger.jpg
 
   - nome: Gisele Braga Bastos
-    papel: Doutoranda
+    papel: Pós-doutoranda
     vinculo: |
-      Doutoranda do Programa de Pós-Graduação em Sociologia Política
-      Universidade Estadual do Norte Fluminense Darcy Ribeiro
-      Laboratório de Estudos do Estado e da Sociedade Civil
-    email: gibragabastos@pq.uenf.br
+      Estágio pós-doutoral no PPGSP/UENF (PIPD/CAPES) e na Universidade NOVA de Lisboa (PIPD-DRI/CAPES)
+      Doutora em Sociologia Política — UENF · Mestre em Ciências Sociais — UFJF
+      Supervisora de pesquisas do Projeto de Educação Ambiental PEA Pescarte
+    email: ""
     lattes: "1675744772217864"
+    foto: gisele_bastos.jpg
 
-  - nome: Jessica Matheus de Souza
-    papel: Doutoranda
+  - nome: Bruna Gomes de Oliveira
+    papel: Pesquisadora
     vinculo: |
-      Doutoranda do Programa de Pós-Graduação em Sociologia Política
-      Universidade Estadual do Norte Fluminense Darcy Ribeiro
-      Laboratório de Estudos do Estado e da Sociedade Civil
-    email: jessicamatheus@pq.uenf.br
-    lattes: "6717255818088404"
-
-  - nome: Wallace da Silva Mello
-    papel: Doutorando
-    vinculo: |
-      Doutorando do Programa de Pós-Graduação em Sociologia Política
-      Universidade Estadual do Norte Fluminense Darcy Ribeiro
-      Laboratório de Estudos do Estado e da Sociedade Civil
-    email: wallacesilvamello@pq.uenf.br
-    lattes: "8178088513307546"
-
-  - nome: Thiago Pimentel Soares
-    papel: Mestrando
-    vinculo: |
-      Mestrando do Programa de Pós-Graduação em Sociologia Política
-      Universidade Estadual do Norte Fluminense Darcy Ribeiro
-      Laboratório de Estudos do Estado e da Sociedade Civil
-    email: tpsoares@hotmail.com
-    lattes: "5038496684551538"
+      Bacharela em Administração Pública — UENF
+      Ex-bolsista de Iniciação Científica (IPEAD, Projeto PEA Pescarte)
+      Políticas públicas, desigualdades sociais e educação ambiental
+    email: ""
+    lattes: "4350243662618415"
+    foto: oliveira.jpg
 
   - nome: Rafael Soares Salles
-    papel: Mestrando
+    papel: Doutorando
     vinculo: |
-      Mestrando do Programa de Pós-Graduação em Sociologia Política
-      Universidade Estadual do Norte Fluminense Darcy Ribeiro
-      Laboratório de Estudos do Estado e da Sociedade Civil
-    email: rafael.salles@pq.uenf.br
-    lattes: "6781198318316057"
-
-  - nome: João Gabriel Ribeiro Pessanha Leal
-    papel: Mestrando
-    vinculo: |
-      Mestrando do Programa de Pós-Graduação em Ciência Política
-      Universidade Federal do Estado do Rio de Janeiro
-    email: joaoleal@pq.uenf.br
-    lattes: "9277299850069272"
-
-  - nome: Larissa Martins Marques
-    papel: Graduanda
-    vinculo: |
-      Graduanda do Curso de Administração Pública
-      Universidade Estadual do Norte Fluminense Darcy Ribeiro
-      Laboratório de Estudos do Estado e da Sociedade Civil
-    email: larissamarques@pq.uenf.br
-    lattes: "8424422005329610"
-
-  # No site antigo, o ID Lattes deste membro repetia o de Rafael Soares Salles
-  # (6781198318316057) — provavelmente um erro de copia. Deixei vazio ate confirmar.
-  - nome: Matheus Virginio Harduim Machado
-    papel: Graduando
-    vinculo: |
-      Graduando do Curso de Ciências Sociais
-      Universidade Estadual do Norte Fluminense Darcy Ribeiro
-      Laboratório de Estudos do Estado e da Sociedade Civil
-    email: m.harduim@pq.uenf.br
-    lattes: ""
-
-  - nome: Marcos Paulo Almeida Caldas
-    papel: Graduando
-    vinculo: |
-      Graduando do Curso de Administração Pública
-      Universidade Estadual do Norte Fluminense Darcy Ribeiro
-      Laboratório de Estudos do Estado e da Sociedade Civil
+      Doutorando em Sociologia Política — UENF (desde 2024)
+      Mestre em Sociologia Política — UENF (2022) · Graduado em Direito — UFRJ
+      Sociologia da Educação, Ciência Política e comportamento eleitoral
     email: ""
-    lattes: "2013068761602794"
+    lattes: "6781198318316057"
+    foto: salles.jpg
 
-  - nome: Lara Bernardo de Oliveira
-    papel: Graduanda
+  - nome: Beatriz Siqueira Rodrigues
+    papel: Mestranda
     vinculo: |
-      Graduanda do Curso de Ciências Sociais
-      Universidade Estadual do Norte Fluminense Darcy Ribeiro
-      Laboratório de Estudos do Estado e da Sociedade Civil
-    email: lalabernardo1904@gmail.com
-    lattes: "6943283489647623"
+      Mestranda do Programa de Pós-Graduação em Sociologia Política — UENF
+      Bacharel em Ciências Sociais — UFF
+      Integrante do Observatório das Instituições Políticas e Democracia
+    email: ""
+    lattes: "9885290748903091"
+    foto: rodrigues.jpg
+
+  - nome: Davi Athaydes Leite
+    papel: Mestrando
+    vinculo: |
+      Mestrando em Ciência Política pelo IESP-UERJ
+      Bacharel em Administração Pública — UENF · Bolsista Nota 10 FAPERJ
+      Análise de dados de survey e metodologia quantitativa
+    email: ""
+    lattes: "3330422519524119"
+    foto: leite.jpg
+
+  - nome: Kaio Ribeiro Bárbara
+    papel: Mestrando
+    vinculo: |
+      Mestrando em Ciência Política — UFPE
+      Bacharel em Administração Pública — UENF
+      Métodos quantitativos aplicados à Ciência Política
+    email: ""
+    lattes: "0767320078391304"
+    foto: barbara.jpg
+
+  - nome: Luma Ferreira Boechat
+    papel: Iniciação Científica
+    vinculo: |
+      Bolsista de Iniciação Científica do CNPq
+      Graduanda em Administração Pública — UENF · Técnica em Administração — IFF
+      Laboratório de Estudo da Sociedade Civil e do Estado (LESCE)
+    email: ""
+    lattes: "2875363257153784"
+    foto: boechat.jpg
+
+  - nome: Ana Luiza Bastos
+    papel: Iniciação Científica
+    vinculo: |
+      Graduanda em Administração Pública — UENF
+      Laboratório de Estudo da Sociedade Civil e do Estado (LESCE)
+    email: ""
+    lattes: "1582164406217076"
+    foto: ana_bastos.jpg

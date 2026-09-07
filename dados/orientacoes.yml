@@ -1,194 +1,269 @@
-# Orientacoes.
-#
-# A lista completa (com o nome de cada orientando, o ano de defesa e o link para
-# o Lattes dele) esta no seu curriculo Lattes e entra por:
-#
-#     python3 ferramentas/importa_lattes.py ~/Downloads/curriculo.xml
-#
-# O que esta aqui foi o que consegui levantar por busca publica. Nenhum registro
-# veio completo — os tres primeiros vieram sem o nome do orientando, e os demais
-# vieram da equipe do NERD, sem confirmacao de que sao orientacoes suas. Todos
-# estao com publicar: false para nao ir ao ar pela metade. Preencha e vire para
-# true, ou deixe a importacao do Lattes resolver de uma vez.
-#
-# CAMPOS
-#   nivel      doutorado | mestrado | pos-doutorado | iniciacao | tcc
-#   situacao   concluida | em andamento
-#   lattes     so o numero do ID, sem a URL
-#
-# Comentarios no meio dos dados se perdem na proxima coleta — ver README.md.
+# Orientacoes. Mantido por ferramentas/importa_lattes.py.
+# Campos: nivel (pos-doutorado|doutorado|mestrado|iniciacao|tcc),
+# situacao (concluida|em andamento), lattes (so o numero do ID), publicar.
+# Ver README.md. Comentarios no meio deste arquivo se perdem na proxima coleta.
 
 orientacoes:
-
-  - nivel: mestrado
-    ano: 2017
-    orientando: ""
-    titulo: "Eleições suplementares no Brasil: os casos decorrentes das anulações dos pleitos de 2012"
-    programa: "Programa de Pós-Graduação em Sociologia Política — UENF"
-    situacao: concluida
-    lattes: ""
-    url: ""
-    publicar: false
-
-  - nivel: mestrado
-    ano: 2016
-    orientando: ""
-    titulo: "Institucionalização do sistema partidário nos municípios do Brasil"
-    programa: "Programa de Pós-Graduação em Sociologia Política — UENF"
-    situacao: concluida
-    lattes: ""
-    url: ""
-    publicar: false
-
-  - nivel: mestrado
-    ano: 2012
-    orientando: ""
-    titulo: "Internet e comunicação política: uma análise qualitativa da campanha eleitoral online dos candidatos ao executivo de Macaé-RJ nas eleições de 2012"
-    programa: "Programa de Pós-Graduação em Sociologia Política — UENF"
-    situacao: concluida
-    lattes: ""
-    url: ""
-    publicar: false
-
-# Derivadas da equipe do NERD (dados/equipe.yml). Confirme quais sao de fato
-# orientacoes suas — e com qual titulo — antes de virar publicar para true.
-
-  - nivel: pos-doutorado
-    ano: 0
-    orientando: "Renato Barreto de Souza"
-    titulo: ""
-    programa: "Programa de Pós-Graduação em Sociologia Política — UENF"
-    situacao: em andamento
-    lattes: "4208615645719699"
-    url: ""
-    publicar: false
-
-  - nivel: pos-doutorado
-    ano: 0
-    orientando: "Patricia de Oliveira Burlamaqui"
-    titulo: ""
-    programa: "Programa de Pós-Graduação em Sociologia Política — UENF"
-    situacao: em andamento
-    lattes: "6620703529177610"
-    url: ""
-    publicar: false
-
-  - nivel: doutorado
-    ano: 0
-    orientando: "Ralph André Crespo"
-    titulo: ""
-    programa: "Programa de Pós-Graduação em Sociologia Política — UENF"
-    situacao: em andamento
-    lattes: "7250750885312461"
-    url: ""
-    publicar: false
-
-  - nivel: doutorado
-    ano: 0
-    orientando: "Jheniffer Vieira de Almeida"
-    titulo: ""
-    programa: "Programa de Pós-Graduação em Sociologia Política — UENF"
-    situacao: em andamento
-    lattes: "1477388811747167"
-    url: ""
-    publicar: false
-
-  - nivel: doutorado
-    ano: 0
-    orientando: "Raphael de Mello Veloso"
-    titulo: ""
-    programa: "Programa de Pós-Graduação em Sociologia Política — UENF"
-    situacao: em andamento
-    lattes: "9433034841064768"
-    url: ""
-    publicar: false
-
-  - nivel: doutorado
-    ano: 0
-    orientando: "Gisele Braga Bastos"
-    titulo: ""
-    programa: "Programa de Pós-Graduação em Sociologia Política — UENF"
-    situacao: em andamento
-    lattes: "1675744772217864"
-    url: ""
-    publicar: false
-
-  - nivel: doutorado
-    ano: 0
-    orientando: "Jessica Matheus de Souza"
-    titulo: ""
-    programa: "Programa de Pós-Graduação em Sociologia Política — UENF"
-    situacao: em andamento
-    lattes: "6717255818088404"
-    url: ""
-    publicar: false
-
-  - nivel: doutorado
-    ano: 0
-    orientando: "Wallace da Silva Mello"
-    titulo: ""
-    programa: "Programa de Pós-Graduação em Sociologia Política — UENF"
-    situacao: em andamento
-    lattes: "8178088513307546"
-    url: ""
-    publicar: false
-
-  - nivel: mestrado
-    ano: 0
-    orientando: "Thiago Pimentel Soares"
-    titulo: ""
-    programa: "Programa de Pós-Graduação em Sociologia Política — UENF"
-    situacao: em andamento
-    lattes: "5038496684551538"
-    url: ""
-    publicar: false
-
-  - nivel: mestrado
-    ano: 0
-    orientando: "Rafael Soares Salles"
-    titulo: ""
-    programa: "Programa de Pós-Graduação em Sociologia Política — UENF"
-    situacao: em andamento
-    lattes: "6781198318316057"
-    url: ""
-    publicar: false
-
-  - nivel: iniciacao
-    ano: 0
-    orientando: "Larissa Martins Marques"
-    titulo: ""
-    programa: "Administração Pública — UENF"
-    situacao: em andamento
-    lattes: "8424422005329610"
-    url: ""
-    publicar: false
-
-  - nivel: iniciacao
-    ano: 0
-    orientando: "Matheus Virginio Harduim Machado"
-    titulo: ""
-    programa: "Ciências Sociais — UENF"
-    situacao: em andamento
-    lattes: ""
-    url: ""
-    publicar: false
-
-  - nivel: iniciacao
-    ano: 0
-    orientando: "Marcos Paulo Almeida Caldas"
-    titulo: ""
-    programa: "Administração Pública — UENF"
-    situacao: em andamento
-    lattes: "2013068761602794"
-    url: ""
-    publicar: false
-
-  - nivel: iniciacao
-    ano: 0
-    orientando: "Lara Bernardo de Oliveira"
-    titulo: ""
-    programa: "Ciências Sociais — UENF"
-    situacao: em andamento
-    lattes: "6943283489647623"
-    url: ""
-    publicar: false
+- nivel: mestrado
+  ano: 2026
+  orientando: Felipe Jose Lima Nascimento
+  titulo: Transparencia nas Camaras Municipais do Estado do Rio de Janeiro
+  programa: Sociologia Política — Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  situacao: concluida
+  lattes: ''
+  url: ''
+  publicar: true
+- nivel: doutorado
+  ano: 2026
+  orientando: Rafaella Lopes Martins Jaeger
+  titulo: 'Democracia de partidos, eleitores sem partido: os riscos do apartidarismo na América Latina'
+  programa: Sociologia Política — Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  situacao: concluida
+  lattes: '2315282054349295'
+  url: ''
+  publicar: true
+- nivel: iniciacao
+  ano: 2025
+  orientando: Luma Ferreira Boechat
+  titulo: 'Bolsonarismo e política local: o combate à pandemia e os reflexos no PNI'
+  programa: Administração Pública — Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  situacao: em andamento
+  lattes: ''
+  url: ''
+  publicar: true
+- nivel: doutorado
+  ano: 2024
+  orientando: Jéssica Matheus de Souza
+  titulo: 'A ascensão da extrema direita: uma análise comparativa entre Brasil e Estados Unidos'
+  programa: Sociologia Política — Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  situacao: concluida
+  lattes: '6717255818088404'
+  url: ''
+  publicar: true
+- nivel: doutorado
+  ano: 2024
+  orientando: Rafael Soares Salles
+  titulo: 'A influência da educação formal sobre o comportamento político dos estudantes de esnino médio:
+    uma análise comparativa entre as redes federal, estadual e privada no Noroeste Fluminense'
+  programa: Sociologia Política — Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  situacao: em andamento
+  lattes: ''
+  url: ''
+  publicar: true
+- nivel: mestrado
+  ano: 2024
+  orientando: Suziane Rossi Silva Girão
+  titulo: Participacao e competicao eleitoral no noroeste fluminense
+  programa: Sociologia Política — Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  situacao: em andamento
+  lattes: ''
+  url: ''
+  publicar: true
+- nivel: doutorado
+  ano: 2024
+  orientando: Wallace da Silva Mello
+  titulo: 'Tradição, conservadorismo e intervencionismo militar: uma análise da formação e produção dos
+    cadetes da Academia das Agulhas Negras'
+  programa: Sociologia Política — Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  situacao: concluida
+  lattes: '8178088513307546'
+  url: ''
+  publicar: true
+- nivel: doutorado
+  ano: 2023
+  orientando: Gisele Braga Bastos
+  titulo: 'De invisíveis à lançadores de alertas: Lutas por reconhecimento, participação democrática e
+    cooperação. O caso do fortalecimento da organização comunitária entre pescadores(as) artesanais no
+    âmbito do PEA Pescarte.'
+  programa: Sociologia Política — Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  situacao: concluida
+  lattes: '1675744772217864'
+  url: ''
+  publicar: true
+- nivel: pos-doutorado
+  ano: 2023
+  orientando: Nelson Lellis Ramos Rodrigues
+  titulo: ''
+  programa: Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  situacao: concluida
+  lattes: ''
+  url: ''
+  publicar: true
+- nivel: doutorado
+  ano: 2022
+  orientando: Jheniffer Vieira de Almeida
+  titulo: 'O partido republicanos: Trajetória, crescimento, identidade e ideologia (2003-2022)'
+  programa: Sociologia Política — Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  situacao: concluida
+  lattes: '1477388811747167'
+  url: ''
+  publicar: true
+- nivel: mestrado
+  ano: 2022
+  orientando: Rafael Soares Salles
+  titulo: 'A interface entre o judiciário e a competição eleitoral no julgamento das ações de impugnação
+    de registro candidatura: Uma análise das eleições para vereador no estado do Rio de Janeiro em 2016'
+  programa: Sociologia Política — Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  situacao: concluida
+  lattes: '6781198318316057'
+  url: ''
+  publicar: true
+- nivel: doutorado
+  ano: 2022
+  orientando: Ralph Andre Crespo
+  titulo: 'Aas ações de impugnação de registro de candidatura: Uma análise do primeiro filtro do poder
+    judiciário no proce eleitoral nas eleições de 2012 e 2016'
+  programa: Sociologia Política — Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  situacao: concluida
+  lattes: '7250750885312461'
+  url: ''
+  publicar: true
+- nivel: doutorado
+  ano: 2022
+  orientando: Raphael de Mello Veloso
+  titulo: 'Políticas públicas de expansão no ensino superior: A correspondência entre as formações e o
+    ocupações dos egressos no mercado de trabalho'
+  programa: Sociologia Política — Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  situacao: concluida
+  lattes: '9433034841064768'
+  url: ''
+  publicar: true
+- nivel: pos-doutorado
+  ano: 2020
+  orientando: Cleinton Roberto Perpeto de Souza
+  titulo: ''
+  programa: Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  situacao: concluida
+  lattes: ''
+  url: ''
+  publicar: true
+- nivel: mestrado
+  ano: 2020
+  orientando: Jessica Matheus de Souza
+  titulo: O impacto das avaliações sobre a economia nas atitudes democráticas
+  programa: Sociologia Política — Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  situacao: concluida
+  lattes: '6717255818088404'
+  url: ''
+  publicar: true
+- nivel: pos-doutorado
+  ano: 2020
+  orientando: Patricia de Oliveira Burlamaqui
+  titulo: ''
+  programa: Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  situacao: concluida
+  lattes: ''
+  url: ''
+  publicar: true
+- nivel: mestrado
+  ano: 2019
+  orientando: Fernanda Valadão Escudini
+  titulo: 'Por Água Abaixo: Um Estudo sobre o Saneamento Básico no Estado do Rio de Janeiro'
+  programa: Sociologia Política — Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  situacao: concluida
+  lattes: '6943968710161382'
+  url: ''
+  publicar: true
+- nivel: pos-doutorado
+  ano: 2019
+  orientando: Renato Barreto de Souza
+  titulo: ''
+  programa: Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  situacao: concluida
+  lattes: ''
+  url: ''
+  publicar: true
+- nivel: doutorado
+  ano: 2018
+  orientando: Cesária Catarina Carvalho Ribeiro de Maria Souza
+  titulo: 'Controle externo das contas públicas no federalismo Brasileiro: Uma análise dos pareceres prévios
+    dos Tribunais de Contas e o resultado do julgamento das contas anuais dos Prefeitos da Região Sudeste'
+  programa: Sociologia Política — Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  situacao: concluida
+  lattes: '4635062331128943'
+  url: ''
+  publicar: true
+- nivel: mestrado
+  ano: 2018
+  orientando: Maycon Rohen Linhares
+  titulo: 'Máquina política nos municípios Brasileiros: Uma análise do emprego e do gasto público de 2000
+    a 2016'
+  programa: Sociologia Política — Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  situacao: concluida
+  lattes: '5042299287962915'
+  url: ''
+  publicar: true
+- nivel: mestrado
+  ano: 2017
+  orientando: Jheniffer Vieira de Almeida
+  titulo: 'Servir e Obedecer: Política e Religião por meio dos Cabos Eleitorais Neopentecostais'
+  programa: Sociologia Política — Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  situacao: concluida
+  lattes: '1477388811747167'
+  url: ''
+  publicar: true
+- nivel: mestrado
+  ano: 2017
+  orientando: Ralph Andre Crespo
+  titulo: 'Eleições Suplementares no Brasil: Os Casos Decorrentes das Anulações dos Pleitos de 2012'
+  programa: Sociologia Política — Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  situacao: concluida
+  lattes: '7250750885312461'
+  url: ''
+  publicar: true
+- nivel: mestrado
+  ano: 2017
+  orientando: Thessila Soares da Silva Stellet
+  titulo: 'A linguagem da charge no recorte do período eleitoral de 2014: Os ditos e não-ditos do discurso'
+  programa: Sociologia Política — Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  situacao: concluida
+  lattes: '2448367819150686'
+  url: ''
+  publicar: true
+- nivel: doutorado
+  ano: 2016
+  orientando: Carmem Brito Leal
+  titulo: Uma abordagem sócio-histórica do movimento de pescadores e pescadoras artesanais Brasil (mpp)
+  programa: Sociologia Política — Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  situacao: concluida
+  lattes: ''
+  url: ''
+  publicar: true
+- nivel: mestrado
+  ano: 2016
+  orientando: Nelson Luis Motta Goulart
+  titulo: Institucionalização do Sistema Partidário nos Municípios do Brasil (1996 a 2012)
+  programa: Sociologia Política — Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  situacao: concluida
+  lattes: '3428520945946988'
+  url: ''
+  publicar: true
+- nivel: doutorado
+  ano: 2015
+  orientando: Diego Carvalhar Belo
+  titulo: 'Organização Política e Capital Social: estudo sobre a verificação do estado da comunidade cívica
+    das comunidades pesqueiras da Bacia de Campos'
+  programa: Sociologia Política — Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  situacao: concluida
+  lattes: '7979240471545017'
+  url: ''
+  publicar: true
+- nivel: mestrado
+  ano: 2012
+  orientando: Cesária Catarina Carvalho Ribeiro de Maria Souza
+  titulo: 'Internet e comunicação política: Uma análise qualitativa da campanha eleitoral online dos candidatos
+    ao executivo de macaé-rj nas eleições de 2012'
+  programa: Sociologia Política — Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  situacao: concluida
+  lattes: '4635062331128943'
+  url: ''
+  publicar: true
+- nivel: mestrado
+  ano: 2012
+  orientando: João Balbi
+  titulo: 'Financiamento nas Eleições Municipais no Brasil: uma análise das campanhas de 2012.'
+  programa: Sociologia Política — Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  situacao: concluida
+  lattes: ''
+  url: ''
+  publicar: true

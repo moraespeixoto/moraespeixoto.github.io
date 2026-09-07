@@ -1,156 +1,1328 @@
-# Publicacoes.
-#
-# COMO ESTE ARQUIVO E MANTIDO
-#   Este e o arquivo-semente, montado a mao. Ele NAO e a lista completa.
-#   A lista completa vem das ferramentas, que rodam na sua maquina (no container
-#   do Claude Code na web a rede e fechada e ORCID/Crossref/Zenodo/OSF nao
-#   respondem):
-#
-#     python3 ferramentas/importa_lattes.py ~/Downloads/curriculo.xml
-#     python3 ferramentas/coleta_publicacoes.py
-#     python3 ferramentas/gera_site.py
-#
-#   As duas primeiras mesclam por DOI e por titulo normalizado, preservam o que
-#   voce editou a mao e nunca apagam um registro existente.
-#
-# CAMPOS
-#   tipo      artigo | livro | capitulo | evento | preprint | dados | relatorio
-#   doi       so o sufixo canonico, sem o https://doi.org/
-#   url       link alternativo quando nao ha DOI (pagina do periodico, PDF)
-#   publicar  false esconde o item do site sem apaga-lo do arquivo
-#   fonte     de onde veio o registro (lattes, orcid, crossref, zenodo, osf, manual)
-#
-# Comentarios no meio dos dados se perdem na proxima coleta — ver README.md.
+# Publicacoes. Mantido pelas ferramentas de coleta; edicao a mao e preservada.
+#   python3 ferramentas/importa_lattes.py CURRICULO.xml
+#   python3 ferramentas/coleta_publicacoes.py
+# Campos: tipo (artigo|livro|capitulo|evento|preprint|dados|relatorio),
+# doi (so o sufixo), url, publicar (false esconde sem apagar), fonte.
+# Ver README.md. Comentarios no meio deste arquivo se perdem na proxima coleta.
 
 publicacoes:
-
-  - tipo: artigo
-    ano: 2024
-    titulo: "Reeleição de prefeitos e o enfrentamento à pandemia de Covid-19 em 2020"
-    autores: "Vitor Peixoto; João Gabriel R. P. Leal; Larissa Martins Marques; Renato Barreto de Souza"
-    veiculo: "Dados — Revista de Ciências Sociais"
-    detalhe: "v. 67, n. 4, e20220110"
-    doi: "10.1590/dados.2024.67.4.331"
-    url: https://www.scielo.br/j/dados/a/rrmHDstxPX5MNTfKMJPDRXw/
-    destaque: true
-    fonte: manual
-    publicar: true
-
-  - tipo: artigo
-    ano: 2024
-    titulo: "Governança eleitoral e sua credibilidade institucional: uma análise do caso brasileiro"
-    autores: "Vitor de Moraes Peixoto (e outros)"
-    veiculo: "Revista Direitos Fundamentais & Democracia"
-    detalhe: "v. 29, n. 3"
-    doi: "10.25192/issn.1982-0496.rdfd.v.29.iii.2669"
-    url: https://revistaeletronicardfd.unibrasil.com.br/index.php/rdfd/article/view/2669
-    destaque: true
-    fonte: manual
-    publicar: true
-
-  - tipo: artigo
-    ano: 2022
-    titulo: "Financiamento de campanhas e desempenho eleitoral das mulheres nas eleições brasileiras (1998-2020)"
-    autores: "Vitor de Moraes Peixoto (e outros)"
-    veiculo: "Estudos Avançados"
-    detalhe: "v. 36, n. 106"
-    doi: "10.1590/s0103-4014.2022.36106.006"
-    url: https://revistas.usp.br/eav/article/view/205984
-    destaque: true
-    fonte: manual
-    publicar: true
-
-  - tipo: artigo
-    ano: 2020
-    titulo: "Competição política e desigualdades de gênero nas eleições para assembleias estaduais em 2018"
-    autores: "Lígia Fabris Campos; Décio Vieira da Rocha; Leandro Molhano Ribeiro; Vitor de Moraes Peixoto"
-    veiculo: "Revista Brasileira de Políticas Públicas"
-    detalhe: "v. 10, n. 2, p. 586-610"
-    doi: ""
-    url: https://www.publicacoes.uniceub.br/RBPP/article/view/6742
-    fonte: manual
-    publicar: true
-
-  - tipo: livro
-    ano: 2016
-    titulo: "Eleições e financiamento de campanhas no Brasil"
-    autores: "Vitor de Moraes Peixoto"
-    veiculo: "Garamond"
-    detalhe: "Rio de Janeiro"
-    doi: ""
-    url: https://www.amazon.com.br/dp/8576174391
-    destaque: true
-    fonte: manual
-    publicar: true
-
-  - tipo: artigo
-    ano: 2010
-    titulo: "Financiamento de campanhas e desempenho eleitoral no Brasil"
-    autores: "Vitor de Moraes Peixoto"
-    veiculo: "Revista Brasileira de Ciência Política"
-    detalhe: ""
-    doi: ""
-    url: https://www.academia.edu/1863235/
-    fonte: manual
-    publicar: true
-
-  - tipo: artigo
-    ano: 2010
-    titulo: "Financiamento de campanhas: o Brasil em perspectiva comparada"
-    autores: "Vitor de Moraes Peixoto"
-    veiculo: "Perspectivas — Revista de Ciências Sociais (UNESP)"
-    detalhe: ""
-    doi: ""
-    url: https://periodicos.fclar.unesp.br/perspectivas/article/view/2289
-    fonte: manual
-    publicar: true
-
-  - tipo: capitulo
-    ano: 2007
-    titulo: "As bases municipais da votação de Lula em 2006"
-    autores: "Jairo Nicolau; Vitor Peixoto"
-    veiculo: "Cadernos Fórum Nacional"
-    detalhe: "n. 6"
-    doi: ""
-    url: https://www.academia.edu/1863106/
-    fonte: manual
-    publicar: true
-
-  # ---------------------------------------------------------------------------
-  # A CONFERIR — a busca atribuiu estes titulos a voce, mas nao consegui
-  # confirmar a autoria na pagina do periodico. Estao fora do site (publicar:
-  # false). Confirme e vire para true, ou deixe a coleta resolver.
-  # ---------------------------------------------------------------------------
-
-  - tipo: artigo
-    ano: 2023
-    titulo: "Bases ideológicas do bolsonarismo nas eleições de 2022: derrota institucional e avanço da extrema direita no Brasil"
-    autores: "a confirmar"
-    veiculo: "Revista Cronos (UFRN)"
-    detalhe: ""
-    doi: ""
-    url: https://periodicos.ufrn.br/cronos/article/view/39259
-    fonte: manual
-    publicar: false
-
-  - tipo: artigo
-    ano: 2019
-    titulo: "A crise política brasileira dos anos 2000 e o governo de Michel Temer"
-    autores: "a confirmar"
-    veiculo: "Em Construção — arquivos de epistemologia histórica e estudos de ciência (UERJ)"
-    detalhe: ""
-    doi: ""
-    url: https://www.e-publicacoes.uerj.br/emconstrucao/article/view/37665
-    fonte: manual
-    publicar: false
-
-  - tipo: artigo
-    ano: 0
-    titulo: "Uma análise dos determinantes da reeleição de prefeitos"
-    autores: "a confirmar"
-    veiculo: "Agenda Política (UFSCar)"
-    detalhe: ""
-    doi: ""
-    url: https://www.agendapolitica.ufscar.br/index.php/agendapolitica/article/download/646/362/2701
-    fonte: manual
-    publicar: false
+- tipo: artigo
+  ano: 2026
+  titulo: 'O rebojo da fome: insegurança alimentar e nutricional entre pescadores artesanais da Bacia
+    de Campos'
+  autores: MACEDO, Mauro Campos; PEIXOTO, VITOR; PINHO, F. G.; CUNHA, A. A.
+  veiculo: Revista de Politica Públicas da UFMA
+  detalhe: v. 30, p. 251-None
+  doi: 10.18764/2178-2865v30n1e28015
+  url: https://www.periodicoseletronicos.ufma.br/index.php/rppublica/article/view/28015/14960
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2025
+  titulo: 'Bases ideológicas do bolsonarismo nas eleições de 2022: Derrota institucional e avanço da extrema
+    direita no Brasil'
+  autores: JAEGER, R. L. M.; LEITE, D. A.; PEIXOTO, VÍTOR
+  veiculo: A REVISTA CRONOS
+  detalhe: v. 6, p. 85-109
+  doi: 10.21680/1982-5560.2025v26n2
+  url: https://periodicos.ufrn.br/cronos/article/view/39259
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2025
+  titulo: 'De volta às urnas: As eleições suplementares dos ciclos eleitorais de 2012 e 2016'
+  autores: CRESPO, R. A.; RIBEIRO, Leandro Molhano; PEIXOTO, VITOR DE MORAES
+  veiculo: REVISTA BRASILEIRA DE POLÍTICAS PÚBLICAS (RBPP)
+  detalhe: v. 15, p. 17-40
+  doi: 10.5102/rbpp.v15i3.8481
+  url: https://www.publicacoes.uniceub.br/RBPP/article/view/8481/pdf
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2025
+  titulo: Impactos políticos da petrodependência nos municípios fluminenses
+  autores: PEIXOTO, VITOR; OLIVEIRA, B. G.; LEITE, D. A.; SALLES, R. S.
+  veiculo: VÉRTICES
+  detalhe: v. 27, p. 1-23
+  doi: 10.19180/1809-2667.v27n22025.23458
+  url: https://editoraessentia.iff.edu.br/index.php/vertices/article/view/23458
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2025
+  titulo: 'Pandemia de Covid-19: um choque exógeno no ciclo eleitoral de 2022'
+  autores: JAEGER, R. L. M.; LEITE, D. A.; PEIXOTO, VITOR
+  veiculo: AGENDA POLÍTICA
+  detalhe: v. 12, p. 34-59
+  doi: 10.14244/agenda.2024.2.2
+  url: https://www.agendapolitica.ufscar.br/index.php/agendapolitica/article/view/1041
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2025
+  titulo: 'Pescadores artesanais e populações tradicionais: economia, política, estrutura social e conflitos
+    socioambientais'
+  autores: ALEXANDRE NEVES, JORGE; DE MORAES PEIXOTO, Vitor; BRAGA BASTOS, GISELE
+  veiculo: 'Terceiro Milênio: Revista Crítica de Sociologia e Política'
+  detalhe: v. 28, p. 7-12
+  doi: 10.59901/2358-6516/v28n1a0
+  url: https://revistaterceiromilenio.uenf.br/index.php/rtm/article/view/401
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2024
+  titulo: Governaça Eleitoral e sua credibilidade
+  autores: CRESPO, RALPH ANDRE; PEIXOTO, VÍTOR
+  veiculo: Revista direitos fundamentais & democracia (UniBrasil)
+  detalhe: v. 29, p. 114-141
+  doi: ''
+  url: https://revistaeletronicardfd.unibrasil.com.br/index.php/rdfd/article/view/2669
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2024
+  titulo: 'Impacts of participation in Environmental Education projects on the evaluation of public services:
+    an analysis of traditional artisanal fishing populations'
+  autores: PEIXOTO, VITOR DE MORAES; OLIVEIRA, BRUNA GOMES DE; LEITE, DAVI ATHAYDES; BASTOS, GISELE BRAGA
+  veiculo: REVISTA BRASILEIRA DE EDUCAÇÃO AMBIENTAL (ONLINE)
+  detalhe: v. 19, p. 171-187
+  doi: 10.34024/revbea.2024.v17.16015
+  url: https://doi.org/10.34024/revbea.2024.v17.16015
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2024
+  titulo: 'Que o juiz decida: uma análise da judicialização da política e sua ocorrência no âmbito eleitoral'
+  autores: CRESPO, RALPH ANDRÉ; PEIXOTO, VITOR DE MORAES
+  veiculo: CONTRIBUCIONES A LAS CIENCIAS SOCIALES
+  detalhe: v. 17, p. 204-228
+  doi: 10.55905/revconv.17n.1-012
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2024
+  titulo: Reeleição de Prefeitos e o Enfrentamento à Pandemia de Covid-19 em 2020
+  autores: PEIXOTO, VÍTOR; LEAL, J. G. R. P.; MARQUES, L. M.; SOUSA, R. B.
+  veiculo: DADOS - REVISTA DE CIÊNCIAS SOCIAIS
+  detalhe: v. 67, p. 1-None
+  doi: 10.1590/dados.2024.67.4.331
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: capitulo
+  ano: 2024
+  titulo: Transparência, Accountability e Ética
+  autores: PEIXOTO, VITOR; QUINTANILHA, F.
+  veiculo: Princípios da Democracia
+  detalhe: p. 87-115
+  doi: ''
+  url: https://oficinamunicipal.org.br/portfolio/principios-da-democracia-serie-cidadania-e-politica-livro-01/
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2023
+  titulo: 'A impugnação do registro de candidatura no direito eleitoral brasileiro: uma análise para além
+    das dispoições legais'
+  autores: CRESPO, RALPH ANDRE; PEIXOTO, VITOR
+  veiculo: PARANÁ ELEITORAL
+  detalhe: v. 12, p. 20-48
+  doi: ''
+  url: https://www.tre-pr.jus.br/++theme++justica_eleitoral/pdfjs/web/viewer.html?file=https://www.tre-pr.jus.br/institucional/revista-parana-eleitoral/revistas-e-livros/arquivos/revista-no-38/tre-pr-parana-eleitoral-2023-volume-12-revista-3-edicao-completa
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2023
+  titulo: Apresentação do dossiê Eleições e representação no Brasil contemporâneo
+  autores: PEIXOTO, VÍTOR; Paiva, Denise; VIEIRA, S. M.
+  veiculo: TERCEIRO MILÊNIO - REVISTA CRÍTICA DE SOCIOLOGIA E POLÍTICA
+  detalhe: v. 20, p. 7-9
+  doi: ''
+  url: https://www.revistaterceiromilenio.uenf.br/index.php/rtm/issue/view/20
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2023
+  titulo: The impact of Bolsonarism on Covid-19 vaccination coverage in Brazilian municipalities
+  autores: PEIXOTO, VÍTOR; LEAL, J. G. R. P.; MARQUES, L. M.
+  veiculo: Saúde em Debate
+  detalhe: v. 47, p. 806-817
+  doi: 10.1590/0103-1104202313906
+  url: https://www.saudeemdebate.org.br/sed/issue/view/67/121
+  fonte: lattes
+  publicar: true
+- tipo: capitulo
+  ano: 2022
+  titulo: 'Disputa entre herdeiros: a eleição de 2020 em Campos dos Goytacazes'
+  autores: PEIXOTO, VITOR; LEAL, J. G. R. P.; MARQUES, L. M.
+  veiculo: 'Política local no estado do Rio de Janeiro: disputa partidária e comportamento político nas
+    eleições municipais de 2020'
+  detalhe: p. 1-391
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2022
+  titulo: 'Eleição proporcional em 2020: uma anÃ¡lise do desempenho feminino nos municÃ­pios brasileiros'
+  autores: PEIXOTO, VÍTOR; MARQUES, LARISSA MARTINS; MACHADO, MATHEUS VIRGINIO HARDUIM
+  veiculo: CADERNO ELETRÔNICO DE CIÊNCIAS SOCIAIS
+  detalhe: v. 10, p. 109-133
+  doi: 10.47456/cadecs.v10i1.39681
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2022
+  titulo: Financiamento de campanhas e desempenho eleitoral das mulheres nas eleições brasileiras (1998-2020)
+  autores: PEIXOTO, VITOR DE MORAES; MARQUES, LARISSA MARTINS; RIBEIRO, Leandro Molhano
+  veiculo: Estudos Avançados
+  detalhe: v. 36, p. 93-116
+  doi: 10.1590/s0103-4014.2022.36106.006
+  url: https://www.scielo.br/j/ea/a/TnKTxD8TL3Kqq58CdWfcV5n/?lang=pt#
+  fonte: lattes
+  publicar: true
+- tipo: capitulo
+  ano: 2022
+  titulo: O novo sistema partidário eleitoral veio para ficar?
+  autores: KERBAUY, M. T. M.; PEIXOTO, VITOR; MELO, P. V.; MARQUES, L. M.
+  veiculo: Eleições municipais na pandemia
+  detalhe: p. 1-351
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: capitulo
+  ano: 2022
+  titulo: 'O ocaso Fluminense: partidos e competição eleitoral no Rio de Janeiro'
+  autores: PEIXOTO, VITOR
+  veiculo: SISTEMAS PARTIDÁRIOS, PARTIDOS E ELEIÇÕES 1998 - 2018
+  detalhe: p. 1-408
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2022
+  titulo: Participação e avaliação de projetos de Educação Ambiental nos municípios limítrofes à bacia
+    petrolífera de Campos (RJ)
+  autores: PEIXOTO, VITOR DE MORAES; BASTOS, GISELE BRAGA; MARQUES, LARISSA MARTINS; OLIVEIRA, LARA BERNARDO
+    DE
+  veiculo: REVISTA BRASILEIRA DE EDUCAÇÃO AMBIENTAL (IMPRESSO)
+  detalhe: v. 17, p. 239-262
+  doi: 10.34024/revbea.2022.v15.13950
+  url: https://periodicos.unifesp.br/index.php/revbea/article/view/13950
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2022
+  titulo: Participação eleitoral nas disputas nacionais, estaduais e municipais no Brasil (1998-2020)
+  autores: SPECK, B. W.; PEIXOTO, VITOR
+  veiculo: REVISTA BRASILEIRA DE CIÊNCIA POLÍTICA
+  detalhe: v. 39, p. 1-42
+  doi: 10.1590/0103-3352.2022.39.258449
+  url: https://www.scielo.br/j/rbcpol/a/W9YYvT9fYsbKT8yVCx9Tfxg/?lang=pt
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2022
+  titulo: Uma análise dos determinantes da reeleição de prefeitos nos municípios brasileiros em 2016
+  autores: PEIXOTO, VITOR; LEAL, J. G.; SOUZA, R. B.; MACHADO, M. V. H.
+  veiculo: AGENDA POLÍTICA
+  detalhe: v. 9, p. 86 - 117-117
+  doi: 10.31990/agenda.2021.3.3
+  url: http://agendapolitica.ufscar.br/index.php/agendapolitica/article/view/646
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2021
+  titulo: A identidade e a ideologia do Partido Republicano
+  autores: ALMEIDA, J. V.; PEIXOTO, VITOR
+  veiculo: TEMPO DA CIÊNCIA
+  detalhe: v. 28, p. 67-87
+  doi: 10.48075/rtc.v28i55.28038
+  url: http://e-revista.unioeste.br/index.php/tempodaciencia/article/view/28038/17786
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2021
+  titulo: Avaliação de serviços e equipamentos públicos em munícipios limítrofes à Bacia de Campos / evaluation
+    of public services and equipment in municipalities bordering the Campos Basin
+  autores: PEIXOTO, VITOR DE MORAES; BASTOS, GISELE BRAGA; MARQUES, LARISSA MARTINS; SANTOS, GÉSSICA DA
+    SILVA DOS
+  veiculo: Brazilian Journal of Development
+  detalhe: v. 7, p. 24388-24400
+  doi: 10.34117/bjdv7n3-239
+  url: https://www.brazilianjournals.com/index.php/BRJD/article/view/26107
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2021
+  titulo: 'Classe social e riscos em populações tradicionais: uma análise sobre pescadores artesanais
+    em situação de risco socioambiental'
+  autores: PEIXOTO, VITOR; BASTOS, G. B.; MARQUES, L. M.; ARAUJO, P. R. C.
+  veiculo: 20º Congresso Brasileiro de Sociologia
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2020
+  titulo: Análises dos Recursos Especiais às Ações de Impugnações de Candidaturas na Eleições Majoritárias
+    de 2012
+  autores: CRESPO, R. A.; PEIXOTO, VITOR
+  veiculo: '12 Encontro ABCP: Democracia & Democracia'
+  detalhe: v. 12
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2020
+  titulo: Avaliação de Serviços e Equipamentos Públicos em Múnicipios Limítrofes à Bacia de Campos
+  autores: PEIXOTO, VITOR; BASTOS, G. B.; SANTOS, G. S.; MARQUES, L. M.
+  veiculo: Congresso Internacional Interdisciplinar Em Sociais e Humanidades
+  detalhe: v. 9
+  doi: ''
+  url: https://www.even3.com.br/anais/coninter2020/298837-avaliacao-de-servicos-e-equipamentos-publicos-em-municipios-limitrofes-a-bacia-de-campos/
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2020
+  titulo: Competição política e desigualdades de gênero nas eleições para assembleias estaduais em 2018
+  autores: CAMPOS, L. F.; ROCHA, D. V.; RIBEIRO, L. M.; PEIXOTO, VITOR
+  veiculo: Revista Brasileira de Políticas Públicas
+  detalhe: v. 10, p. 587-610
+  doi: 10.5102/rbpp.v10i2.6742
+  url: https://www.publicacoesacademicas.uniceub.br/RBPP/issue/view/263
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2020
+  titulo: 'Jovens pentecostais em tempos de política: a Força Jovem Universal na campanha eleitoral de
+    2016'
+  autores: ALMEIDA, J. V.; MESQUITA, W. A. B.; PEIXOTO, VITOR DE MORAES
+  veiculo: SOCIEDAD Y RELIGIÓN (ONLINE)
+  detalhe: v. 30, p. 55-72
+  doi: ''
+  url: http://www.scielo.org.ar/scielo.php?script=sci_arttext&pid=S1853-70812020000200055
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2020
+  titulo: O impacto da avaliação da economia no apoio à democracia
+  autores: PEIXOTO, VITOR; SOUZA, J. M.
+  veiculo: TENSÕES MUNDIAIS (IMPRESSO)
+  detalhe: v. 16, p. 69-92
+  doi: 10.33956/tensoesmundiais.v16i30.3046
+  url: https://revistas.uece.br/index.php/tensoesmundiais/article/view/1470
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2020
+  titulo: Quem são os apoiadores do golpe militar no Brasil contemporâneo?
+  autores: PEIXOTO, VITOR; SOUZA, J. M.; MARQUES, L. M.
+  veiculo: '12 Encontro ABCP: Democracia & Democracia'
+  detalhe: v. 12
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2020
+  titulo: 'Reeleição de prefeitos: uma análise das eleições de 2004, 2008, 2012 e 2016 para os executivos
+    municipais do Brasil'
+  autores: SOUZA, R. B.; PEIXOTO, VITOR; LEAL, J. G.; MACHADO, M. V. H.
+  veiculo: '12 Encontro ABCP: Democracia & Democracia'
+  detalhe: v. 12
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2019
+  titulo: A identidade e a ideologia do partido republicano Brasileiro (prb)
+  autores: Vieira de Almeida; PEIXOTO, VITOR
+  veiculo: X Congresso Latinoamericano de Ciência Política (ALACIP)
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2019
+  titulo: 'Agora, ministro do TSE: uma análise da escolha de advogados para atuarem como ministros da
+    alta Corte Eleitoral'
+  autores: CRESPO, R. A.; PEIXOTO, VITOR
+  veiculo: 19º Congresso Brasileiro de Sociologia
+  detalhe: v. 1, p. 1-19
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: capitulo
+  ano: 2019
+  titulo: Análise Socioeconômica e Caracterização Familiar dos Pescadores Artesanais dos Municípios Confrontantes
+    a Bacia de Campos-RJ
+  autores: PEIXOTO, VITOR DE MORAES; BELO, D. C.; DOS SANTOS, G. S.
+  veiculo: Trabalho e Pesca no Litoral Fluminense
+  detalhe: p. 97-119
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: capitulo
+  ano: 2019
+  titulo: Análise quali-quanti e Produção de Indicadores do Projeto PEA-Pescarte
+  autores: PEIXOTO, VITOR; BELO, D. C.; NOGUEIRA, Murilo
+  veiculo: 'Educação Ambiental com Participação Popular: Avançando na Gestão Democrática do Ambiente'
+  detalhe: p. 268-284
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2019
+  titulo: Análise socioeconômica e caracterização familiar dos pescadores artesanais dos municípios confrontantes
+    à Bacia de Campos - RJ
+  autores: PEIXOTO, VITOR; BELO, D. C.; DOS SANTOS, G. S.
+  veiculo: AGENDA SOCIAL (UENF)
+  detalhe: v. 13, p. 127-148
+  doi: ''
+  url: http://www.revistaagendasocial.com.br/index.php/agendasocial/article/view/397
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2019
+  titulo: As impugnações de candidaturas nas eleições majoritárias de 2012 e 2016 no estado do Rio de
+    Janeiro.
+  autores: CRESPO, R. A.; PEIXOTO, VITOR
+  veiculo: X Congresso da Associação Brasileira de Pesquisadores em Sociologia do Direito - ABRASD
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: capitulo
+  ano: 2019
+  titulo: 'Capital Social e Associativismo dos Pescadores Artesanais de Municípios Limítrofes à Bacia
+    de Campos: análise a partir dos dados PEA-Pescarte'
+  autores: PEIXOTO, VITOR; BELO, D. C.
+  veiculo: Trabalho e Pesca no Litoral Fluminense
+  detalhe: p. 20-33
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2019
+  titulo: 'Capital Social e associativismo dos pescadores artesanais de municípios limítrofes à Bacia
+    de Campos: análise a partir dos dados do Projeto PEA-Pescarte'
+  autores: BELO, D. C.; PEIXOTO, VITOR
+  veiculo: AGENDA SOCIAL (UENF)
+  detalhe: v. 13, p. 28-46
+  doi: ''
+  url: http://www.revistaagendasocial.com.br/index.php/agendasocial/article/view/396/182
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2019
+  titulo: Condicionantes da Tolerância Política no Brasil Contemporâneo
+  autores: PEIXOTO, VITOR; SOUZA, J. M.
+  veiculo: CSONLINE (UFJF)
+  detalhe: v. 30, p. 141-155
+  doi: ''
+  url: https://periodicos.ufjf.br/index.php/csonline/article/view/27702
+  fonte: lattes
+  publicar: true
+- tipo: capitulo
+  ano: 2019
+  titulo: Desafios da Econômia Solidária
+  autores: PEIXOTO, VITOR; COSTA, K.
+  veiculo: Economia Solidária de Desenvolvimento Social
+  detalhe: p. 92-97
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2019
+  titulo: Economia e Intolerância Política no Brasil conemporâneo.
+  autores: SOUZA, J. M.; PEIXOTO, VITOR; MARQUES, L. M.
+  veiculo: XI Seminário de Pesquisa da Estácio
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2019
+  titulo: 'Financiamento Publico e Qualidade da Educação: uma análise do gasto municipal em educação e
+    do indice de desenvolvimento da educação basica (IDEB)'
+  autores: XAVIER, A. B. S.; PEIXOTO, VITOR; ROHEN, M.
+  veiculo: CSONLINE - REVISTA ELETRÔNICA DE CIÊNCIAS SOCIAIS
+  detalhe: v. 28, p. 75-None
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2019
+  titulo: 'Financiamento da saúde em tempos de crise econômica: uma análise do custeio da saúde nos municípios
+    do Norte e Noroeste Fluminense'
+  autores: LEAL, J. G.; PEIXOTO, VITOR
+  veiculo: PETRÓLEO, ROYALTIES E REGIÃO
+  detalhe: v. 62, p. 48-53
+  doi: ''
+  url: https://royaltiesdopetroleo.ucam-campos.br/wp-content/uploads/2019/05/boletim-royalties-abril-2019-5.pdf
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2019
+  titulo: 'Ideologia de gênero?: divergência discursiva entre o programa partidário e atos do Partido
+    Republicano Brasileiro (PRB)'
+  autores: Vieira de Almeida; PEIXOTO, VITOR
+  veiculo: Congresso Brasileiro de Sociologia
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: capitulo
+  ano: 2019
+  titulo: 'Modelagem probabilística: Análise de Sobrevivência na Saúde como base para construção de Análise
+    de Permanência na Educação'
+  autores: VIANA, C. C. B.; AREAS, C. A. C.; AREAS, H. C. A.; CARREIRO, L. S.; CARMO, G. T.; PEIXOTO,
+    VITOR; Mesquita, Paulo S. B.
+  veiculo: 'O enigma da permanência na educação : incursões técnicas e metodológicas para investigação'
+  detalhe: p. 132-141
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2019
+  titulo: O impacto das avalições sobre economia na tolerância política.
+  autores: SOUZA, J. M.; PEIXOTO, VITOR; MARQUES, L. M.
+  veiculo: IV Congresso Fluminense de Pós-Graduação
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2019
+  titulo: 'Ompetro: Uma experiência de cooperação entre municípios no estado do Rio de Janeiro'
+  autores: CRESPO, R. A.; AZEVEDO, Nilo Lima de.; PEIXOTO, VITOR; LEAL, J. G.
+  veiculo: REVISTA BRASILEIRA DE GESTÃO E DESENVOLVIMENTO REGIONAL
+  detalhe: v. 15, p. 184-None
+  doi: ''
+  url: https://www.rbgdr.net/revista/index.php/rbgdr/article/view/5268
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2019
+  titulo: 'Ompetro: uma análise institucional da cooperação entre municípios do Estado do Rio de Janeiro.'
+  autores: CRESPO, R. A.; AZEVEDO, Nilo Lima de.; LEAL, J. G.; PEIXOTO, VITOR
+  veiculo: X Congresso Latinoamericano de Ciência Política (ALACIP)
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: capitulo
+  ano: 2019
+  titulo: Os &quot;Nem Nem&quot; na População de Pescadores Artesanais dos Municípios Confrontantes à
+    Bacia de Campos
+  autores: PEIXOTO, VITOR; BELO, D. C.; DOS SANTOS, G. S.
+  veiculo: Trabalho e Pesca no Litoral Fluminense
+  detalhe: p. 287-293
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2019
+  titulo: 'Os ministros juristas do TSE: uma análise da escolha de advogados para atuarem como ministros
+    da Corte eleitoral brasileira'
+  autores: CRESPO, R. A.; PEIXOTO, VITOR; LEAL, J. G. R. P.
+  veiculo: PLURAL (SÃO PAULO. ONLINE)
+  detalhe: v. 26, p. 49-73
+  doi: 10.11606/issn.2176-8099.pcso.2019.165672
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: capitulo
+  ano: 2019
+  titulo: 'Pastoral da Pesca: Trajetória e Desafios na Organização dos(as) Pescadores(as) Artesanais do
+    Brasil'
+  autores: BRITO, C. I.; PEIXOTO, VITOR
+  veiculo: Trabalho e Pesca no Litoral Fluminense
+  detalhe: p. 120-132
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2019
+  titulo: 'Pastoral da pesca: Trajetória e desafios na organização dos/as pescadores artesanais do Brasil'
+  autores: BRITO, C. I.; PEIXOTO, VITOR
+  veiculo: AGENDA SOCIAL (UENF)
+  detalhe: v. 13, p. 149-167
+  doi: ''
+  url: http://www.revistaagendasocial.com.br/index.php/agendasocial/article/view/358
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2019
+  titulo: Uma análise das listas tríplices elaboradas entre 2008 a 2018 para a escolha de ministros juristas
+    do TSE.
+  autores: CRESPO, R. A.; PEIXOTO, VITOR
+  veiculo: X I Seminário de Pesquisa da Estácio
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2019
+  titulo: Vulnerabilidade dos pescadores artesanais e acesso às políticas públicas de saúde nos municípios
+    da bacia de campos (RJ)
+  autores: CAMPOS, M. M.; TIMOTEO, G. M.; PEIXOTO, VITOR; BELO, D. C.
+  veiculo: AGENDA SOCIAL (UENF)
+  detalhe: v. 13, p. 90-107
+  doi: ''
+  url: http://www.revistaagendasocial.com.br/index.php/agendasocial/article/view/404/185
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2018
+  titulo: A crise política Brasileira dos anos 2000 e o governo de michael temer
+  autores: PEIXOTO, VITOR DE MORAES; CRESPO, RALPH ANDRE
+  veiculo: Em Construção
+  detalhe: v. 1, p. 132-145
+  doi: 10.12957/emconstrucao.2018.37665
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2018
+  titulo: A lei da ficha limpa e a judicialização da política nas eleições suplementares de 2012
+  autores: CRESPO, R. A.; PEIXOTO, VITOR
+  veiculo: IX Congresso Internacional da ABraSD - Associação Brasileira de Pesquisadores em Sociologia
+    do Direito.
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2018
+  titulo: 'Accountability sobre as contas dos prefeitos: Como as Câmaras Locais reagem aos pareceres prévios
+    dos Tribunais de Contas?'
+  autores: SOUZA, C. C. C. R. M.; PEIXOTO, VITOR
+  veiculo: 42º Encontro Anual da ANPOCS
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2018
+  titulo: Análise Quantitativa e Produção de Indicadores para o Projeto PESCARTE
+  autores: DOS SANTOS, G. S.; PEIXOTO, VITOR
+  veiculo: X Congresso Fluminense de Iniciação Científica e Tecnológica
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2018
+  titulo: 'Economiasocial da (in)tolerância política: como as avalições sobre economia impactam as atitudes
+    democráticas.'
+  autores: PEIXOTO, VITOR; SOUZA, J. M.
+  veiculo: 42º Encontro Anual da ANPOCS
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2018
+  titulo: 'Eleições suplementares nos municípios Brasileiros: Os casos nas eleições de 2012.'
+  autores: CRESPO, R. A.; PEIXOTO, VITOR
+  veiculo: CSONLINE (UFJF)
+  detalhe: p. 170-185
+  doi: 10.34019/1981-2140.2018.17441
+  url: https://periodicos.ufjf.br/index.php/csonline/article/view/17441
+  fonte: lattes
+  publicar: true
+- tipo: capitulo
+  ano: 2018
+  titulo: Financiamento político na nova república
+  autores: PEIXOTO, VITOR; CAMPOS, Mauro Macedo
+  veiculo: 25 anos de eleições presidenciais no Brasil
+  detalhe: p. 171-196
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2018
+  titulo: 'Gasto por Aluno dos Municípios Brasileiros: Uma análise do Gasto Municipal com Educação e o
+    IDEB'
+  autores: XAVIER, A. B. S.; PEIXOTO, VITOR
+  veiculo: X Congresso Fluminense de Iniciação Científica e Tecnológica
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2018
+  titulo: 'Gasto público e partidos políticos: Uma análise dos municípios Brasileiros (2002-2015)'
+  autores: Linhares, M. R.; PEIXOTO, VITOR
+  veiculo: CSONLINE (UFJF)
+  detalhe: v. 1, p. 186-209
+  doi: ''
+  url: https://csonline.ufjf.emnuvens.com.br/csonline/article/view/2781/1833
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2018
+  titulo: Mais Dinheiro é Mais Educação? Uma análise do gasto em educação dos municípios brasileiros
+  autores: XAVIER, A. B. S.; PEIXOTO, VITOR
+  veiculo: Revista Tópicos Educacionais (online)
+  detalhe: v. 24, p. 82-101
+  doi: ''
+  url: https://periodicos.ufpe.br/revistas/topicoseducacionais/article/view/242908
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2018
+  titulo: 'Partidos Políticos e Sistema Único de Saúde: O Impacto dos Partidos Políticos nos Valores Gastos
+    na Saúde nos Municípios Brasileiros'
+  autores: LEAL, J. G. R. P.; PEIXOTO, VITOR
+  veiculo: III Encontro Nacional de Políticas Públicas
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2018
+  titulo: 'Petro-rendas e o SUS: municípios dependentes das rendas petrolíferas gastam mais com a saúde
+    pública?'
+  autores: LEAL, J. G.; PEIXOTO, VITOR
+  veiculo: Revista dos Estudantes de Públicas
+  detalhe: v. 3, p. 53-72
+  doi: ''
+  url: http://periodicos.unb.br/index.php/rep/article/view/24563
+  fonte: lattes
+  publicar: true
+- tipo: capitulo
+  ano: 2018
+  titulo: 'Política e compromisso religioso: notas sobre a IURD e a atuação dos cabos eleitorais a partir
+    do PRB'
+  autores: Vieira de Almeida; PEIXOTO, VITOR; Belchior Mesquita
+  veiculo: 'Religião e política á brasileira: Ensaios, Interpretações e resistência no país da política
+    e da religião'
+  detalhe: p. 93-98
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2018
+  titulo: 'Políticas públicas de expansão no ensino superior: A correspondência entre as formações e ocupações
+    dos egressos no mercado de trabalho.'
+  autores: VELOSO, R.; PEIXOTO, VITOR
+  veiculo: III Congresso Fluminense de Pós Graduação
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2018
+  titulo: 'Qualidade da Educação e Financiamento Público: Uma Análise do Desempenho dos Municípios do
+    Norte e Noroeste Fluminense do Rio de Janeiro.'
+  autores: XAVIER, A. B. S.; PEIXOTO, VITOR
+  veiculo: V Semana de Geografia da UFF
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: capitulo
+  ano: 2018
+  titulo: Representação política de mulheres nas eleições municipais de 2016
+  autores: PEIXOTO, VITOR; TISSE DA SILVA, G.
+  veiculo: 'Comportamento Político e Opinião Pública: estudos sobre Brasil e América Latina'
+  detalhe: p. 77-90
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2018
+  titulo: Uma Análise Socioeconômica e Caracterização Familiar dos Pescadores Artesanais dos Municípios
+    da Bacia de Campos
+  autores: DOS SANTOS, G. S.; PEIXOTO, VITOR
+  veiculo: X Seminário de Pesquisa da Estácio
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2017
+  titulo: 'A Cota, o Partido e a Mulher: duas décadas de vigência das cotas eleitorais de gênero sobre
+    as candidaturas partidárias nas eleições municipais proporcionais (1996-2016)'
+  autores: PEIXOTO, VITOR; GOULART, N. L. M.; SILVA, G. T.
+  veiculo: CSONLINE - REVISTA ELETRÔNICA DE CIÊNCIAS SOCIAIS
+  detalhe: v. 23, p. 209-228
+  doi: ''
+  url: https://csonline.ufjf.emnuvens.com.br/csonline/article/view/2818/1720
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2017
+  titulo: Competição Eleitoral e Gastos Públicos com Educação nos Municípios Brasileiros
+  autores: XAVIER, A. B. S.; GOULART, Nelson. L. M.; PEIXOTO, VITOR
+  veiculo: IX Congresso Fluminense de Iniciação Científica e Tecnológica
+  detalhe: ''
+  doi: ''
+  url: http://www.essentiaeditora.iff.edu.br/index.php/confict/article/view/10200
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2017
+  titulo: 'Instituições de controle e sistema eleitoral do Brasil: análise dos impactos eleitorais da
+    nova tese fixada pelo Supremo Tribunal Federal.'
+  autores: SOUZA, C. C. C. R. M.; PEIXOTO, VITOR; Linhares, M. R.; GOULART, Nelson. L. M.
+  veiculo: XXXI Congresso Alas Uruguay
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2017
+  titulo: Mulheres nas Eleições Proporcionais Municipais de 2016
+  autores: PEIXOTO, VITOR; TISSE DA SILVA, G.
+  veiculo: TEORIA & PESQUISA
+  detalhe: v. 26, p. 39-59
+  doi: ''
+  url: http://www.teoriaepesquisa.ufscar.br/index.php/tp/article/view/609/367
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2017
+  titulo: 'Os Partidos Políticos e as Mulheres: A Sub-Representação Eleitoral Feminina nas Eleiçoes Proporcionais
+    Municipais de 2012'
+  autores: PEIXOTO, VITOR; GOULART, N. L. M.; SILVA, G. T.
+  veiculo: Almanaque de Ciência Política
+  detalhe: v. 1, p. 15-None
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2017
+  titulo: 'Sistema Único de Saúde (SUS) e Oferta de serviço de saúde: Uma análise da oferta de leitos
+    hospitalares nos municípios brasileiros por meio da estatística descritiva'
+  autores: LEAL, J. G. R. P.; PEIXOTO, VITOR
+  veiculo: IX Congresso Fluminense de Iniciação Científica e Tecnológica
+  detalhe: v. 9
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2016
+  titulo: 'Bolsa Família e Desenvolvimento: Uma análise da Relação entre o Gasto do Bolsa Família e o
+    Índice de Desenvolvimento Humano Municipal'
+  autores: XAVIER, A. B. S.; GOULART, Nelson. L. M.; PEIXOTO, VITOR
+  veiculo: VIII Congresso Fluminense de Iniciação Científica e Tecnológica
+  detalhe: ''
+  doi: ''
+  url: https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwjb48_L2ofbAhULDZAKHbpKB28QFggoMAA&url=http%3A%2F%2Fessentiaeditora.iff.edu.br%2Findex.php%2Fconfict%2Farticle%2Fdownload%2F9370%2F6981&usg=AOvVaw1vIIwig1jN_8ZH7
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2016
+  titulo: 'Comunicação política e campanhas on-Line: análise da evolução da legislação eleitoral brasileira
+    sobre o uso da internet como ferramenta de campanha'
+  autores: PEIXOTO, VITOR; SOUZA, C. C. C. R. M.
+  veiculo: Política & Sociedade (Online)
+  detalhe: v. 15, p. 283-314
+  doi: ''
+  url: https://periodicos.ufsc.br/index.php/politica/article/view/48327/33270
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2016
+  titulo: Cotas e mulheres nas eleições legislativas de 2014
+  autores: PEIXOTO, VITOR; GOULART, Nelson. L. M.; SILVA, G. T.
+  veiculo: Política & Sociedade (Online)
+  detalhe: v. 15, p. 126-144
+  doi: ''
+  url: https://periodicos.ufsc.br/index.php/politica/issue/view/v.%2015%2C%20n.%2032%2C%20Janeiro-Abril%20de%202016/showToc
+  fonte: lattes
+  publicar: true
+- tipo: livro
+  ano: 2016
+  titulo: Eleições e Financiamento de Campanhas no Brasil
+  autores: PEIXOTO, VITOR
+  veiculo: Garamond
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2016
+  titulo: 'Política pública e habitação: a correlação entre o déficit habitacional e o volume de unidades
+    do programa minha casa, minha vida nos municípios brasileiros'
+  autores: LEAL, J. G. R. P.; GOULART, Nelson. L. M.; PEIXOTO, VITOR
+  veiculo: Encontro Nacional de Políticas Públicas
+  detalhe: v. 2, p. 496-521
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2016
+  titulo: Presidencialismo de mandato máximo ou voto de desconfiança sem autodissolução do legislativo
+  autores: PEIXOTO, VITOR
+  veiculo: Em Debate (Belo Horizonte)
+  detalhe: v. 8, p. 27-33
+  doi: ''
+  url: http://opiniaopublica.ufmg.br/site/files/artigo/Vitor-Peixoto.pdf
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2015
+  titulo: 'Capital Social em populações tradicionais: confiança e participação nas comunidades de pescadores
+    artesanais da Bacia de Campos dos Goytacazes'
+  autores: PEIXOTO, VITOR; BELO, D. C.
+  veiculo: Agenda Social (UENF)
+  detalhe: v. 9, p. 190-214
+  doi: ''
+  url: http://revistaagendasocial.com.br/index.php/agendasocial/article/view/242/126
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2015
+  titulo: 'Eleições Presidenciais no Brasil de 2014: Políticas Sociais e Desempenho Eleitoral'
+  autores: PEIXOTO, VITOR; GOULART, N.
+  veiculo: Em Debate (Belo Horizonte)
+  detalhe: v. 7, p. 8-19
+  doi: ''
+  url: http://issuu.com/grupoopiniaopublica/docs/0_janeiro_15_completa/9?e=14683004/11574752
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2015
+  titulo: Gasto Público Municipal em Educação Básica e Desempenho Escolar
+  autores: PEIXOTO, VITOR; GOULART, N.; Sliva, A. R.
+  veiculo: VII Congresso Fluminense de Iniciação Científica
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2015
+  titulo: 'Inovação institucional pendular: Análise da regulação da participação privada no custeio do
+    sistema político Brasileiro (1946 a 2015)'
+  autores: CAMPOS, Mauro Macedo; PEIXOTO, VITOR
+  veiculo: Teoria & Sociedade (UFMG)
+  detalhe: v. 23, p. 15-48
+  doi: ''
+  url: http://www.fafich.ufmg.br/revistasociedade/index.php/rts/article/view/203/147
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2015
+  titulo: 'Máquina Política e Competição Eleitoral: uma análise das eleições municipais (2008 e 2012)'
+  autores: PEIXOTO, VITOR; Linhares, M. R.; GOULART, Nelson. L. M.
+  veiculo: VII Congresso Fluminense de Iniciação Científica e Tecnológica
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2015
+  titulo: 'Políticas públicas e partidos políticos na administração municipal: Bolsa Família, Minha Casa
+    Minha Vida e Mais Médicos nos municípios brasileiros'
+  autores: PEIXOTO, VITOR; Linhares, M. R.; GOULART, Nelson. L. M.; Sliva, A. R.
+  veiculo: II Encontro Internacional de Participação, Democracia e Políticas Públicas
+  detalhe: ''
+  doi: ''
+  url: http://www.pdpp2015.sinteseeventos.com.br/
+  fonte: lattes
+  publicar: true
+- tipo: capitulo
+  ano: 2015
+  titulo: 'Sistema Político Brasileiro: uma introdução'
+  autores: NUNES, Edson.; RIBEIRO, Leandro Molhano; PEIXOTO, VITOR
+  veiculo: Agencias Reguladoras no Brasil
+  detalhe: p. 220-236
+  doi: ''
+  url: http://www.kas.de/brasilien/pt/publications/41328/
+  fonte: lattes
+  publicar: true
+- tipo: relatorio
+  ano: 2014
+  titulo: A criminalização da participação política
+  autores: PEIXOTO, VITOR
+  veiculo: Valor Economico
+  detalhe: ''
+  doi: ''
+  url: http://www.valor.com.br/politica/3402768/criminalizacao-da-participacao-politica
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2014
+  titulo: Competição Eleitoral e Gasto Público Municipal em Educação Fundamental nos Municípios Brasileiros
+  autores: PEIXOTO, VITOR; GOULART, Nelson. L. M.; Sliva, A. R.
+  veiculo: I Encontro Nacional de Políticas Públicas
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2014
+  titulo: 'Democracia E Clientelismo: Uma Análise Da Competição Eleitoral e Emprego Público nos municípios
+    brasileiros (2008 E 2012)'
+  autores: PEIXOTO, VITOR; Linhares, M. R.
+  veiculo: VI Congresso Fluminense de Iniciação Científica e Tecnológica
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2014
+  titulo: Emprego Público e Competição Eleitoral nos municípios brasileiros de 2008 a 2012
+  autores: PEIXOTO, VITOR; Linhares, M. R.; GOULART, Nelson. L. M.
+  veiculo: I Encontro Nacional de Políticas Públicas
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2014
+  titulo: Evolução da competição eleitoral municipal no Brasil (1996 a 2012)
+  autores: PEIXOTO, VITOR; GOULART, N.
+  veiculo: Teoria & Pesquisa
+  detalhe: v. 23, p. 41-63
+  doi: 10.4322/tp.2014.012
+  url: http://dx.doi.org/10.4322/tp.2014.012
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2014
+  titulo: Financiamento de Campanhas nas Eleições Legislativas Brasileiras em 2010
+  autores: PEIXOTO, VITOR
+  veiculo: Em Debate (Belo Horizonte)
+  detalhe: v. 6, p. 36-54
+  doi: ''
+  url: http://www.opiniaopublica.ufmg.br/emdebate/EDmarco2014.pdf
+  fonte: lattes
+  publicar: true
+- tipo: relatorio
+  ano: 2014
+  titulo: Oligarquias locais e eleições presidenciais
+  autores: PEIXOTO, VITOR
+  veiculo: Valor Economico
+  detalhe: ''
+  doi: ''
+  url: http://www.valor.com.br/politica/3604252/oligarquias-locais-e-eleicoes-presidenciais
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2013
+  titulo: Competição Eleitoral e Indicadores Socioeconômicos nos municípios brasileiros
+  autores: PEIXOTO, VITOR; Linhares, M. R.
+  veiculo: V Congresso Fluminense de Iniciação Científica e Tecnológica
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2013
+  titulo: 'Comunicação política e campanhas online: Análise da evolução da legislação eleitoral brasileira
+    sobre o uso da internet como ferramenta de campanha Acta Científica'
+  autores: SOUZA, C. C. C. R. M.; PEIXOTO, VITOR
+  veiculo: XXIX Congreso de la Asociación Latinoamericana de Sociología
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2013
+  titulo: 'Internet e comunicação política: O uso do facebook pelos principais candidatos ao executivo
+    de Macaé-RJ nas eleições de 2012.'
+  autores: SOUZA, C. C. C. R. M.; PEIXOTO, VITOR
+  veiculo: "III Fórum Brasileiro de Pós-Graduação em Ciência Política \x96 UFPR"
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2012
+  titulo: Competição Eleitoral nos Municípios Brasileiros (1996 a 2008)
+  autores: PEIXOTO, VITOR
+  veiculo: CUARTO CONGRESO URUGUAYO DE CIENCIA POLÍTICA
+  detalhe: ''
+  doi: ''
+  url: http://www.aucip.org.uy/index.php/congresos-aucip/congreso-2012/divisiones.html
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2012
+  titulo: Comportamento político e Mobilidade Social no Brasil
+  autores: PEIXOTO, VITOR; RENNO, Lucio.
+  veiculo: 6º Congreso Latinoamericano de Ciencia Politica
+  detalhe: ''
+  doi: ''
+  url: http://www.alacip2012.org/
+  fonte: lattes
+  publicar: true
+- tipo: capitulo
+  ano: 2012
+  titulo: 'Cultura, religião e política em diferentes metrópoles brasileiras: as idiossincrasias da modernidade
+    evangélica em um mundo pós-moderno'
+  autores: SMIDERLE, C. G. S. M.; AZEVEDO, Sergio.; PEIXOTO, VITOR
+  veiculo: 'Cultura Política, Cidadania e Voto: desafios para a governanca metropolitana'
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2012
+  titulo: Onde estão os grotões? Competição eleitoral nos municipios brasileiros
+  autores: PEIXOTO, VITOR
+  veiculo: 36º Encontro Anual da Anpocs
+  detalhe: ''
+  doi: ''
+  url: http://anpocs.org.br/
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2011
+  titulo: Competição Eleitoral nos Municípios Brasileiros
+  autores: PEIXOTO, VITOR
+  veiculo: World Association for Public Opinior Research
+  detalhe: ''
+  doi: ''
+  url: http://www.waporbh.ufmg.br/papers/Vitor_de_Moraes_Peixoto.pdf
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2011
+  titulo: 'Mobilidade social ascendente e voto: as eleições presidenciais de 2010 no Brasil'
+  autores: PEIXOTO, VITOR; RENNO, Lucio.
+  veiculo: Opinião Pública (UNICAMP)
+  detalhe: v. 17, p. 304-332
+  doi: 10.1590/s0104-62762011000200002
+  url: https://www.scielo.br/j/op/a/D5dqMJzXKPr4nqyhGmcP6NM/?lang=pt
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2011
+  titulo: 'Voto em Dilma nas Eleições Presidenciais de 2010: determinantes políticos, econômicos e sociais'
+  autores: RENNO, Lucio.; PEIXOTO, VITOR
+  veiculo: 35 Encontro anula da ANPOCS
+  detalhe: ''
+  doi: ''
+  url: http://www.anpocs.org.br/portal/index.php?option=com_wrapper&Itemid=94
+  fonte: lattes
+  publicar: true
+- tipo: capitulo
+  ano: 2010
+  titulo: 'Coligações Eleitorais nos Municípios brasileiros: competição e estratégia'
+  autores: PEIXOTO, VITOR
+  veiculo: Coligações partidárias na nova democracia brasileira
+  detalhe: p. 99-125
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2010
+  titulo: Financiamento de Campanhas e Competição Eleitoral nos Municípios Brasileiros
+  autores: PEIXOTO, VITOR
+  veiculo: 7º Encontro da Associação Brasileira de Ciência Política
+  detalhe: ''
+  doi: ''
+  url: http://cienciapolitica.servicos.ws/abcp2010/arquivos/18_7_2010_19_51_30.pdf
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2010
+  titulo: 'Processo Decisório e Inovação Institucional no Presidencialismo de Coalizão: um estudo a partir
+    da gênese das agências reguladoras no Brasil'
+  autores: RIBEIRO, Leandro Molhano; PEIXOTO, VITOR; BURLAMAQUI, Patrícia de Oliveira
+  veiculo: Revista de Direito Administrativo
+  detalhe: v. 251, p. 99-124
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2009
+  titulo: 'Eleições e financiamento de Campanhas em 2006: quem banca quem?'
+  autores: PEIXOTO, VITOR; RIBEIRO, Leandro Molhano
+  veiculo: XXXIII Encontro Anual da Anpocs
+  detalhe: ''
+  doi: ''
+  url: http://sec.adtevento.com.br/anpocs/inscricao/resumos/0001/TC1766-1.pdf
+  fonte: lattes
+  publicar: true
+- tipo: artigo
+  ano: 2009
+  titulo: 'Financiamento de campanhas: o Brasil em perspectiva comparada'
+  autores: PEIXOTO, VITOR
+  veiculo: 'Perspectivas : Revista de Ciências Sociais (UNESP. Araraquara. Impresso)'
+  detalhe: v. 35, p. 91-116
+  doi: ''
+  url: http://seer.fclar.unesp.br/index.php/perspectivas/issue/view/381/showToc
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2009
+  titulo: Processo decisório, Judiciário e Políticas Públicas
+  autores: RIBEIRO, Leandro Molhano; Arguelles, Diego Werneck; PEIXOTO, VITOR
+  veiculo: XXXIII Encontro Anual da Anpocs
+  detalhe: ''
+  doi: ''
+  url: http://sec.adtevento.com.br/anpocs/inscricao/resumos/0001/TC1893-1.pdf
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2008
+  titulo: 'Coligações Eleitorais: uma análise quantitativa'
+  autores: PEIXOTO, VITOR
+  veiculo: 6 Encontro da Associação Brasileira de Ciência Política (ABCP)
+  detalhe: ''
+  doi: ''
+  url: http://201.48.149.88/abcp2008/
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2008
+  titulo: Impacto dos gastos de campanhas nos resultados eleitorais
+  autores: PEIXOTO, VITOR
+  veiculo: 32º Encontro Anual da Anpocs
+  detalhe: ''
+  doi: ''
+  url: http://200.152.208.135/anpocs/trab/adm/impressao_gt.php?id_grupo=8&publico=S
+  fonte: lattes
+  publicar: true
+- tipo: capitulo
+  ano: 2007
+  titulo: Agências Reguladoras no Brasil
+  autores: NUNES, Edson.; RIBEIRO, Leandro Molhano; PEIXOTO, VITOR
+  veiculo: Sistema Político Brasileiro
+  detalhe: p. 185-208
+  doi: ''
+  url: http://www.adenauer.org.br/index.asp
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2007
+  titulo: 'Coligações Eleitorais no Brasil: uma análise de consistência ideológica'
+  autores: PEIXOTO, VITOR
+  veiculo: XXVI CONGRESSO ASSOCIACION LATINOAMERICANA SOCIOLOGIA (ALAS)
+  detalhe: ''
+  doi: ''
+  url: http://www.alasxxvicongreso.cucsh.udg.mx/programas/refest.pdf
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2007
+  titulo: 'Uma Disputa em Três Tempos: Análise das Bases Municipais das Eleições Presidenciais de 2006'
+  autores: NICOLAU, Jairo M.; PEIXOTO, VITOR
+  veiculo: 31 Encontro Anual da ANPOCS
+  detalhe: ''
+  doi: ''
+  url: http://201.48.149.89/anpocs/arquivos/15_10_2007_10_46_27.pdf
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2006
+  titulo: 'Inovação institucional e processo de decisório: a gênese da ANATEL, ANEEL e ANP'
+  autores: RIBEIRO, Leandro Molhano; PEIXOTO, VITOR; BURLAMAQUI, P.
+  veiculo: Associação Nacional de Pós-Graduação e Pesquisa em Ciências Sociais
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2006
+  titulo: 'Relação Executivo-Legislativo e Inovação Institucional: a criação da agências reguladoras no
+    Brasil'
+  autores: PEIXOTO, VITOR
+  veiculo: 5º Encontro da Associação Brasileira de Ciência Política
+  detalhe: v. 5
+  doi: ''
+  url: http://200.186.31.123/abcp/cadastro/atividade/arquivos/25_7_2006_19_20_16.pdf
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2005
+  titulo: 'Crise de governabilidade e (re)emergência de identidades étnicas: uma análise do sistema eleitoral
+    boliviano'
+  autores: PEIXOTO, VITOR; GUIMARAES, A. S.
+  veiculo: ALAS
+  detalhe: ''
+  doi: ''
+  url: http://www.iuperj.br/corpo_docente/netsal.htm
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2005
+  titulo: 'Modelos de financiamento de campanhas e accountability: uma análise comparativa e um teste
+    de hipótese'
+  autores: PEIXOTO, VITOR
+  veiculo: ANPOCS
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2005
+  titulo: 'Sistemas políticos, etnicidade e representatividade: multiculturalismo e plurinacionalidade
+    no âmbito do Estado nacional'
+  autores: GUIMARAES, A. S.; PEIXOTO, VITOR
+  veiculo: Reunión de Antropología del Mercosur
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true
+- tipo: evento
+  ano: 2000
+  titulo: Segregação Ambiental no Espaço Urbano. Estudo de Caso da Arborização Urbana em Campos dos Goytacazes
+  autores: CARNEIRO DA SILVA, V. A; PEDLOWSKI, M. A.; ADELL, J. J. C; PEIXOTO, VITOR
+  veiculo: IX Congresso IberoAmericano de Urbanismo.
+  detalhe: ''
+  doi: ''
+  url: ''
+  fonte: lattes
+  publicar: true

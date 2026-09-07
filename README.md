@@ -19,6 +19,8 @@ dados/         o conteúdo — é aqui que você edita
   projetos.yml     projetos financiados + software e replicação
   equipe.yml       o NERD: texto, objetivos e integrantes
 ativos/        CSS e imagens copiados para a raiz na geração
+  fotos/           retratos dos integrantes do NERD
+lattes/        o currículo Lattes em XML — a fonte das publicações
 ferramentas/   os scripts (Python 3)
 *.html         o site gerado — não edite à mão
 ```
@@ -46,23 +48,43 @@ O workflow `.github/workflows/site.yml` também regenera o site sozinho quando
 você edita um arquivo de `dados/` direto pelo GitHub — então dá para atualizar o
 site pelo navegador, sem rodar nada localmente.
 
-## Trazer as publicações do Lattes
+## Atualizar as publicações e orientações
 
-O Lattes não tem API aberta e a página do currículo é protegida por captcha. O
-caminho oficial é o XML:
+Publicações, orientações e projetos vêm todos do currículo Lattes, que está
+versionado aqui em `lattes/Vitor_Peixoto.xml`. Para atualizar:
 
-1. Entre em [lattes.cnpq.br](http://lattes.cnpq.br/), abra seu currículo e vá em
-   **Atualizar currículo → Exportar → XML**. Baixa um `.zip` com `curriculo.xml`.
+1. Em [lattes.cnpq.br](http://lattes.cnpq.br/), abra seu currículo e vá em
+   **Atualizar currículo → Exportar → XML**. Substitua `lattes/Vitor_Peixoto.xml`
+   pelo arquivo novo (o importador também aceita o `.zip` direto).
 2. Rode:
 
 ```bash
-python3 ferramentas/importa_lattes.py ~/Downloads/curriculo.zip
+python3 ferramentas/importa_lattes.py lattes/Vitor_Peixoto.xml
 python3 ferramentas/gera_site.py
 ```
 
 Isso preenche `publicacoes.yml`, `orientacoes.yml` e `projetos.yml` de uma vez —
-inclusive o nome de cada orientando e o ID Lattes dele, que a busca pública não
-entrega.
+inclusive o nome de cada orientando e o ID Lattes dele.
+
+### O que o importador conserta no caminho
+
+O XML do Lattes não sai pronto para publicação, e o importador reproduz os mesmos
+tratamentos que o script R do site do NERD faz:
+
+- **Títulos em CAIXA ALTA** viram caixa de sentença, trecho a trecho (o que vem
+  antes e depois de `:` é tratado separadamente), preservando siglas e nomes
+  próprios. As duas listas ficam no topo de `ferramentas/importa_lattes.py` —
+  complete-as se um título novo trouxer uma sigla que ainda não esteja lá.
+- **Links** vêm no formato `[url][doi:10.x/y]`; fica só a URL, e o DOI entra em
+  seu próprio campo.
+- **Autores** saem no nome de citação (`PEIXOTO, VITOR`), como no site do NERD.
+- **Nomes de orientandos** em caixa alta viram caixa de título, com as
+  preposições em minúscula.
+
+Erros de digitação que estão no próprio Lattes o importador não inventa de
+corrigir — ele os reproduz fielmente. Um exemplo hoje visível: a tese de Ralph
+André Crespo começa com "Aas ações de impugnação". Isso se corrige no Lattes e
+some na próxima exportação.
 
 ## Completar DOIs e links (ORCID, Crossref, Zenodo, OSF, DataCite)
 
@@ -102,29 +124,39 @@ durar vão aqui no README, não no meio dos dados.
 
 ## O campo `publicar`
 
-`publicar: false` esconde um registro do site sem apagá-lo do arquivo. É o que
-segura o que ainda não foi conferido. Hoje está assim:
+`publicar: false` esconde um registro do site sem apagá-lo do arquivo. Hoje o
+único uso é em `projetos.yml`: os projetos que vieram do Lattes entram
+desligados, porque a lista curada de projetos é a do site do NERD. Ligue os que
+fizerem sentido.
 
-- **Três publicações** que a busca atribuiu a você mas cuja autoria não consegui
-  confirmar na página do periódico (Revista Cronos, Em Construção, Agenda
-  Política). Confira e vire para `true`.
-- **Toda a lista de orientações.** As três dos anos 2010 vieram sem o nome do
-  orientando; as demais foram derivadas da equipe do NERD e não estão
-  confirmadas como orientações suas. A importação do Lattes resolve tudo de uma
-  vez.
+Publicações e orientações estão todas no ar — vieram do Lattes, que é a fonte
+autorizada.
 
-## Dois pontos a conferir em `dados/`
+## Um ponto a conferir em `dados/perfil.yml`
 
-- **ORCID** (`perfil.yml`): `0000-0001-6618-3311` foi levantado por busca na web,
-  não pela API do ORCID. Confirme antes de publicar — é dele que a coleta parte.
-- **Lattes de Matheus Virginio Harduim Machado** (`equipe.yml`): no site antigo
-  do NERD o ID repetia o de Rafael Soares Salles, provável erro de cópia. Está
-  vazio até confirmar.
+O **ORCID** `0000-0001-6618-3311` foi levantado por busca na web, não pela API do
+ORCID. Confirme antes de contar com ele: é dele que a coleta de DOIs parte.
 
-## Relação com o NERD
+## Relação com o site do NERD
 
-Este repositório é só o site pessoal. O site do núcleo continua em
-[NERD_SITE](https://github.com/moraespeixoto/NERD_SITE), intocado. A página
-**O NERD** daqui apresenta o grupo e a equipe — o conteúdo veio de lá
-(`dados/equipe.yml` e `dados/projetos.yml`) e os dois podem seguir caminhos
-próprios a partir de agora.
+O site do núcleo vive em outro lugar e em outra ferramenta:
+**<https://gitlab.com/vpeixoto1981/nerd_site>** (R Markdown, publicado pelo
+GitLab Pages). É de lá que vieram o texto do núcleo, os objetivos, os eixos de
+pesquisa, a lista de projetos, a equipe com as fotos, o diagrama de Venn e o
+próprio XML do Lattes.
+
+São **dois repositórios independentes, sem sincronização automática**. Ao mexer
+em algo do núcleo no GitLab — entrou um integrante novo, um projeto novo, o
+currículo foi reexportado — traga a mudança para cá também:
+
+| No GitLab (site do NERD) | Aqui (site pessoal) |
+| --- | --- |
+| `Lattes/Vitor_Peixoto.xml` | `lattes/Vitor_Peixoto.xml`, depois rode o importador |
+| `Lattes/Fotos/*.jpg` | `ativos/fotos/` |
+| `membros.Rmd` | `dados/equipe.yml` (bloco `membros`) |
+| `projetos.Rmd` | `dados/projetos.yml` (bloco `pesquisa`) |
+| `index.Rmd`, `objetivos.Rmd` | `dados/equipe.yml` (bloco `nucleo`) |
+
+O repositório [NERD_SITE](https://github.com/moraespeixoto/NERD_SITE) no GitHub é
+a versão antiga do site do núcleo e está desatualizado — a equipe de lá não
+corresponde mais à atual.

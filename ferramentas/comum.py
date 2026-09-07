@@ -104,6 +104,19 @@ def chave_titulo(valor) -> str:
     return s
 
 
+def chave_de(reg: dict) -> str:
+    """Chave de titulo de um registro, qualificada pelo tipo.
+
+    O tipo entra na chave porque um mesmo trabalho pode existir como artigo e
+    como capitulo de livro — sao duas publicacoes, com veiculos diferentes, e
+    casar so pelo titulo apagaria a segunda.
+    """
+    titulo = chave_titulo(reg.get("titulo"))
+    if not titulo:
+        return ""
+    return f"tit:{reg.get('tipo') or ''}:{titulo}"
+
+
 def indexar(registros: list[dict]) -> dict[str, dict]:
     """Mapa de chave -> registro. Um registro pode entrar por DOI e por titulo."""
     indice: dict[str, dict] = {}
@@ -111,9 +124,9 @@ def indexar(registros: list[dict]) -> dict[str, dict]:
         doi = normaliza_doi(reg.get("doi"))
         if doi:
             indice.setdefault("doi:" + doi, reg)
-        titulo = chave_titulo(reg.get("titulo"))
-        if titulo:
-            indice.setdefault("tit:" + titulo, reg)
+        chave = chave_de(reg)
+        if chave:
+            indice.setdefault(chave, reg)
     return indice
 
 
@@ -125,19 +138,19 @@ def mesclar(existentes: list[dict], novos: list[dict]) -> tuple[list[dict], int,
 
     for novo in novos:
         doi = normaliza_doi(novo.get("doi"))
-        titulo = chave_titulo(novo.get("titulo"))
+        chave = chave_de(novo)
         alvo = None
         if doi:
             alvo = indice.get("doi:" + doi)
-        if alvo is None and titulo:
-            alvo = indice.get("tit:" + titulo)
+        if alvo is None and chave:
+            alvo = indice.get(chave)
 
         if alvo is None:
             existentes.append(novo)
             if doi:
                 indice["doi:" + doi] = novo
-            if titulo:
-                indice["tit:" + titulo] = novo
+            if chave:
+                indice[chave] = novo
             incluidos += 1
             continue
 
@@ -153,8 +166,8 @@ def mesclar(existentes: list[dict], novos: list[dict]) -> tuple[list[dict], int,
                 mudou = True
         if mudou:
             completados += 1
-            if doi and not indice.get("doi:" + doi):
-                indice["doi:" + doi] = alvo
+            if doi:
+                indice.setdefault("doi:" + doi, alvo)
 
     return existentes, incluidos, completados
 

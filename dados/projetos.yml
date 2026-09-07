@@ -1,139 +1,324 @@
-# Projetos de pesquisa financiados e projetos de dados/codigo.
-# Comentarios no meio dos dados se perdem na proxima coleta — ver README.md.
+# Projetos de pesquisa e projetos de dados/codigo.
+# Ver README.md. Comentarios no meio deste arquivo se perdem na proxima coleta.
 
 pesquisa:
-
-  - titulo: "Petro rendas e política local: competição eleitoral e políticas públicas em municípios produtores de petróleo"
-    agencia: FAPERJ
-    processo: "E-26/210-545/2019"
-    periodo: "2019 —"
-    situacao: em andamento
-    resumo: >
-      Investiga padrões partidários de gasto público em municípios petro-rentistas em
-      dois contextos econômicos: abundância e crise severa de recursos. Constrói
-      indicadores e testa modelos econométricos multivariados para explorar as
-      características políticas dos executivos municipais associadas à variação dos
-      padrões de comportamento orçamentário na administração de recursos
-      indenizatórios, comparando unidades da federação com perfil sociodemográfico
-      similar.
-    publicar: true
-
-  - titulo: "Economia social da (in)tolerância política: como avaliações da economia, mobilidade social, escolaridade, gênero e religião impactam as atitudes democráticas no Brasil contemporâneo"
-    agencia: ""
-    processo: ""
-    periodo: ""
-    situacao: em andamento
-    resumo: >
-      Analisa avaliações e percepções econômicas e seus impactos sobre tolerância
-      política ao longo dos últimos quatro ciclos eleitorais, e como variáveis
-      sociológicas clássicas — religião, escolaridade, renda e sexo — se relacionam à
-      tolerância e ao apoio à democracia.
-    publicar: true
-
-  - titulo: "Poder local, partidos políticos e eleições municipais no Brasil pós-1988"
-    agencia: CNPq
-    processo: ""
-    periodo: ""
-    situacao: concluido
-    resumo: >
-      Análises sistemáticas das dinâmicas político-eleitorais nos municípios
-      brasileiros no pós-88: quais fatores sociodemográficos, políticos e econômicos
-      estão associados às características do poder local, e se a institucionalização do
-      sistema partidário pode ser explicada pelo perfil dos municípios e pelas regras
-      eleitorais.
-    publicar: true
-
-  - titulo: "Financiamento de campanhas eleitorais no Brasil"
-    agencia: FAPERJ
-    processo: "APQ3 E-26/112.214/2013"
-    periodo: "2013 —"
-    situacao: concluido
-    resumo: ""
-    publicar: true
-
-  - titulo: "Competição eleitoral nos municípios brasileiros"
-    agencia: FAPERJ
-    processo: "E-26/111-677/2011"
-    periodo: "2011 —"
-    situacao: concluido
-    resumo: >
-      Projeto que deu início às atividades do NERD.
-    publicar: true
-
-# Software, dados e replicacao. `repo` e o nome do repositorio em github.com/<usuario>.
-# Repositorio privado nao rende link publico: mantenha publicar: false ate abrir.
+- titulo: 'Bolsonarismo e política local: o combate à pandemia e os reflexos no Plano Nacional de Vacinação
+    (PNI) nos municípios'
+  agencia: FAPERJ
+  processo: APQ1 E-26/210.358/2024
+  periodo: 2024 —
+  situacao: em andamento
+  resumo: Investiga os impactos do bolsonarismo nas políticas locais de combate à pandemia de Covid-19
+    e seus reflexos no Plano Nacional de Imunização (PNI) nos municípios brasileiros. Analisa como o alinhamento
+    político-ideológico dos governos municipais com o governo federal influenciou a adesão às campanhas
+    de vacinação, avaliando as consequências sanitárias e políticas dessas dinâmicas no nível local.
+  publicar: true
+- titulo: Economia social da (in)tolerância política
+  agencia: ''
+  processo: ''
+  periodo: ''
+  situacao: em andamento
+  resumo: Como avaliações da economia, mobilidade social, escolaridade, gênero e religião impactam as
+    atitudes democráticas no Brasil contemporâneo. Produz análises sobre as percepções econômicas e seus
+    impactos sobre tolerância política ao longo dos últimos quatro ciclos eleitorais, e sobre como variáveis
+    sociológicas clássicas — religião, escolaridade, renda e sexo — se relacionam à tolerância e ao apoio
+    à democracia.
+  publicar: true
+- titulo: 'Petro rendas e política local: competição eleitoral e políticas públicas em municípios produtores
+    de petróleo'
+  agencia: FAPERJ
+  processo: E-26/210-545/2019
+  periodo: 2019 —
+  situacao: em andamento
+  resumo: 'Investiga padrões partidários de gastos públicos em municípios petro-rentistas em dois contextos
+    econômicos: de abundância e de crises severas de recursos. Constrói indicadores e testa modelos econométricos
+    multivariados para explorar as características políticas dos executivos municipais associadas à variação
+    dos padrões de comportamento orçamentário na administração de recursos indenizatórios, comparando
+    unidades da federação com características sociodemográficas similares.'
+  publicar: true
+- titulo: Poder local, partidos políticos e eleições municipais no Brasil pós-88
+  agencia: CNPq
+  processo: ''
+  periodo: 2017 — 2019
+  situacao: concluido
+  resumo: 'Análises sistemáticas sobre as dinâmicas político-eleitorais nos municípios brasileiros no
+    pós-88: quais fatores sociodemográficos, políticos e econômicos estão associados às características
+    do poder local no Brasil, e se a institucionalização do sistema partidário pode ser explicada pelas
+    características sociodemográficas dos municípios e pelos impactos das regras eleitorais.'
+  publicar: true
+- titulo: Financiamento de campanhas eleitorais no Brasil
+  agencia: FAPERJ
+  processo: APQ3 E-26/112.214/2013
+  periodo: 2013 —
+  situacao: concluido
+  resumo: ''
+  publicar: true
+- titulo: Competição eleitoral nos municípios brasileiros
+  agencia: FAPERJ
+  processo: E-26/111-677/2011
+  periodo: 2011 —
+  situacao: concluido
+  resumo: Projeto que deu início às atividades do NERD, em 2011.
+  publicar: true
+- titulo: Partidos e Ideologia
+  agencia: ''
+  processo: ''
+  periodo: 2003 — 2004
+  situacao: concluido
+  resumo: Classificação dos Partidos Políticos brasileiro na escala Direita-Esquerda.
+  publicar: false
+- titulo: Segregação Espacial e Mercado de Trabalho
+  agencia: Fundação Carlos Chagas Filho de Amparo à Pesquisa do Estado do RJ
+  processo: ''
+  periodo: 2012 — 2014
+  situacao: concluido
+  resumo: O projeto de pesquisa integra o projeto Implantação e ampliação de espaços para estudos integrados
+    visando ao desenvolvimento de pesquisas na área de Ciências Humanas cujo objetivo é a construção de
+    espaços físicos e implantação de infraestrutura com melhores condições materiais para a execução de
+    projetos de pesquisas por pesquisadores das áreas das Ciências Humanas do CCH/UENF. O referido projeto
+    tem estreita relação com as linhas de pesquisa dos Programas de Pós-Graduação do CCH, e a presente
+    proposta insere-se na linha de pesquisa cidadania, instituições políticas, gestão urbana-metropolitana
+    . Considerando que poucos estudos tem se dedicado a apresentar um diagnóstico preciso dos programas
+    e projetos habitacionais implantados a partir dos recursos oriundos do Fundo Nacional de Habitação
+    de Interesse Social, nos propomos a analisar tais programas, no sentido de formular propostas com
+    vistas não só de orientar uma eficiente aplicação dos recursos, mas, também, de realizar uma avaliação,
+    ex-post-facto, de seus efeitos, permitindo sua melhor compreensão. O foco é o programa habitacionais
+    municipais Morar Feliz, de Campos dos Goytacazes e o Macaé Sem Favelas, de Macaé. A oferta de moradia
+    vem promovendo o reassentamento e o assentamento de famílias de áreas degradadas para ambientes mais
+    salubres, representando, no discurso oficial, a aquisição de uma melhor qualidade de vida urbana pelos
+    beneficiados dos programas habitacionais. Assim, o objetivo deste projeto é discutir a inserção no
+    mercado de trabalho formal/informal como sendo um dos elementos que compõem e é reflexo do processo
+    de segmentação e segregação espacial produzida pela sociedade, conduzindo a formação do que estamos
+    chamando de Novos Territórios Urbanos , e que será objeto de teorização no decorrer da presente pesquisa,
+    contribuindo, dessa forma, contribuindo para o desenvolvimento das pesquisas na área de Ciências Humanas
+  publicar: false
+- titulo: 'Financiamento de Campanhas nas Eleições Legislativas Brasileiras em 2010: uma análise quantitativa'
+  agencia: Fundação Carlos Chagas Filho de Amparo à Pesquisa do Estado do RJ
+  processo: ''
+  periodo: 2012 — 2014
+  situacao: concluido
+  resumo: 'A pergunta que se pretende responder neste projeto concerne às características individuais
+    dos candidatos que afetam seus respectivos resultados eleitorais. A partir de então, busca-se precisar
+    o efeito específico dos gastos de campanha nas eleições legislativas brasileiras. Mais especificamente,
+    este projeto disserta acerca do impacto dos gastos de campanhas sobre os votos nas eleições proporcionais
+    de 2010. Tendo como unidade de observação as candidaturas individuais aos cargos de Deputado Federal
+    e Estadual (distrital), analisam-se, portanto, os efeitos das variáveis que influenciam os desempenhos
+    eleitorais, tais como gênero, idade, ocupação, partido, estado civil, escolaridade e, principalmente,
+    os montantes de recursos de campanhas declarados ao TSE. Por meio da análise econométrica clássica
+    (OLS), pode-se estimar com os efeitos destas variáveis num contexto multidimensional, dito de outra,
+    os modelos estimados permitiram acesso ao impacto isolado das características individual dos candidatos
+    sobre os resultados de suas campanhas: os votos.'
+  publicar: false
+- titulo: 'Pré Vest/UENF: uma iniciativa voluntária para a democratização do ensino superior'
+  agencia: Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  processo: ''
+  periodo: 2014 — 2015
+  situacao: concluido
+  resumo: Projeto de Extensão surgido na decada de 1990 por um grupo de pós-graduandos da UENF com o objetivo
+    de auxiliar alunos de baixo poder aquisitivo a ingressar na Universidade.
+  publicar: false
+- titulo: 'l AS METRÓPOLES E O DIREITO À CIDADE: conhecimento, inovação e ação para o desenvolvimento
+    urbano ? Programa de Pesquisa da Rede Observatório das Metrópoles 2015-2020 - CHAMADA PÚBLICA MCTI/CNPQ/CAPES/FAPSNº
+    16/2014 - PROGRAMA INCT'
+  agencia: ''
+  processo: ''
+  periodo: 2016 — 2021
+  situacao: concluido
+  resumo: 'O presente projeto temcomo objetivos principais: (i) Contribuir para colocar a questão do desenvolvimento
+    urbano no centro do debate sobre desenvolvimento nacional reconhecendo a importância da dinâmica urbana-metropolitana
+    como elemento crucial para pensar o passado, o presente e o futuro da nação brasileira; (ii) identificar
+    mecanismos produtores de bloqueios e avanços no bem-estar urbano, na sustentabilidade ambiental e
+    na superação das desigualdades sociais; (iii) desenvolver uma teoria na escala metropolitana, mobilizando
+    conhecimentos disciplinares particulares, e metodologias de pesquisa visando contribuir para a constituição
+    de uma plataforma de conhecimento sobre o tema urbano-metropolitano; e produzir subsídios visando
+    contribuir coma formação de políticas públicas e novos padrões de governança metropolitana fundadas
+    na justiça social e na democracia.&#10;Situação: Em andamento; Natureza: Pesquisa.'
+  publicar: false
+- titulo: 'Democracia na Escola: eleições e gestão democrática participativa'
+  agencia: ''
+  processo: ''
+  periodo: 2017 — 2019
+  situacao: concluido
+  resumo: O Democracia na Escola tem por objetivo auxiliar, produzir, analisar, debater, acompanhar, formar
+    e avaliar o processo de instituição de mecanismos de participação democrática na gestão escolar, em
+    geral, nos municípios do Estado do Rio de Janeiro e, em particular, de Campos dos Goytacazes. Estabelecer-se-á
+    um grupo interdisciplinar que contará com a cooperação institucional de docentes do Instituto Federal
+    Fluminense (IFF Campos) e da Universidade Estadual do Norte Fluminense Darcy Ribeiro (UENF) e apoiados
+    pela Secretaria Municipal de Educação de Campos dos Goytacazes com o propósito basilar de participar
+    ativamente do processo de criação e instalação de instrumentos e processos de participação democrática
+    nas escolas municipais, notadamente, eleições para diretores de escolas, conselhos escolares e formação
+    de membros da gestão escolar.&#10;As atividades do projeto objetivam atender a demanda de informações
+    e as análises considerando que existe uma considerável escassez de informações empíricas sobre as
+    características, funcionamento e desempenho das instituições políticas no nível escolar local, assim
+    como da interação da dimensão política com aspectos educacionais.
+  publicar: false
+- titulo: 'Economia social da (In)tolerância política: como avaliações da economia, mobilidade social,
+    escolaridade, gênero e religião impactam as atitudes democráticas no Brasil contemporâneo'
+  agencia: Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  processo: ''
+  periodo: '2018'
+  situacao: em andamento
+  resumo: Este projeto visa produzir análises acerca das avaliações e percepções econômicas e seus impactos
+    sobre um conjunto de atitudes e comportamentos individuais conhecidos por tolerância política ao longo
+    dos últimos quatro ciclos eleitorais. Além disso, busca compreender como as variáveis sociológicas
+    clássicas tais como religião, escolaridade, renda e sexo se relacionam aos aspectos tolerância e apoio
+    à democracia. Dessa forma, procura aferir como essas variáveis interferem na opinião pública sobre
+    a democracia, investigando e diferenciando o comportamento de grupos específicos em relação as organizações
+    democráticas
+  publicar: false
+- titulo: 'Pesquisa e formação em Sociologia: desafios e contribuições do Programa de Sociologia Política
+    da UENF.'
+  agencia: Fundação Carlos Chagas Filho de Amparo à Pesquisa do Estado do RJ
+  processo: ''
+  periodo: '2019'
+  situacao: em andamento
+  resumo: O Programa de Pós-graduação em Sociologia Política da UENF ? PPGSP, recomendado pela CAPES e
+    iniciado em 2007 nos níveis de mestrado e doutorado, tem como objetivo a formação de pesquisadores/as
+    qualificados para atuarem em ensino e pesquisa no Brasil e no exterior. A produção de conhecimento
+    científico do PPGSP está vinculada as suas linhas de pesquisas baseadas em abordagens teórico-metodológicas
+    sobre as realidades sociopolíticas brasileira. O PPGSP tem ampliado as suas atividades e buscado o
+    aperfeiçoamento contínuo das condições para o desenvolvimento das atividades de docência e pesquisa
+    contribuindo com os desafios e avanços do conhecimento na área de Sociologia. O conjunto de ações
+    previstas no projeto visa também melhorar o seu conceito na avaliação da CAPES. Ainda pretende-se
+    intensificar a interação com outras instituições de relevância científica por meio de intercâmbios
+    e parcerias que consolidem o PPGSP como centro de referência regional de estudo e pesquisa
+  publicar: false
+- titulo: Uma análise quantitativa multidimensional dos acidentes de trânsito em Campos dos Goytacazes
+  agencia: ''
+  processo: ''
+  periodo: 2019 — 2020
+  situacao: concluido
+  resumo: 'Este projeto de pesquisa propõe-se estudar as características e padrões existentes nos acidentes
+    de trânsito no município de Campos dos Goytacazes. Pretende-se analisar o tema proposto a partir de
+    três aspectos principais: 1- localizar os pontos críticos de acidentes de trânsitos, os horários e
+    os tipos de automóveis envolvidos. 2- analisar, via georreferenciamento, os acidentes de trânsito
+    no município.'
+  publicar: false
+- titulo: Acidentes de trânsito e os reflexos no Sistema Único de Saúde (SUS) em Campos dos Goytacazes
+  agencia: Superintendência de Ciência, Tecnologia e Inovação (CT&I)
+  processo: ''
+  periodo: 2019 — 2020
+  situacao: concluido
+  resumo: 'Este projeto de pesquisa propõem-se estudar a dinâmica entre os acidentes de trânsito e os
+    seus reflexos no Sistema Único de Saúde no município de Campos dos Goytacazes. Pretende-se analisar
+    o tema proposto a partir de dois aspectos principais: 1- verificar como os acidentes de trânsito afetam
+    a qualidade do serviço hospitalar fornecido pelo o SUS; 2- averiguar o impacto financeiro dos acidentes
+    de trânsito na rede de financiamento do SUS em Campos dos Goytacazes.'
+  publicar: false
+- titulo: Aprimoramento da Infraestrutura para Ações Integradas ao Ensino, Pesquisa, Inovação e Extensão
+    em Ciências Sociais no LESCE-UENF
+  agencia: Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  processo: ''
+  periodo: '2025'
+  situacao: em andamento
+  resumo: Alinhado com a Agenda 2030 da Organização das Nações Unidas (ONU) (2015) nos seus 17 Objetivos
+    deDesenvolvimento Sustentável (ODS) (Serafim e Leite, 2021), este projeto visa fortalecer a capacidade
+    deensino, pesquisa e extensão da Universidade, contribuindo para a resolução de problemas sociais
+    e ambientais.Baseado em ações de cunho infraestrutural, de manutenção e melhorias dos espaços empregados
+    ematividades de ensino, pesquisa e extensão, busca-se atualizar e melhorar a qualidade de formação,
+    integração social e acadêmica promovidos pelo CCH-LESCE no âmbito da Unidade de Formação e Pesquisa
+    (UFP), Núcleo de Estudos em Representação e Democracia (NERD), e Centro Memória UENF (CEM).
+  publicar: false
+- titulo: Competição Eleitoral e Desenvolvimento Socioeconômico nos Municípios Brasileiros
+  agencia: Fundação Carlos Chagas Filho de Amparo à Pesquisa do Estado do RJ
+  processo: ''
+  periodo: 2011 — 2013
+  situacao: concluido
+  resumo: O principal objetivo deste projeto é produzir uma análise comparativa sistemática acerca das
+    características dos sitemas político-administrativos dos 5564 municípios brasileiros sob o marco da
+    Constituição de 1988. Pretende-se estudar a dinâmica de interações entre as características político-eleitorais
+    e as capacidades administrativas dos municípios, mediadas pelas condições socioeconômicas das unidades
+    locais. Através de análises quantitativas, ao final do projeto ter-se-á um panorama tanto mais amplo,
+    quanto mais profundo, acerca da dinâmica dos sistemas politicos locais do que se possui hoje. Fundamentalmente,
+    pretende-se explorar o(s) porquê(s) das altas variações das condições socioeconomicas e políticas
+    existentes nos municípios brasileiros.
+  publicar: false
+- titulo: 'Juventude e Desenvolvimento no Norte Fluminense: um estudo sobre os impactos do empreendimento
+    do Porto do Açu'
+  agencia: Fundação Carlos Chagas Filho de Amparo à Pesquisa do Estado do RJ
+  processo: ''
+  periodo: 2011 — 2013
+  situacao: concluido
+  resumo: O projeto analisa e discuti os impactos do complexo portuário do Açu na população jovem.
+  publicar: false
+- titulo: 'Política e desenvolvimento nos municípios do norte e noroeste fluminense: uma análise comparada'
+  agencia: Fundação Carlos Chagas Filho de Amparo à Pesquisa do Estado do RJ
+  processo: ''
+  periodo: 2011 — 2013
+  situacao: concluido
+  resumo: O projeto busca, por meio de informações empíricas sobre o desempenho e funcionamento das instituições
+    políticas municipais e de suas interações com o desenvolvimento econômico local, contribuir para reduzir
+    o déficit informacional que envolve os municípios do Norte e Noroeste Fluminense numa perspectiva
+    comparada com os demais municípios e regiões do Estado do Rio de Janeiro. O recorte temporal corresponde
+    ao período compreendido entre os anos de 1996 e 2012, o que equivale a quatro ciclos completos de
+    mandatos e eleições municipais. Além disso, será possível comparar a situação dos municípios antes
+    da Lei do Petróleo de 1997, que altera as regras de rateio dos royalties do petróleo e institui a
+    flexibilização do monopólio na exploração e produção de petróleo e gás com o período subsequente.
+    Na dimensão político-eleitoral, os objetivos são produzir análises multivariadas acerca das características
+    dos sistemas políticos locais; os orçamentos e gastos das administrações municipais; e a produção
+    legislativa dos vereadores. Neste eixo também se inclui análises das percepções dos vereadores quanto
+    a sua função, atuação e das demandas do eleitorado. Na dimensão socioeconômica o estudo prioriza a
+    análise do perfil dos municípios das regiões Norte e Noroeste Fluminense e suas possíveis alterações
+    provocadas pelas atividades produtivas decorrentes da dinâmica das atividades petrolíferas, bem como
+    dos recentes investimentos de grande magnitude, como os complexos logísticos do Açu e Barra do Furado.
+    A ambição da proposta é buscar, no cruzamento das variáveis trabalhadas na pesquisa, associações e
+    possíveis relações de causalidade existentes entre os dois eixos analíticos definidos. Pretende-se
+    desta forma contribuir com produção de informação e conhecimento relevante para o desenvolvimento
+    político, econômico e social das regiões Norte e Noroeste Fluminense, regiões de inserção da Universidade
+    Estadual do Norte Fluminense Darcy Ribeiro.
+  publicar: false
 codigo:
-
-  - nome: ocupacoesBR
-    resumo: >
-      Pacote R que traduz a ocupação declarada ao TSE em ISCO-88 e ISCO-08, e daí em
-      ISEI, prestígio de Treiman, EGP e um esquema de classes desenhado para o dado
-      eleitoral. Entra também pela CBO (RAIS) e pela COD (PNAD/Censo).
-    repo: ocupacoesBR
-    url: https://moraespeixoto.github.io/ocupacoesBR/
-    destaque: true
-    publicar: true
-
-  - nome: pandemia_reeleicao_2020
-    resumo: >
-      Dados e código de replicação do artigo sobre reeleição de prefeitos e o
-      enfrentamento à pandemia de Covid-19 em 2020.
-    repo: pandemia_reeleicao_2020
-    url: ""
-    publicar: true
-
-  - nome: mulheres_disputas_locais
-    resumo: >
-      Gênero e competição nas disputas eleitorais locais.
-    repo: mulheres_disputas_locais
-    url: ""
-    publicar: true
-
-  - nome: participacao_eleitoral
-    resumo: >
-      Participação, abstenção e comparecimento no eleitorado brasileiro.
-    repo: participacao_eleitoral
-    url: ""
-    publicar: true
-
-  - nome: Disputa_Partidaria_Municipal
-    resumo: >
-      Competição partidária nas eleições municipais.
-    repo: Disputa_Partidaria_Municipal
-    url: ""
-    publicar: true
-
-  - nome: trajetoria_CP_Brasil
-    resumo: >
-      Trajetória da ciência política no Brasil.
-    repo: trajetoria_CP_Brasil
-    url: ""
-    publicar: true
-
-  - nome: seguro_defeso
-    resumo: >
-      Seguro-defeso: beneficiários, municípios e política.
-    repo: seguro_defeso
-    url: ""
-    publicar: true
-
-  - nome: ConfiancaJustica
-    resumo: >
-      Confiança nas instituições de justiça.
-    repo: ConfiancaJustica
-    url: ""
-    publicar: true
-
-  - nome: workshop_opiniao_publica
-    resumo: >
-      Material do workshop de opinião pública.
-    repo: workshop_opiniao_publica
-    url: ""
-    publicar: true
-
-  - nome: AARE_Comportamento_Politico
-    resumo: >
-      Comportamento político — material da área temática.
-    repo: AARE_Comportamento_Politico
-    url: ""
-    publicar: true
+- nome: ocupacoesBR
+  resumo: Pacote R que traduz a ocupação declarada ao TSE em ISCO-88 e ISCO-08, e daí em ISEI, prestígio
+    de Treiman, EGP e um esquema de classes desenhado para o dado eleitoral. Entra também pela CBO (RAIS)
+    e pela COD (PNAD/Censo).
+  repo: ocupacoesBR
+  url: https://moraespeixoto.github.io/ocupacoesBR/
+  destaque: true
+  publicar: true
+- nome: pandemia_reeleicao_2020
+  resumo: Dados e código de replicação do artigo sobre reeleição de prefeitos e o enfrentamento à pandemia
+    de Covid-19 em 2020.
+  repo: pandemia_reeleicao_2020
+  url: ''
+  publicar: true
+- nome: mulheres_disputas_locais
+  resumo: Gênero e competição nas disputas eleitorais locais.
+  repo: mulheres_disputas_locais
+  url: ''
+  publicar: true
+- nome: participacao_eleitoral
+  resumo: Participação, abstenção e comparecimento no eleitorado brasileiro.
+  repo: participacao_eleitoral
+  url: ''
+  publicar: true
+- nome: Disputa_Partidaria_Municipal
+  resumo: Competição partidária nas eleições municipais.
+  repo: Disputa_Partidaria_Municipal
+  url: ''
+  publicar: true
+- nome: trajetoria_CP_Brasil
+  resumo: Trajetória da ciência política no Brasil.
+  repo: trajetoria_CP_Brasil
+  url: ''
+  publicar: true
+- nome: seguro_defeso
+  resumo: 'Seguro-defeso: beneficiários, municípios e política.'
+  repo: seguro_defeso
+  url: ''
+  publicar: true
+- nome: ConfiancaJustica
+  resumo: Confiança nas instituições de justiça.
+  repo: ConfiancaJustica
+  url: ''
+  publicar: true
+- nome: workshop_opiniao_publica
+  resumo: Material do workshop de opinião pública.
+  repo: workshop_opiniao_publica
+  url: ''
+  publicar: true
+- nome: AARE_Comportamento_Politico
+  resumo: Comportamento político — material da área temática.
+  repo: AARE_Comportamento_Politico
+  url: ''
+  publicar: true
