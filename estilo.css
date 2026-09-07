@@ -7,6 +7,7 @@
    ========================================================================== */
 
 :root {
+  color-scheme: light;
   --vp-fundo:      #F6FAFB;
   --vp-card:       #FFFFFF;
   --vp-faixa:      #FFFFFF;
@@ -16,7 +17,7 @@
   --vp-borda2:     #C9DCE0;
   --vp-tinta:      #1C3540;
   --vp-texto:      #3B5560;
-  --vp-fraco:      #6B8891;
+  --vp-fraco:      #5A727A;
   --vp-teal:       #1E8A99;
   --vp-teal-esc:   #156B78;
   --vp-laranja:    #F26522;
@@ -24,6 +25,17 @@
   --vp-pessego:    #F8B08A;
   --vp-verde:      #2E9E5B;
   --vp-escuro:     #1C3540;
+
+  /* O laranja da identidade e vivo demais para carregar texto miudo: branco
+     sobre #F26522 da 3,15:1 e o proprio #F26522 sobre o fundo da 3,0:1, ambos
+     abaixo dos 4,5:1 da WCAG AA. Ele continua sendo a cor de acento em bordas,
+     filetes e no anel de foco, onde contraste de texto nao se aplica; onde ha
+     LETRA entram os dois tokens abaixo, que sao o mesmo tom mais fundo. */
+  --vp-laranja-txt:    #C8480C;
+  --vp-btn-fundo:      #CF4B0C;
+  --vp-btn-fundo-alto: #A93D0A;
+  --vp-btn-ink:        #FFFFFF;
+  --vp-sobre-teal:     #FFFFFF;
 
   --vp-fonte: "Source Sans 3", "Source Sans Pro", -apple-system,
               BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -33,6 +45,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-tema="claro"]) {
+    color-scheme: dark;
     --vp-fundo:      #142731;
     --vp-card:       #1C3540;
     --vp-faixa:      #18303A;
@@ -42,15 +55,24 @@
     --vp-borda2:     #335866;
     --vp-tinta:      #EAF5F7;
     --vp-texto:      #C0D5DC;
-    --vp-fraco:      #8AA6AF;
+    --vp-fraco:      #92AEB7;
     --vp-teal:       #4FB3C1;
     --vp-teal-esc:   #7FC8D3;
     --vp-laranja:    #FF8149;
     --vp-escuro:     #10222B;
+
+    /* No escuro o laranja e claro o bastante para ser letra, e o botao inverte:
+       tinta escura sobre o laranja, que da 6,6:1 em vez dos 2,47:1 do branco. */
+    --vp-laranja-txt:    #FF9061;
+    --vp-btn-fundo:      #FF8149;
+    --vp-btn-fundo-alto: #FFA070;
+    --vp-btn-ink:        #10222B;
+    --vp-sobre-teal:     #10222B;
   }
 }
 
 :root[data-tema="escuro"] {
+  color-scheme: dark;
   --vp-fundo:      #142731;
   --vp-card:       #1C3540;
   --vp-faixa:      #18303A;
@@ -60,11 +82,17 @@
   --vp-borda2:     #335866;
   --vp-tinta:      #EAF5F7;
   --vp-texto:      #C0D5DC;
-  --vp-fraco:      #8AA6AF;
+  --vp-fraco:      #92AEB7;
   --vp-teal:       #4FB3C1;
   --vp-teal-esc:   #7FC8D3;
   --vp-laranja:    #FF8149;
   --vp-escuro:     #10222B;
+
+  --vp-laranja-txt:    #FF9061;
+  --vp-btn-fundo:      #FF8149;
+  --vp-btn-fundo-alto: #FFA070;
+  --vp-btn-ink:        #10222B;
+  --vp-sobre-teal:     #10222B;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -104,7 +132,7 @@ p { margin: 0 0 1em; }
 p:last-child { margin-bottom: 0; }
 
 a { color: var(--vp-teal-esc); text-decoration: none; }
-a:hover, a:focus-visible { color: var(--vp-laranja); text-decoration: underline; }
+a:hover, a:focus-visible { color: var(--vp-laranja-txt); text-decoration: underline; }
 
 code, kbd { font-family: var(--vp-mono); font-size: 0.9em; }
 
@@ -130,10 +158,10 @@ img { max-width: 100%; height: auto; }
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--vp-teal);
+  color: var(--vp-teal-esc);
   margin-bottom: 10px;
 }
-.vp-kicker-laranja { color: var(--vp-laranja); }
+.vp-kicker-laranja { color: var(--vp-laranja-txt); }
 
 /* Na home o lead vive numa coluna estreita; nas paginas internas ele ocupava
    o .vp-wrap inteiro, mais de 100 caracteres por linha. */
@@ -226,7 +254,9 @@ img { max-width: 100%; height: auto; }
   border-radius: 12px;
   padding: 22px 24px;
 }
-.vp-cartao-perfil h3 { font-size: 15px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--vp-teal); }
+/* Rotulo, nao cabecalho: era um <h3> logo depois do <h1> da home, e o leitor
+   de tela anunciava h1 > h3 > h2. Vira <p> com o mesmo desenho. */
+.vp-cartao-perfil-titulo { margin: 0; font-size: 15px; font-weight: 700; line-height: 1.15; letter-spacing: 0.06em; text-transform: uppercase; color: var(--vp-teal-esc); }
 .vp-cartao-perfil dl { margin: 14px 0 0; }
 .vp-cartao-perfil dt { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--vp-fraco); margin-top: 12px; }
 .vp-cartao-perfil dd { margin: 2px 0 0; font-size: 15.5px; }
@@ -244,12 +274,12 @@ img { max-width: 100%; height: auto; }
   line-height: 1.3;
 }
 .vp-btn:hover { text-decoration: none; }
-.vp-btn-laranja { background: var(--vp-laranja); color: #fff; }
-.vp-btn-laranja:hover { background: #d8551a; color: #fff; }
+.vp-btn-laranja { background: var(--vp-btn-fundo); color: var(--vp-btn-ink); }
+.vp-btn-laranja:hover { background: var(--vp-btn-fundo-alto); color: var(--vp-btn-ink); }
 .vp-btn-claro { background: var(--vp-card); color: var(--vp-teal-esc); border-color: var(--vp-borda2); }
 .vp-btn-claro:hover { border-color: var(--vp-teal); color: var(--vp-teal); }
 .vp-btn-nu { color: var(--vp-teal-esc); }
-.vp-btn-nu:hover { color: var(--vp-laranja); }
+.vp-btn-nu:hover { color: var(--vp-laranja-txt); }
 
 /* --- perfis (chips de identificador) -------------------------------------- */
 
@@ -298,7 +328,7 @@ img { max-width: 100%; height: auto; }
   padding: 5px 15px;
 }
 .vp-filtro:hover { border-color: var(--vp-teal); color: var(--vp-teal); }
-.vp-filtro[aria-pressed="true"] { background: var(--vp-teal); border-color: var(--vp-teal); color: #fff; }
+.vp-filtro[aria-pressed="true"] { background: var(--vp-teal); border-color: var(--vp-teal); color: var(--vp-sobre-teal); }
 
 .vp-lista { list-style: none; margin: 0; padding: 0; }
 .vp-item {
@@ -314,12 +344,12 @@ img { max-width: 100%; height: auto; }
   font-family: var(--vp-mono);
   font-size: 15px;
   font-weight: 500;
-  color: var(--vp-teal);
+  color: var(--vp-teal-esc);
   padding-top: 2px;
 }
 .vp-item-titulo { font-size: 18px; font-weight: 700; color: var(--vp-tinta); margin: 0 0 4px; line-height: 1.3; }
 .vp-item-titulo a { color: inherit; }
-.vp-item-titulo a:hover { color: var(--vp-laranja); }
+.vp-item-titulo a:hover { color: var(--vp-laranja-txt); }
 .vp-autores { font-size: 15px; color: var(--vp-texto); margin: 0 0 2px; }
 .vp-veiculo { font-size: 15px; color: var(--vp-fraco); margin: 0; }
 .vp-veiculo em { font-style: italic; }
@@ -336,16 +366,16 @@ img { max-width: 100%; height: auto; }
   color: var(--vp-teal-esc);
   background: var(--vp-card);
 }
-.vp-doi:hover, .vp-ext:hover { border-color: var(--vp-laranja); color: var(--vp-laranja); text-decoration: none; }
+.vp-doi:hover, .vp-ext:hover { border-color: var(--vp-laranja-txt); color: var(--vp-laranja-txt); text-decoration: none; }
 
 .vp-tag {
   display: inline-block;
-  font-size: 11.5px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--vp-laranja);
-  border: 1px solid var(--vp-laranja);
+  color: var(--vp-laranja-txt);
+  border: 1px solid var(--vp-laranja-txt);
   border-radius: 4px;
   padding: 0 6px;
   vertical-align: 2px;
@@ -359,7 +389,7 @@ img { max-width: 100%; height: auto; }
   color: var(--vp-fraco);
   font-size: 15.5px;
 }
-.vp-vazio code { color: var(--vp-teal); }
+.vp-vazio code { color: var(--vp-teal-esc); }
 
 /* --- membros -------------------------------------------------------------- */
 
@@ -387,7 +417,7 @@ img { max-width: 100%; height: auto; }
   color: var(--vp-teal); background: var(--vp-sup);
 }
 .vp-membro h3 { font-size: 17px; margin-bottom: 2px; }
-.vp-membro .vp-papel { font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--vp-teal); }
+.vp-membro .vp-papel { font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--vp-teal-esc); }
 .vp-membro .vp-vinculo { font-size: 14.5px; color: var(--vp-fraco); margin: 8px 0 0; white-space: pre-line; line-height: 1.45; }
 .vp-membro .vp-contato { margin-top: 10px; font-size: 13.5px; display: flex; flex-wrap: wrap; gap: 10px; }
 
@@ -416,7 +446,7 @@ img { max-width: 100%; height: auto; }
   color: var(--vp-fraco);
 }
 .vp-rodape-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
-.vp-rodape h4 { font-size: 13px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--vp-teal); margin-bottom: 8px; }
+.vp-rodape-titulo { margin: 0 0 8px; font-size: 13px; font-weight: 700; line-height: 1.15; letter-spacing: 0.09em; text-transform: uppercase; color: var(--vp-teal-esc); }
 .vp-rodape p { margin: 0; white-space: pre-line; line-height: 1.55; }
 .vp-rodape ul { list-style: none; margin: 0; padding: 0; }
 .vp-rodape li { margin-bottom: 3px; }
