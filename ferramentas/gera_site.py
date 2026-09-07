@@ -101,6 +101,16 @@ def ler(nome: str) -> dict:
         return yaml.safe_load(fh) or {}
 
 
+# Preprint nao e publicacao avaliada por pares, e somar os dois numa lista so
+# infla a producao. Eles ficam na pagina, sob filtro proprio, mas fora da visao
+# padrao e fora dos destaques da home.
+TIPOS_FORA_DO_GERAL = {"preprint"}
+
+
+def fora_do_geral(pub: dict) -> bool:
+    return (pub.get("tipo") or "") in TIPOS_FORA_DO_GERAL
+
+
 def publicaveis(itens):
     """Mantem apenas os registros com publicar diferente de false."""
     return [i for i in (itens or []) if i.get("publicar", True)]
@@ -224,7 +234,11 @@ SCRIPT_FILTRO = """<script>
         b.setAttribute("aria-pressed", String(b === botao));
       });
       itens.forEach(function (item) {
-        var mostra = alvo === "todos" || item.getAttribute("data-tipo") === alvo;
+        // "todos" quer dizer "todos os publicados": o que esta marcado como
+        // fora do geral (preprint) so aparece pelo filtro proprio.
+        var mostra = alvo === "todos"
+          ? item.getAttribute("data-fora-do-geral") !== "1"
+          : item.getAttribute("data-tipo") === alvo;
         item.hidden = !mostra;
       });
     });
@@ -326,7 +340,8 @@ def item_publicacao(pub: dict) -> str:
     autores = e(pub.get("autores"))
     linha_autores = f'<p class="vp-autores">{autores}</p>' if autores else ""
 
-    return f"""<li class="vp-item" data-tipo="{e(pub.get("tipo") or "artigo")}">
+    marca = ' data-fora-do-geral="1" hidden' if fora_do_geral(pub) else ""
+    return f"""<li class="vp-item" data-tipo="{e(pub.get("tipo") or "artigo")}"{marca}>
 <div class="vp-ano">{ano_txt}</div>
 <div>
 <p class="vp-item-titulo">{titulo_html}</p>
@@ -360,9 +375,10 @@ def pagina_inicio(perfil, pubs, projetos, equipe) -> str:
         for l in (perfil.get("linhas") or [])
     )
 
-    destaques = [p for p in pubs if p.get("destaque")][:4]
+    publicados = [p for p in pubs if not fora_do_geral(p)]
+    destaques = [p for p in publicados if p.get("destaque")][:4]
     if not destaques:
-        destaques = pubs[:4]
+        destaques = publicados[:4]
     lista_destaques = "".join(item_publicacao(p) for p in destaques)
 
     codigo_destaque = [c for c in publicaveis(projetos.get("codigo")) if c.get("destaque")]
@@ -459,10 +475,20 @@ def pagina_publicacoes(perfil, pubs) -> str:
         )
 
     itens = "".join(item_publicacao(p) for p in pubs)
-    n_doi = sum(1 for p in pubs if str(p.get("doi") or "").strip())
+    publicados = [p for p in pubs if not fora_do_geral(p)]
+    n_doi = sum(1 for p in publicados if str(p.get("doi") or "").strip())
+    n_fora = len(pubs) - len(publicados)
 
-    lead = (f"{len(pubs)} registros, {n_doi} com DOI. Cada item leva ao texto — "
-            "pelo DOI quando existe, pela página do periódico quando não.")
+    # A contagem e a dos publicados, porque e o que a visao padrao mostra. Os
+    # preprints entram numa segunda frase, com o que os distingue: dizer "131
+    # registros" e mostrar 126 e o tipo de incoerencia que ninguem reporta e
+    # todo mundo nota.
+    lead = (f"{len(publicados)} publicações, {n_doi} com DOI. Cada item leva ao "
+            "texto — pelo DOI quando existe, pela página do periódico quando não.")
+    if n_fora:
+        lead += (f" Há ainda {n_fora} preprints, no filtro próprio: são textos "
+                 "depositados e ainda não avaliados por pares, e por isso ficam "
+                 "fora da contagem acima.")
 
     return cabecalho_pagina("Produção", "Publicações", lead) + f"""
 <div class="vp-wrap vp-secao">

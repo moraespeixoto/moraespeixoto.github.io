@@ -34,12 +34,12 @@
 <div class="vp-wrap vp-secao">
 <span class="vp-kicker">Produção</span>
 <h1>Publicações</h1>
-<p class="vp-lead">131 registros, 29 com DOI. Cada item leva ao texto — pelo DOI quando existe, pela página do periódico quando não.</p>
+<p class="vp-lead">126 publicações, 24 com DOI. Cada item leva ao texto — pelo DOI quando existe, pela página do periódico quando não. Há ainda 5 preprints, no filtro próprio: são textos depositados e ainda não avaliados por pares, e por isso ficam fora da contagem acima.</p>
 </div>
 </div>
 <div class="vp-wrap vp-secao">
 <div class="vp-filtros"><button class="vp-filtro" type="button" data-filtro="todos" aria-pressed="true">Tudo</button><button class="vp-filtro" type="button" data-filtro="artigo" aria-pressed="false">Artigos</button><button class="vp-filtro" type="button" data-filtro="livro" aria-pressed="false">Livros</button><button class="vp-filtro" type="button" data-filtro="capitulo" aria-pressed="false">Capítulos</button><button class="vp-filtro" type="button" data-filtro="evento" aria-pressed="false">Trabalhos em eventos</button><button class="vp-filtro" type="button" data-filtro="preprint" aria-pressed="false">Preprints</button><button class="vp-filtro" type="button" data-filtro="relatorio" aria-pressed="false">Relatórios</button></div>
-<ul class="vp-lista"><li class="vp-item" data-tipo="preprint">
+<ul class="vp-lista"><li class="vp-item" data-tipo="preprint" data-fora-do-geral="1" hidden>
 <div class="vp-ano">2026</div>
 <div>
 <p class="vp-item-titulo"><a href="https://doi.org/10.31235/osf.io/b29kg_v1" target="_blank" rel="noopener noreferrer">Da ocupação declarada à posição social: as decisões de medida do pacote ocupacoesBR</a></p>
@@ -55,7 +55,7 @@
 <p class="vp-veiculo"><em>Revista de Politica Públicas da UFMA</em>, v. 30, p. 251-None</p>
 <div class="vp-links"><a class="vp-doi" href="https://doi.org/10.18764/2178-2865v30n1e28015" target="_blank" rel="noopener noreferrer">doi:10.18764/2178-2865v30n1e28015</a><a class="vp-ext" href="https://www.periodicoseletronicos.ufma.br/index.php/rppublica/article/view/28015/14960" target="_blank" rel="noopener noreferrer">texto integral</a></div>
 </div>
-</li><li class="vp-item" data-tipo="preprint">
+</li><li class="vp-item" data-tipo="preprint" data-fora-do-geral="1" hidden>
 <div class="vp-ano">2026</div>
 <div>
 <p class="vp-item-titulo"><a href="https://doi.org/10.2139/ssrn.7107658" target="_blank" rel="noopener noreferrer">Off-Cycle Political Turnover and the School Bureaucracy: Quasi-Experimental Evidence from Brazil&#x27;s Supplementary Elections</a></p>
@@ -63,7 +63,7 @@
 <p class="vp-veiculo"><em>SSRN</em>, depositado em 28/07/2026</p>
 <div class="vp-links"><a class="vp-doi" href="https://doi.org/10.2139/ssrn.7107658" target="_blank" rel="noopener noreferrer">doi:10.2139/ssrn.7107658</a><a class="vp-ext" href="https://ssrn.com/abstract=7107658" target="_blank" rel="noopener noreferrer">texto integral</a></div>
 </div>
-</li><li class="vp-item" data-tipo="preprint">
+</li><li class="vp-item" data-tipo="preprint" data-fora-do-geral="1" hidden>
 <div class="vp-ano">2026</div>
 <div>
 <p class="vp-item-titulo"><a href="https://doi.org/10.31235/osf.io/57xp6_v1" target="_blank" rel="noopener noreferrer">Os três corpos de uma eleição: eleitorado, candidaturas e eleitos no Brasil (1998-2026)</a></p>
@@ -71,7 +71,7 @@
 <p class="vp-veiculo"><em>SocArXiv</em>, v1, depositado em 05/09/2026</p>
 <div class="vp-links"><a class="vp-doi" href="https://doi.org/10.31235/osf.io/57xp6_v1" target="_blank" rel="noopener noreferrer">doi:10.31235/osf.io/57xp6_v1</a><a class="vp-ext" href="https://osf.io/preprints/socarxiv/57xp6_v1" target="_blank" rel="noopener noreferrer">texto integral</a></div>
 </div>
-</li><li class="vp-item" data-tipo="preprint">
+</li><li class="vp-item" data-tipo="preprint" data-fora-do-geral="1" hidden>
 <div class="vp-ano">2026</div>
 <div>
 <p class="vp-item-titulo"><a href="https://doi.org/10.2139/ssrn.7079720" target="_blank" rel="noopener noreferrer">Political Instability and Bureaucratic Resilience: The Protective Role of Performance-based Transfers in Brazilian Social Assistance</a></p>
@@ -79,7 +79,7 @@
 <p class="vp-veiculo"><em>SSRN</em>, depositado em 25/07/2026</p>
 <div class="vp-links"><a class="vp-doi" href="https://doi.org/10.2139/ssrn.7079720" target="_blank" rel="noopener noreferrer">doi:10.2139/ssrn.7079720</a><a class="vp-ext" href="https://ssrn.com/abstract=7079720" target="_blank" rel="noopener noreferrer">texto integral</a></div>
 </div>
-</li><li class="vp-item" data-tipo="preprint">
+</li><li class="vp-item" data-tipo="preprint" data-fora-do-geral="1" hidden>
 <div class="vp-ano">2026</div>
 <div>
 <p class="vp-item-titulo"><a href="https://doi.org/10.2139/ssrn.7009639" target="_blank" rel="noopener noreferrer">Political Instability and the Provision of Public Goods: Quasi-Experimental Evidence from Supplementary Elections on Brazilian Primary Health Care</a></p>
@@ -1146,7 +1146,11 @@ Código e conteúdo em <a href="https://github.com/moraespeixoto/moraespeixoto.g
         b.setAttribute("aria-pressed", String(b === botao));
       });
       itens.forEach(function (item) {
-        var mostra = alvo === "todos" || item.getAttribute("data-tipo") === alvo;
+        // "todos" quer dizer "todos os publicados": o que esta marcado como
+        // fora do geral (preprint) so aparece pelo filtro proprio.
+        var mostra = alvo === "todos"
+          ? item.getAttribute("data-fora-do-geral") !== "1"
+          : item.getAttribute("data-tipo") === alvo;
         item.hidden = !mostra;
       });
     });
