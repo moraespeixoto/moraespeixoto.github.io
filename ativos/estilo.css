@@ -77,6 +77,7 @@
 [hidden] { display: none !important; }
 
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 body {
   margin: 0;
@@ -134,7 +135,9 @@ img { max-width: 100%; height: auto; }
 }
 .vp-kicker-laranja { color: var(--vp-laranja); }
 
-.vp-lead { font-size: 20px; line-height: 1.5; }
+/* Na home o lead vive numa coluna estreita; nas paginas internas ele ocupava
+   o .vp-wrap inteiro, mais de 100 caracteres por linha. */
+.vp-lead { font-size: 20px; line-height: 1.5; max-width: 36em; }
 /* No cabecalho de pagina interna o h1 tem margin 0: a linha de apoio precisa
    do proprio respiro para nao encostar no titulo. */
 .vp-hero h1 + .vp-lead { margin-top: 14px; }
@@ -205,6 +208,17 @@ img { max-width: 100%; height: auto; }
   padding-bottom: 60px;
 }
 .vp-hero-texto > * + * { margin-top: 20px; }
+
+/* Duas correcoes ao ritmo generico acima.
+   1) `.vp-perfis` zera a margem do <ul> (regra de lista, mais abaixo) com a
+      MESMA especificidade de `.vp-hero-texto > * + *`, e vem depois: o
+      margin-top de 20px era anulado e a fileira de chips ficava a ZERO pixel
+      dos botoes. As duas unicas fileiras de caixas da coluna liam-se como um
+      bloco so. Duas classes vencem o seletor generico.
+   2) O kicker ja traz `margin-bottom: 10px`; o 20px do ritmo o afastava do h1
+      so aqui, e o mesmo kicker aparecia a 10px do h1 nas paginas internas. */
+.vp-hero-texto .vp-kicker + h1 { margin-top: 10px; }
+.vp-cta + .vp-perfis { margin-top: 32px; }
 
 .vp-cartao-perfil {
   background: var(--vp-card);
@@ -415,6 +429,12 @@ img { max-width: 100%; height: auto; }
   .vp-grade-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .vp-grade-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .vp-rodape-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* A grade de dois so cabia em duas colunas ate aqui: em 700px de tela dava
+   271px de texto por cartao, uns 30 caracteres por linha. */
+@media (max-width: 800px) {
+  .vp-grade-2 { grid-template-columns: minmax(0, 1fr); }
 }
 
 @media (max-width: 640px) {
