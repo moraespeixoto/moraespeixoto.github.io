@@ -1,0 +1,81 @@
+# Identidade do site. Editado a mao.
+nome: Vitor de Moraes Peixoto
+nome_curto: Vitor Peixoto
+titulo: Professor Associado de Ciência Política
+kicker: Ciência política · eleições · política local brasileira
+
+resumo: >
+  Estudo como a competição eleitoral, o dinheiro de campanha e a política local se
+  combinam nos municípios brasileiros — e o que isso produz em representação, gasto
+  público e qualidade da democracia.
+
+bio: |
+  Graduado em Ciências Sociais pela Universidade Estadual do Norte Fluminense Darcy
+  Ribeiro (UENF), com mestrado e doutorado em Ciência Política pelo Instituto
+  Universitário de Pesquisas do Rio de Janeiro (IUPERJ).
+
+  Professor Associado da UENF desde 2011, no Centro de Ciências do Homem, e membro
+  permanente do Programa de Pós-Graduação em Sociologia Política (PPGSP). Coordeno o
+  NERD — Núcleo de Estudos em Representação e Democracia — e integro o Laboratório de
+  Estudos da Sociedade Civil e do Estado (LESCE).
+
+  Fui um dos coordenadores da Área Temática de Eleições e Representação Política da
+  Associação Brasileira de Ciência Política (ABCP) e tesoureiro da Associação
+  Latino-Americana de Ciência Política (ALACIP).
+
+site_url: https://moraespeixoto.github.io
+
+instituicao: Universidade Estadual do Norte Fluminense Darcy Ribeiro
+unidade: Centro de Ciências do Homem · Laboratório de Estudos da Sociedade Civil e do Estado
+programa: Programa de Pós-Graduação em Sociologia Política (PPGSP)
+email: vpeixoto@pq.uenf.br
+
+endereco:
+  - Universidade Estadual do Norte Fluminense Darcy Ribeiro
+  - Centro de Ciências do Homem — CCH — Sala 108-B
+  - Av. Alberto Lamego, 2000 — Parque Califórnia
+  - Campos dos Goytacazes — RJ — CEP 28013-602
+  - Tel. (22) 2739-7040
+
+# Identificadores. Sao a chave de tudo: as ferramentas de coleta partem daqui.
+# Confira o ORCID antes de publicar — ele foi levantado por busca, nao pela API.
+ids:
+  lattes: "4676437210734787"
+  orcid: "0000-0001-6618-3311"
+  scholar: "gIb2-T4AAAAJ"
+  github: moraespeixoto
+  # Repositorio deste site, usado no rodape.
+  repo: moraespeixoto.github.io
+  # Preencha se existirem; a coleta usa como consulta adicional.
+  zenodo_query: "Vitor Peixoto"
+  osf: ""
+
+perfis:
+  - rotulo: Lattes
+    url: http://lattes.cnpq.br/4676437210734787
+  - rotulo: ORCID
+    url: https://orcid.org/0000-0001-6618-3311
+  - rotulo: Google Scholar
+    url: https://scholar.google.com/citations?user=gIb2-T4AAAAJ
+  - rotulo: GitHub
+    url: https://github.com/moraespeixoto
+  - rotulo: E-mail
+    url: mailto:vpeixoto@pq.uenf.br
+
+linhas:
+  - titulo: Eleições e competição
+    texto: >
+      Como a competição eleitoral se forma e varia nos mais de 5.500 municípios
+      brasileiros, e o que ela faz com a seleção de quem governa.
+  - titulo: Dinheiro e campanha
+    texto: >
+      Financiamento eleitoral em perspectiva comparada: quem financia, quanto pesa o
+      dinheiro no desempenho e o que muda quando a regra muda.
+  - titulo: Política local e desenvolvimento
+    texto: >
+      Petro-rendas, gasto público e partidos nos executivos municipais — a política
+      local vista pelo orçamento.
+  - titulo: Opinião pública e democracia
+    texto: >
+      Tolerância política, apoio à democracia e comportamento eleitoral, com dados de
+      survey e séries de longo prazo.

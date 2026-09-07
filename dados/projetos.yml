@@ -1,0 +1,139 @@
+# Projetos de pesquisa financiados e projetos de dados/codigo.
+# Comentarios no meio dos dados se perdem na proxima coleta — ver README.md.
+
+pesquisa:
+
+  - titulo: "Petro rendas e política local: competição eleitoral e políticas públicas em municípios produtores de petróleo"
+    agencia: FAPERJ
+    processo: "E-26/210-545/2019"
+    periodo: "2019 —"
+    situacao: em andamento
+    resumo: >
+      Investiga padrões partidários de gasto público em municípios petro-rentistas em
+      dois contextos econômicos: abundância e crise severa de recursos. Constrói
+      indicadores e testa modelos econométricos multivariados para explorar as
+      características políticas dos executivos municipais associadas à variação dos
+      padrões de comportamento orçamentário na administração de recursos
+      indenizatórios, comparando unidades da federação com perfil sociodemográfico
+      similar.
+    publicar: true
+
+  - titulo: "Economia social da (in)tolerância política: como avaliações da economia, mobilidade social, escolaridade, gênero e religião impactam as atitudes democráticas no Brasil contemporâneo"
+    agencia: ""
+    processo: ""
+    periodo: ""
+    situacao: em andamento
+    resumo: >
+      Analisa avaliações e percepções econômicas e seus impactos sobre tolerância
+      política ao longo dos últimos quatro ciclos eleitorais, e como variáveis
+      sociológicas clássicas — religião, escolaridade, renda e sexo — se relacionam à
+      tolerância e ao apoio à democracia.
+    publicar: true
+
+  - titulo: "Poder local, partidos políticos e eleições municipais no Brasil pós-1988"
+    agencia: CNPq
+    processo: ""
+    periodo: ""
+    situacao: concluido
+    resumo: >
+      Análises sistemáticas das dinâmicas político-eleitorais nos municípios
+      brasileiros no pós-88: quais fatores sociodemográficos, políticos e econômicos
+      estão associados às características do poder local, e se a institucionalização do
+      sistema partidário pode ser explicada pelo perfil dos municípios e pelas regras
+      eleitorais.
+    publicar: true
+
+  - titulo: "Financiamento de campanhas eleitorais no Brasil"
+    agencia: FAPERJ
+    processo: "APQ3 E-26/112.214/2013"
+    periodo: "2013 —"
+    situacao: concluido
+    resumo: ""
+    publicar: true
+
+  - titulo: "Competição eleitoral nos municípios brasileiros"
+    agencia: FAPERJ
+    processo: "E-26/111-677/2011"
+    periodo: "2011 —"
+    situacao: concluido
+    resumo: >
+      Projeto que deu início às atividades do NERD.
+    publicar: true
+
+# Software, dados e replicacao. `repo` e o nome do repositorio em github.com/<usuario>.
+# Repositorio privado nao rende link publico: mantenha publicar: false ate abrir.
+codigo:
+
+  - nome: ocupacoesBR
+    resumo: >
+      Pacote R que traduz a ocupação declarada ao TSE em ISCO-88 e ISCO-08, e daí em
+      ISEI, prestígio de Treiman, EGP e um esquema de classes desenhado para o dado
+      eleitoral. Entra também pela CBO (RAIS) e pela COD (PNAD/Censo).
+    repo: ocupacoesBR
+    url: https://moraespeixoto.github.io/ocupacoesBR/
+    destaque: true
+    publicar: true
+
+  - nome: pandemia_reeleicao_2020
+    resumo: >
+      Dados e código de replicação do artigo sobre reeleição de prefeitos e o
+      enfrentamento à pandemia de Covid-19 em 2020.
+    repo: pandemia_reeleicao_2020
+    url: ""
+    publicar: true
+
+  - nome: mulheres_disputas_locais
+    resumo: >
+      Gênero e competição nas disputas eleitorais locais.
+    repo: mulheres_disputas_locais
+    url: ""
+    publicar: true
+
+  - nome: participacao_eleitoral
+    resumo: >
+      Participação, abstenção e comparecimento no eleitorado brasileiro.
+    repo: participacao_eleitoral
+    url: ""
+    publicar: true
+
+  - nome: Disputa_Partidaria_Municipal
+    resumo: >
+      Competição partidária nas eleições municipais.
+    repo: Disputa_Partidaria_Municipal
+    url: ""
+    publicar: true
+
+  - nome: trajetoria_CP_Brasil
+    resumo: >
+      Trajetória da ciência política no Brasil.
+    repo: trajetoria_CP_Brasil
+    url: ""
+    publicar: true
+
+  - nome: seguro_defeso
+    resumo: >
+      Seguro-defeso: beneficiários, municípios e política.
+    repo: seguro_defeso
+    url: ""
+    publicar: true
+
+  - nome: ConfiancaJustica
+    resumo: >
+      Confiança nas instituições de justiça.
+    repo: ConfiancaJustica
+    url: ""
+    publicar: true
+
+  - nome: workshop_opiniao_publica
+    resumo: >
+      Material do workshop de opinião pública.
+    repo: workshop_opiniao_publica
+    url: ""
+    publicar: true
+
+  - nome: AARE_Comportamento_Politico
+    resumo: >
+      Comportamento político — material da área temática.
+    repo: AARE_Comportamento_Politico
+    url: ""
+    publicar: true

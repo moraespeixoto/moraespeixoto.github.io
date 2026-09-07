@@ -1,0 +1,156 @@
+# Publicacoes.
+#
+# COMO ESTE ARQUIVO E MANTIDO
+#   Este e o arquivo-semente, montado a mao. Ele NAO e a lista completa.
+#   A lista completa vem das ferramentas, que rodam na sua maquina (no container
+#   do Claude Code na web a rede e fechada e ORCID/Crossref/Zenodo/OSF nao
+#   respondem):
+#
+#     python3 ferramentas/importa_lattes.py ~/Downloads/curriculo.xml
+#     python3 ferramentas/coleta_publicacoes.py
+#     python3 ferramentas/gera_site.py
+#
+#   As duas primeiras mesclam por DOI e por titulo normalizado, preservam o que
+#   voce editou a mao e nunca apagam um registro existente.
+#
+# CAMPOS
+#   tipo      artigo | livro | capitulo | evento | preprint | dados | relatorio
+#   doi       so o sufixo canonico, sem o https://doi.org/
+#   url       link alternativo quando nao ha DOI (pagina do periodico, PDF)
+#   publicar  false esconde o item do site sem apaga-lo do arquivo
+#   fonte     de onde veio o registro (lattes, orcid, crossref, zenodo, osf, manual)
+#
+# Comentarios no meio dos dados se perdem na proxima coleta — ver README.md.
+
+publicacoes:
+
+  - tipo: artigo
+    ano: 2024
+    titulo: "Reeleição de prefeitos e o enfrentamento à pandemia de Covid-19 em 2020"
+    autores: "Vitor Peixoto; João Gabriel R. P. Leal; Larissa Martins Marques; Renato Barreto de Souza"
+    veiculo: "Dados — Revista de Ciências Sociais"
+    detalhe: "v. 67, n. 4, e20220110"
+    doi: "10.1590/dados.2024.67.4.331"
+    url: https://www.scielo.br/j/dados/a/rrmHDstxPX5MNTfKMJPDRXw/
+    destaque: true
+    fonte: manual
+    publicar: true
+
+  - tipo: artigo
+    ano: 2024
+    titulo: "Governança eleitoral e sua credibilidade institucional: uma análise do caso brasileiro"
+    autores: "Vitor de Moraes Peixoto (e outros)"
+    veiculo: "Revista Direitos Fundamentais & Democracia"
+    detalhe: "v. 29, n. 3"
+    doi: "10.25192/issn.1982-0496.rdfd.v.29.iii.2669"
+    url: https://revistaeletronicardfd.unibrasil.com.br/index.php/rdfd/article/view/2669
+    destaque: true
+    fonte: manual
+    publicar: true
+
+  - tipo: artigo
+    ano: 2022
+    titulo: "Financiamento de campanhas e desempenho eleitoral das mulheres nas eleições brasileiras (1998-2020)"
+    autores: "Vitor de Moraes Peixoto (e outros)"
+    veiculo: "Estudos Avançados"
+    detalhe: "v. 36, n. 106"
+    doi: "10.1590/s0103-4014.2022.36106.006"
+    url: https://revistas.usp.br/eav/article/view/205984
+    destaque: true
+    fonte: manual
+    publicar: true
+
+  - tipo: artigo
+    ano: 2020
+    titulo: "Competição política e desigualdades de gênero nas eleições para assembleias estaduais em 2018"
+    autores: "Lígia Fabris Campos; Décio Vieira da Rocha; Leandro Molhano Ribeiro; Vitor de Moraes Peixoto"
+    veiculo: "Revista Brasileira de Políticas Públicas"
+    detalhe: "v. 10, n. 2, p. 586-610"
+    doi: ""
+    url: https://www.publicacoes.uniceub.br/RBPP/article/view/6742
+    fonte: manual
+    publicar: true
+
+  - tipo: livro
+    ano: 2016
+    titulo: "Eleições e financiamento de campanhas no Brasil"
+    autores: "Vitor de Moraes Peixoto"
+    veiculo: "Garamond"
+    detalhe: "Rio de Janeiro"
+    doi: ""
+    url: https://www.amazon.com.br/dp/8576174391
+    destaque: true
+    fonte: manual
+    publicar: true
+
+  - tipo: artigo
+    ano: 2010
+    titulo: "Financiamento de campanhas e desempenho eleitoral no Brasil"
+    autores: "Vitor de Moraes Peixoto"
+    veiculo: "Revista Brasileira de Ciência Política"
+    detalhe: ""
+    doi: ""
+    url: https://www.academia.edu/1863235/
+    fonte: manual
+    publicar: true
+
+  - tipo: artigo
+    ano: 2010
+    titulo: "Financiamento de campanhas: o Brasil em perspectiva comparada"
+    autores: "Vitor de Moraes Peixoto"
+    veiculo: "Perspectivas — Revista de Ciências Sociais (UNESP)"
+    detalhe: ""
+    doi: ""
+    url: https://periodicos.fclar.unesp.br/perspectivas/article/view/2289
+    fonte: manual
+    publicar: true
+
+  - tipo: capitulo
+    ano: 2007
+    titulo: "As bases municipais da votação de Lula em 2006"
+    autores: "Jairo Nicolau; Vitor Peixoto"
+    veiculo: "Cadernos Fórum Nacional"
+    detalhe: "n. 6"
+    doi: ""
+    url: https://www.academia.edu/1863106/
+    fonte: manual
+    publicar: true
+
+  # ---------------------------------------------------------------------------
+  # A CONFERIR — a busca atribuiu estes titulos a voce, mas nao consegui
+  # confirmar a autoria na pagina do periodico. Estao fora do site (publicar:
+  # false). Confirme e vire para true, ou deixe a coleta resolver.
+  # ---------------------------------------------------------------------------
+
+  - tipo: artigo
+    ano: 2023
+    titulo: "Bases ideológicas do bolsonarismo nas eleições de 2022: derrota institucional e avanço da extrema direita no Brasil"
+    autores: "a confirmar"
+    veiculo: "Revista Cronos (UFRN)"
+    detalhe: ""
+    doi: ""
+    url: https://periodicos.ufrn.br/cronos/article/view/39259
+    fonte: manual
+    publicar: false
+
+  - tipo: artigo
+    ano: 2019
+    titulo: "A crise política brasileira dos anos 2000 e o governo de Michel Temer"
+    autores: "a confirmar"
+    veiculo: "Em Construção — arquivos de epistemologia histórica e estudos de ciência (UERJ)"
+    detalhe: ""
+    doi: ""
+    url: https://www.e-publicacoes.uerj.br/emconstrucao/article/view/37665
+    fonte: manual
+    publicar: false
+
+  - tipo: artigo
+    ano: 0
+    titulo: "Uma análise dos determinantes da reeleição de prefeitos"
+    autores: "a confirmar"
+    veiculo: "Agenda Política (UFSCar)"
+    detalhe: ""
+    doi: ""
+    url: https://www.agendapolitica.ufscar.br/index.php/agendapolitica/article/download/646/362/2701
+    fonte: manual
+    publicar: false

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orientações · Vitor de Moraes Peixoto</title>
+<meta name="description" content="Orientações de Vitor de Moraes Peixoto.">
+<meta name="author" content="Vitor de Moraes Peixoto">
+<meta property="og:title" content="Orientações · Vitor de Moraes Peixoto">
+<meta property="og:description" content="Orientações de Vitor de Moraes Peixoto.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://moraespeixoto.github.io/orientacoes.html">
+<meta property="og:url" content="https://moraespeixoto.github.io/orientacoes.html">
+<link rel="icon" href="fav.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<nav class="vp-nav">
+<div class="vp-wrap vp-nav-int">
+<a class="vp-marca" href="index.html">Vitor Peixoto</a>
+<a class="vp-link" href="index.html">Início</a>
+<a class="vp-link" href="publicacoes.html">Publicações</a>
+<a class="vp-link" href="orientacoes.html" aria-current="page">Orientações</a>
+<a class="vp-link" href="projetos.html">Projetos</a>
+<a class="vp-link" href="nerd.html">O NERD</a>
+<button class="vp-tema" type="button" id="vp-tema" aria-label="Alternar tema claro e escuro">tema</button>
+</div>
+</nav>
+<main>
+<div class="vp-hero">
+<div class="vp-wrap vp-secao">
+<span class="vp-kicker">Formação</span>
+<h1>Orientações</h1>
+
+</div>
+</div><div class="vp-wrap vp-secao"><div class="vp-vazio"><p>A lista de orientações ainda não foi publicada. Ela está no seu currículo Lattes e entra por uma linha de comando: baixe o XML do currículo em lattes.cnpq.br e rode a importação.</p><div class="vp-codigo">python3 ferramentas/importa_lattes.py ~/Downloads/curriculo.xml
+python3 ferramentas/gera_site.py</div></div></div>
+</main>
+<footer class="vp-rodape">
+<div class="vp-wrap">
+<div class="vp-rodape-grid">
+<div>
+<h4>Endereço</h4>
+<p>Universidade Estadual do Norte Fluminense Darcy Ribeiro
+Centro de Ciências do Homem — CCH — Sala 108-B
+Av. Alberto Lamego, 2000 — Parque Califórnia
+Campos dos Goytacazes — RJ — CEP 28013-602
+Tel. (22) 2739-7040</p>
+</div>
+<div>
+<h4>Perfis</h4>
+<ul><li><a href="http://lattes.cnpq.br/4676437210734787">Lattes</a></li><li><a href="https://orcid.org/0000-0001-6618-3311">ORCID</a></li><li><a href="https://scholar.google.com/citations?user=gIb2-T4AAAAJ">Google Scholar</a></li><li><a href="https://github.com/moraespeixoto">GitHub</a></li><li><a href="mailto:vpeixoto@pq.uenf.br">E-mail</a></li></ul>
+</div>
+<div>
+<h4>O site</h4>
+<p>Gerado a partir dos arquivos em <code>dados/</code>.
+Código e conteúdo em <a href="https://github.com/moraespeixoto/moraespeixoto.github.io">github.com/moraespeixoto/moraespeixoto.github.io</a>.</p>
+</div>
+</div>
+<div class="vp-rodape-fim">Vitor de Moraes Peixoto · Atualizado em 07/09/2026</div>
+</div>
+</footer>
+<script>
+(function () {
+  var raiz = document.documentElement;
+  try {
+    var salvo = localStorage.getItem("vp-tema");
+    if (salvo) raiz.setAttribute("data-tema", salvo);
+  } catch (erro) { /* navegacao privada: segue no tema do sistema */ }
+  var botao = document.getElementById("vp-tema");
+  if (!botao) return;
+  botao.addEventListener("click", function () {
+    var escuro = raiz.getAttribute("data-tema") === "escuro";
+    if (!raiz.getAttribute("data-tema")) {
+      escuro = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    }
+    var novo = escuro ? "claro" : "escuro";
+    raiz.setAttribute("data-tema", novo);
+    try { localStorage.setItem("vp-tema", novo); } catch (erro) { /* idem */ }
+  });
+})();
+</script>
+
+</body>
+</html>
