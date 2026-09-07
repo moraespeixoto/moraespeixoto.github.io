@@ -1326,3 +1326,56 @@ publicacoes:
   url: ''
   fonte: lattes
   publicar: true
+- tipo: preprint
+  ano: 2026
+  titulo: 'Os três corpos de uma eleição: eleitorado, candidaturas e eleitos no Brasil (1998-2026)'
+  autores: PEIXOTO, Vitor de Moraes
+  veiculo: SocArXiv
+  detalhe: v1, depositado em 05/09/2026
+  doi: 10.31235/osf.io/57xp6_v1
+  url: https://osf.io/preprints/socarxiv/57xp6_v1
+  fonte: manual
+  publicar: true
+- tipo: preprint
+  ano: 2026
+  titulo: 'Da ocupação declarada à posição social: as decisões de medida do pacote ocupacoesBR'
+  autores: PEIXOTO, Vitor de Moraes
+  veiculo: SocArXiv
+  detalhe: v1, depositado em 04/09/2026
+  doi: 10.31235/osf.io/b29kg_v1
+  url: https://osf.io/preprints/socarxiv/b29kg_v1
+  fonte: manual
+  publicar: true
+- tipo: preprint
+  ano: 2026
+  titulo: 'Political Instability and the Provision of Public Goods: Quasi-Experimental Evidence
+    from Supplementary Elections on Brazilian Primary Health Care'
+  autores: PEIXOTO, Vitor de Moraes; LEITE, Davi Athaydes
+  veiculo: SSRN
+  detalhe: depositado em 30/06/2026
+  doi: 10.2139/ssrn.7009639
+  url: https://ssrn.com/abstract=7009639
+  fonte: manual
+  publicar: true
+- tipo: preprint
+  ano: 2026
+  titulo: 'Political Instability and Bureaucratic Resilience: The Protective Role of Performance-based
+    Transfers in Brazilian Social Assistance'
+  autores: PEIXOTO, Vitor de Moraes; LEITE, Davi Athaydes
+  veiculo: SSRN
+  detalhe: depositado em 25/07/2026
+  doi: 10.2139/ssrn.7079720
+  url: https://ssrn.com/abstract=7079720
+  fonte: manual
+  publicar: true
+- tipo: preprint
+  ano: 2026
+  titulo: 'Off-Cycle Political Turnover and the School Bureaucracy: Quasi-Experimental Evidence
+    from Brazil''s Supplementary Elections'
+  autores: PEIXOTO, Vitor de Moraes; LEITE, Davi Athaydes
+  veiculo: SSRN
+  detalhe: depositado em 28/07/2026
+  doi: 10.2139/ssrn.7107658
+  url: https://ssrn.com/abstract=7107658
+  fonte: manual
+  publicar: true
