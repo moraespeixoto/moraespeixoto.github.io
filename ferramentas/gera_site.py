@@ -149,6 +149,15 @@ def avatar(membro: dict) -> str:
     return f'<div class="vp-avatar vp-avatar-vazio" aria-hidden="true">{e(iniciais)}</div>'
 
 
+NUMEROS = {1: "Uma", 2: "Duas", 3: "Três", 4: "Quatro", 5: "Cinco",
+           6: "Seis", 7: "Sete", 8: "Oito", 9: "Nove", 10: "Dez"}
+
+
+def numero_por_extenso(n: int) -> str:
+    """Para o titulo da secao acompanhar o numero de linhas em dados/perfil.yml."""
+    return NUMEROS.get(n, str(n))
+
+
 def repo_slug(perfil: dict) -> str:
     """`usuario/repositorio` deste site, para o link do rodape."""
     ids = perfil.get("ids") or {}
@@ -386,11 +395,16 @@ def pagina_inicio(perfil, pubs, projetos, equipe) -> str:
         for p in (perfil.get("perfis") or [])
     )
 
+    lista_linhas = perfil.get("linhas") or []
     linhas = "".join(
         f'<div class="vp-card vp-card-teal"><h3>{e(l.get("titulo"))}</h3>'
         f'<p>{e(l.get("texto"))}</p></div>'
-        for l in (perfil.get("linhas") or [])
+        for l in lista_linhas
     )
+    # Quatro por fileira, exceto quando sobraria um cartao sozinho na ultima
+    # (5, 9, ...) — nesses casos tres por fileira fecha melhor.
+    colunas = 3 if len(lista_linhas) % 4 == 1 else 4
+    grade_linhas = f"vp-grade-{min(colunas, max(len(lista_linhas), 1))}"
 
     publicados = [p for p in pubs if not fora_do_geral(p)]
     destaques = [p for p in publicados if p.get("destaque")][:4]
@@ -441,8 +455,8 @@ def pagina_inicio(perfil, pubs, projetos, equipe) -> str:
 
 <div class="vp-wrap vp-secao">
 <span class="vp-kicker">O que eu pesquiso</span>
-<h2>Quatro linhas, um mesmo objeto: como a competição política se forma e o que ela produz</h2>
-<div class="vp-grade-4" style="margin-top:28px">{linhas}</div>
+<h2>{e(numero_por_extenso(len(lista_linhas)))} linhas, um mesmo objeto: como a competição política se forma e o que ela produz</h2>
+<div class="{grade_linhas}" style="margin-top:28px">{linhas}</div>
 </div>
 
 <div class="vp-secao-sup">
