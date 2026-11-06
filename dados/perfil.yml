@@ -2,6 +2,8 @@
 nome: Vitor de Moraes Peixoto
 nome_curto: Vitor Peixoto
 titulo: Professor Associado de Ciência Política
+# Retrato redondo ao lado do nome na pagina inicial (arquivo em ativos/fotos/).
+foto: vitor.jpg
 kicker: Ciência política · eleições · política local brasileira
 
 resumo: >

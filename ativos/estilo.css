@@ -248,6 +248,24 @@ img { max-width: 100%; height: auto; }
 .vp-hero-texto .vp-kicker + h1 { margin-top: 10px; }
 .vp-cta + .vp-perfis { margin-top: 32px; }
 
+/* Retrato da home: redondo, ao lado do nome; quebra para cima do nome quando
+   nao cabe. O aro usa a cor do cartao, entao acompanha o tema. */
+.vp-hero-texto .vp-kicker + .vp-hero-nome { margin-top: 10px; }
+.vp-hero-nome { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 24px; }
+.vp-hero-nome h1 { margin: 0; flex: 1 1 280px; }
+.vp-foto {
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex: none;
+  border: 4px solid var(--vp-card);
+  box-shadow: 0 0 0 1px var(--vp-borda2);
+}
+@media (max-width: 640px) {
+  .vp-foto { width: 128px; height: 128px; }
+}
+
 .vp-cartao-perfil {
   background: var(--vp-card);
   border: 1px solid var(--vp-borda);
