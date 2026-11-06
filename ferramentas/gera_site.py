@@ -427,11 +427,21 @@ def pagina_inicio(perfil, pubs, projetos, equipe) -> str:
     n_membros = len(equipe.get("membros") or [])
     nucleo = equipe.get("nucleo", {})
 
+    # Com `foto:` em perfil.yml, o retrato redondo entra ao lado do nome.
+    foto = perfil.get("foto")
+    h1 = f'<h1>{e(perfil.get("nome"))}</h1>'
+    if foto:
+        nome_hero = (f'<div class="vp-hero-nome">'
+                     f'<img class="vp-foto" src="fotos/{e(foto)}" width="168" height="168" '
+                     f'alt="{e(perfil.get("nome"))}">{h1}</div>')
+    else:
+        nome_hero = h1
+
     return f"""<div class="vp-hero">
 <div class="vp-wrap vp-hero-grid">
 <div class="vp-hero-texto">
 <span class="vp-kicker">{e(perfil.get("kicker"))}</span>
-<h1>{e(perfil.get("nome"))}</h1>
+{nome_hero}
 <p class="vp-lead">{e(perfil.get("resumo"))}</p>
 <div class="vp-cta">
 <a class="vp-btn vp-btn-laranja" href="publicacoes.html">Publicações</a>
